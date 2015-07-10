@@ -4,7 +4,7 @@ Little princess for our mens-only Slack team.
 
 ## Features
 
-	* Armenian transliteration
+* Armenian transliteration
 
 ## Usage
 
