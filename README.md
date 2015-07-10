@@ -12,7 +12,7 @@ Grab dependencies:
 
 	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/nlopes/slack
-	$ golang.org/x/exp/utf8string
+	$ go get golang.org/x/exp/utf8string
 
 Build and run:
 
