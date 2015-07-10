@@ -1,4 +1,4 @@
-# Dumb slut
+# Dumb Slut
 
 Little princess for our mens-only Slack team.
 
@@ -10,8 +10,8 @@ Little princess for our mens-only Slack team.
 
 Grab dependencies:
 
-	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/nlopes/slack
+	$ go get github.com/Sirupsen/logrus
 	$ go get golang.org/x/exp/utf8string
 	$ go get github.com/jteeuwen/go-pkg-rss
 

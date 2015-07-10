@@ -19,8 +19,8 @@ func NewFeedCommand(cfg CmdConfig) *FeedCommand {
 	return c
 }
 
-func (c *FeedCommand) GetType() string {
-	return CommandTypeFeed
+func (c *FeedCommand) GetName() string {
+	return c.config.Name
 }
 
 func (c *FeedCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
@@ -31,7 +31,7 @@ func (c *FeedCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 func (c *FeedCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	feed := rss.New(10, false, nil, nil)
 
-	if err := feed.Fetch(c.config.ApiUrl, nil); err != nil {
+	if err := feed.Fetch(c.config.Url, nil); err != nil {
 		log.Error(err.Error())
 		d.Talk(err.Error())
 	}

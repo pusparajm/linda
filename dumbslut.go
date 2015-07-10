@@ -143,9 +143,9 @@ func (d *DumbSlut) handleCommands(msg *slack.MessageEvent) {
 	// Check trigger and respond
 	for _, command := range d.commands {
 		if command.Trigger(d, msg) {
-			log.Infof("Triggered %s command", command.GetType())
+			log.Infof("Triggered by %s command", command.GetName())
 			command.Execute(d, msg)
-			log.Infof("Executed %s command", command.GetType())
+			log.Infof("Executed %s command", command.GetName())
 		}
 	}
 }

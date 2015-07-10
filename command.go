@@ -7,26 +7,23 @@ import (
 )
 
 const (
-	CommandTypeArthur  = "Arthur"
+	CommandTypeBully   = "Bully"
 	CommandTypeFeed    = "Feed"
-	CommandTypeTommi   = "Tommi"
 	CommandTypeWeather = "Weather"
 )
 
 type Command interface {
-	GetType() string
+	GetName() string
 	Trigger(d *DumbSlut, msg *slack.MessageEvent) bool
 	Execute(d *DumbSlut, msg *slack.MessageEvent)
 }
 
 func NewCommand(cfg CmdConfig) Command {
 	switch cfg.Type {
-	case CommandTypeArthur:
-		return NewArthurCommand(cfg)
+	case CommandTypeBully:
+		return NewBullyCommand(cfg)
 	case CommandTypeFeed:
 		return NewFeedCommand(cfg)
-	case CommandTypeTommi:
-		return NewTommiCommand(cfg)
 	case CommandTypeWeather:
 		return NewWeatherCommand(cfg)
 	default:

@@ -44,8 +44,8 @@ func NewWeatherCommand(cfg CmdConfig) *WeatherCommand {
 	return c
 }
 
-func (c *WeatherCommand) GetType() string {
-	return CommandTypeWeather
+func (c *WeatherCommand) GetName() string {
+	return c.config.Name
 }
 
 func (c *WeatherCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
@@ -82,7 +82,7 @@ func (c *WeatherCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 }
 
 func (c *WeatherCommand) buildRequestUrl() string {
-	return c.config.ApiUrl + c.query
+	return c.config.Url + c.query
 }
 
 func (c *WeatherCommand) normalizeQuery(text, token string) string {

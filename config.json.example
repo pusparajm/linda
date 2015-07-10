@@ -2,7 +2,7 @@
 	"api_token": "",
 	"channel": "#general",
 	"debug": false,
-	"log_level": "info",
+	"log_level": "error",
 	"shy": false,
 	"salutes": {
 		"greeting": "Hey, boys!",
@@ -13,14 +13,16 @@
 	"commands": [
 		{
 			"type": "Weather",
+			"name": "Weather",
 			"tokens": ["weather at", "weather in"],
-			"api_url": "http://api.openweathermap.org/data/2.5/weather?lang=ru&units=metric&q=",
+			"url": "http://api.openweathermap.org/data/2.5/weather?lang=ru&units=metric&q=",
 			"response": "Weather {{.city}}: {{.temperature}} °C, {{.description}}"
 		},
 		{
 			"type": "Feed",
+			"name": "News",
 			"tokens": ["!news"],
-			"api_url": "https://news.ycombinator.com/rss"
+			"url": "https://news.ycombinator.com/rss"
 		}	
 	]
 }
