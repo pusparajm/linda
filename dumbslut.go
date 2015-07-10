@@ -136,7 +136,7 @@ func (d *DumbSlut) handleInterrupt() {
 
 func (d *DumbSlut) salute(message string) {
 	if !d.config.Shy {
-		d.salute(message)
+		d.Talk(message)
 	}
 }
 
