@@ -14,8 +14,9 @@ const (
 )
 
 type Command interface {
+	GetType() string
 	Trigger(d *DumbSlut, msg *slack.MessageEvent) bool
-	Respond(d *DumbSlut, msg *slack.MessageEvent)
+	Execute(d *DumbSlut, msg *slack.MessageEvent)
 }
 
 func NewCommand(cfg CmdConfig) Command {

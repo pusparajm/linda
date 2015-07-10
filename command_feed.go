@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 
 	log "github.com/Sirupsen/logrus"
 	rss "github.com/jteeuwen/go-pkg-rss"
@@ -18,12 +19,16 @@ func NewFeedCommand(cfg CmdConfig) *FeedCommand {
 	return c
 }
 
+func (c *FeedCommand) GetType() string {
+	return CommandTypeFeed
+}
+
 func (c *FeedCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	_, ok := containsToken(msg.Text, c.config.Tokens)
 	return ok
 }
 
-func (c *FeedCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
+func (c *FeedCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	feed := rss.New(10, false, nil, nil)
 
 	if err := feed.Fetch(c.config.ApiUrl, nil); err != nil {
@@ -32,11 +37,10 @@ func (c *FeedCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
 	}
 
 	response := ""
-	for _, channel := range feed.Channels {
-		for _, item := range channel.Items {
-			response = fmt.Sprintf("%s: %s", item.Title, item.Links[0].Href)
-			break
-		}
+	if len(feed.Channels) > 0 {
+		itemId := rand.Intn(len(feed.Channels[0].Items))
+		item := feed.Channels[0].Items[itemId]
+		response = fmt.Sprintf("%s: %s", item.Title, item.Links[0].Href)
 	}
 
 	d.Talk(response)

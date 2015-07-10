@@ -16,6 +16,10 @@ func NewArthurCommand(cfg CmdConfig) *ArthurCommand {
 	return c
 }
 
+func (c *ArthurCommand) GetType() string {
+	return CommandTypeArthur
+}
+
 func (c *ArthurCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	if strings.ContainsAny(msg.Text, c.config.Letters) {
 		return true
@@ -24,6 +28,6 @@ func (c *ArthurCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	return false
 }
 
-func (c *ArthurCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
+func (c *ArthurCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	d.Talk(c.config.Response)
 }

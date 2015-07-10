@@ -44,6 +44,10 @@ func NewWeatherCommand(cfg CmdConfig) *WeatherCommand {
 	return c
 }
 
+func (c *WeatherCommand) GetType() string {
+	return CommandTypeWeather
+}
+
 func (c *WeatherCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	currentToken, ok := containsToken(msg.Text, c.config.Tokens)
 	if !ok {
@@ -59,7 +63,7 @@ func (c *WeatherCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	return true
 }
 
-func (c *WeatherCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
+func (c *WeatherCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	weatherResponse, err := c.getWeather(c.query)
 	if err != nil {
 		log.Error(err.Error())

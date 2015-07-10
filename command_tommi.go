@@ -14,11 +14,15 @@ func NewTommiCommand(cfg CmdConfig) *TommiCommand {
 	return c
 }
 
+func (c *TommiCommand) GetType() string {
+	return CommandTypeTommi
+}
+
 func (c *TommiCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	_, ok := containsToken(msg.Text, c.config.Tokens)
 	return ok
 }
 
-func (c *TommiCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
+func (c *TommiCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	d.Talk(c.config.Response)
 }
