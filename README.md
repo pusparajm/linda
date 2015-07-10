@@ -13,6 +13,7 @@ Grab dependencies:
 	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/nlopes/slack
 	$ go get golang.org/x/exp/utf8string
+	$ go get github.com/jteeuwen/go-pkg-rss
 
 Build and run:
 

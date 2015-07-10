@@ -62,12 +62,14 @@ func (c *WeatherCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 func (c *WeatherCommand) Respond(d *DumbSlut, msg *slack.MessageEvent) {
 	weatherResponse, err := c.getWeather(c.query)
 	if err != nil {
+		log.Error(err.Error())
 		d.Talk(err.Error())
 		return
 	}
 
 	response, err := c.formatResponse(weatherResponse)
 	if err != nil {
+		log.Error(err.Error())
 		d.Talk(err.Error())
 		return
 	}

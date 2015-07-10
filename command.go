@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	CommandTypeTommi   = "Tommi"
 	CommandTypeArthur  = "Arthur"
+	CommandTypeFeed    = "Feed"
+	CommandTypeTommi   = "Tommi"
 	CommandTypeWeather = "Weather"
 )
 
@@ -19,10 +20,12 @@ type Command interface {
 
 func NewCommand(cfg CmdConfig) Command {
 	switch cfg.Type {
-	case CommandTypeTommi:
-		return NewTommiCommand(cfg)
 	case CommandTypeArthur:
 		return NewArthurCommand(cfg)
+	case CommandTypeFeed:
+		return NewFeedCommand(cfg)
+	case CommandTypeTommi:
+		return NewTommiCommand(cfg)
 	case CommandTypeWeather:
 		return NewWeatherCommand(cfg)
 	default:
@@ -37,7 +40,12 @@ func containsToken(text string, tokens []string) (string, bool) {
 
 	toLower := strings.ToLower(text)
 	for _, token := range tokens {
-		if strings.Contains(toLower, token) || strings.Contains(text, token) {
+		// Temporary - till I'll learn Armenian
+		if strings.Contains(text, token) {
+			return token, true
+		}
+
+		if strings.Contains(toLower, token) {
 			return token, true
 		}
 	}
