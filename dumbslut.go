@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
@@ -11,9 +12,7 @@ import (
 )
 
 const (
-	DefaultChannel     = "#general"
-	DefaultMsgGreeting = "Hello, boys!"
-	DefaultMsgFarewell = "Bye, boys!"
+	DefaultChannel = "#general"
 )
 
 type DumbSlut struct {
@@ -23,6 +22,7 @@ type DumbSlut struct {
 	commands   []Command
 	config     *Config
 	msgParams  slack.PostMessageParameters
+	userId     string
 }
 
 func NewDumbSlut(config *Config) *DumbSlut {
@@ -35,7 +35,15 @@ func NewDumbSlut(config *Config) *DumbSlut {
 func (d *DumbSlut) Start() {
 	log.Infof("Started...")
 	d.init()
-	d.salute(d.config.MsgGreeting)
+
+	// Greet everyone
+	d.salute(d.config.Salutes.Greeting)
+
+	// Set own user ID
+	info := d.api.GetInfo()
+	d.userId = info.User.Id
+
+	// Main handler
 	d.listenAndServe()
 }
 
@@ -48,12 +56,6 @@ func (d *DumbSlut) AddCommand(cmd Command) {
 func (d *DumbSlut) AddCommands(commands ...Command) {
 	for _, cmd := range commands {
 		d.AddCommand(cmd)
-	}
-}
-
-func (d *DumbSlut) initCommands() {
-	for _, cfg := range d.config.Commands {
-		d.AddCommand(NewCommand(cfg))
 	}
 }
 
@@ -72,37 +74,44 @@ func (d *DumbSlut) Talk(message string) {
 }
 
 func (d *DumbSlut) init() {
-	d.api = slack.New(d.config.ApiToken)
-	d.api.SetDebug(d.config.Debug)
-
-	d.setDefaults()
-	d.initCommands()
-
-	if d.config.LogLevel != "" {
-		log.SetLevel(stringToLogLevel(d.config.LogLevel))
-	}
-
-	d.handleRealtimeMessages()
-	d.handleInterrupt()
-}
-
-func (d *DumbSlut) setDefaults() {
-	// Default message parameters
-	d.msgParams = slack.PostMessageParameters{
-		AsUser: true,
-	}
+	// Default values
+	log.SetLevel(stringToLogLevel(d.config.LogLevel))
+	d.msgParams = slack.PostMessageParameters{AsUser: true}
 
 	if d.config.Channel == "" {
 		d.config.Channel = DefaultChannel
 	}
 
-	if d.config.MsgGreeting == "" {
-		d.config.MsgGreeting = DefaultMsgGreeting
+	// Init API
+	d.api = slack.New(d.config.ApiToken)
+	d.api.SetDebug(d.config.Debug)
+
+	// Add commands
+	for _, cfg := range d.config.Commands {
+		d.AddCommand(NewCommand(cfg))
 	}
 
-	if d.config.MsgFarewell == "" {
-		d.config.MsgFarewell = DefaultMsgFarewell
+	// Handle stuff
+	d.handleRealtimeMessages()
+	d.handleInterrupt()
+}
+
+func (d *DumbSlut) salute(message string) {
+	if !d.config.Shy {
+		d.Talk(message)
 	}
+}
+
+func (d *DumbSlut) handleInterrupt() {
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	signal.Notify(c, syscall.SIGTERM)
+	go func() {
+		<-c
+		d.salute(d.config.Salutes.Farewell)
+		log.Infof("Finished...")
+		os.Exit(1)
+	}()
 }
 
 func (d *DumbSlut) handleRealtimeMessages() {
@@ -126,28 +135,8 @@ func (d *DumbSlut) handleRealtimeMessages() {
 	}(wsAPI, d.chSender)
 }
 
-func (d *DumbSlut) handleInterrupt() {
-	c := make(chan os.Signal, 1)
-	signal.Notify(c, os.Interrupt)
-	signal.Notify(c, syscall.SIGTERM)
-	go func() {
-		<-c
-		d.salute(d.config.MsgFarewell)
-		log.Infof("Finished...")
-		os.Exit(1)
-	}()
-}
-
-func (d *DumbSlut) salute(message string) {
-	if !d.config.Shy {
-		d.Talk(message)
-	}
-}
-
 func (d *DumbSlut) handleCommands(msg *slack.MessageEvent) {
-	// Don't analyze own words
-	info := d.api.GetInfo()
-	if msg.UserId == info.User.Id {
+	if msg.UserId == d.userId {
 		return
 	}
 
@@ -157,6 +146,38 @@ func (d *DumbSlut) handleCommands(msg *slack.MessageEvent) {
 			log.Infof("Triggered %s command", command.GetType())
 			command.Execute(d, msg)
 			log.Infof("Executed %s command", command.GetType())
+		}
+	}
+}
+
+func (d *DumbSlut) handlePresenceChange(event *slack.PresenceChangeEvent) {
+	// React to active/away
+	users, err := d.api.GetUsers()
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error()}).Error("Error at statusReaction()")
+		return
+	}
+
+	// Search for users
+	var user slack.User
+	for _, u := range users {
+		if event.UserId == u.Id && u.Id != d.userId {
+			user = u
+			break
+		}
+	}
+
+	if user.Id != "" {
+		username := user.RealName
+		if nickname, ok := d.config.Nicknames[user.Name]; ok {
+			username = nickname
+		}
+
+		switch event.Presence {
+		case "active":
+			d.salute(fmt.Sprintf(d.config.Salutes.UserActive, username))
+		case "away":
+			d.salute(fmt.Sprintf(d.config.Salutes.UserAway, username))
 		}
 	}
 }
@@ -173,8 +194,9 @@ func (d *DumbSlut) listenAndServe() {
 				log.Debugf("Message: %v\n", event)
 				d.handleCommands(event)
 			case *slack.PresenceChangeEvent:
-				//event := msg.Data.(*slack.PresenceChangeEvent)
-				//log.Debugf("Presence Change: %v\n", event)
+				event := msg.Data.(*slack.PresenceChangeEvent)
+				log.Debugf("Presence Change: %v\n", event)
+				d.handlePresenceChange(event)
 			case slack.LatencyReport:
 				//event := msg.Data.(slack.LatencyReport)
 				//log.Debugf("Current latency: %v\n", event.Value)
