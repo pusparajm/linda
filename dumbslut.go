@@ -59,6 +59,10 @@ func (d *DumbSlut) initCommands() {
 
 // Start talking or i'll shoot
 func (d *DumbSlut) Talk(message string) {
+	if message == "" {
+		return
+	}
+
 	channelId, timestamp, err := d.api.PostMessage(d.config.Channel, message, d.msgParams)
 	if err != nil {
 		log.Errorf("Error sending message: %s", err.Error())
