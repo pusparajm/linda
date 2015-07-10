@@ -1,0 +1,16 @@
+{
+	"api_token": "xoxb-7503613939-OgQqNoztIONFE5VXuZsx6uDP",
+	"channel": "#general",
+	"debug": true,
+	"log_level": "info",
+	"greeting": "Hey, silly boys)))",
+	"farewell": "Bye, silly boys(((",
+	"commands": [
+		{
+			"type": "Weather",
+			"tokens": ["weather at", "weather in"],
+			"api_url": "http://api.openweathermap.org/data/2.5/weather?lang=ru&units=metric&q=",
+			"response": "Weather in {{.city}}: {{.temperature}} °C, {{.description}}"
+		}
+	]
+}
