@@ -37,7 +37,7 @@ func containsToken(text string, tokens []string) (string, bool) {
 
 	toLower := strings.ToLower(text)
 	for _, token := range tokens {
-		if strings.Contains(toLower, token) {
+		if strings.Contains(toLower, token) || strings.Contains(text, token) {
 			return token, true
 		}
 	}

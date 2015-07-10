@@ -1,4 +1,4 @@
-package main
+package armenia
 
 import (
 	"bytes"
@@ -47,9 +47,7 @@ var EasternLanguage = map[rune]string{
 	'ք': "q",
 	'օ': "o",
 	'ֆ': "f",
-	'ո': "u",
-	'և': "",
-	'ւ': "&",
+	'և': "u",
 }
 
 var WesternLanguage = map[rune]string{
@@ -91,9 +89,7 @@ var WesternLanguage = map[rune]string{
 	'ք': "q",
 	'օ': "o",
 	'ֆ': "f",
-	'ո': "u",
 	'և': "&",
-	'ւ': "&",
 }
 
 // Source: http://github.com/mdigger/translit

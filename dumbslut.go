@@ -33,8 +33,9 @@ func NewDumbSlut(config *Config) *DumbSlut {
 }
 
 func (d *DumbSlut) Start() {
+	log.Infof("Started...")
 	d.init()
-	d.Talk(d.config.MsgGreeting)
+	d.salute(d.config.MsgGreeting)
 	d.listenAndServe()
 }
 
@@ -127,9 +128,16 @@ func (d *DumbSlut) handleInterrupt() {
 	signal.Notify(c, syscall.SIGTERM)
 	go func() {
 		<-c
-		d.Talk(d.config.MsgFarewell)
+		d.salute(d.config.MsgFarewell)
+		log.Infof("Finished...")
 		os.Exit(1)
 	}()
+}
+
+func (d *DumbSlut) salute(message string) {
+	if !d.config.Shy {
+		d.salute(message)
+	}
 }
 
 func (d *DumbSlut) handleCommands(msg *slack.MessageEvent) {

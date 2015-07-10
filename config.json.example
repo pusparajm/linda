@@ -3,6 +3,7 @@
 	"channel": "#general",
 	"debug": true,
 	"log_level": "info",
+	"shy": false,
 	"greeting": "Hey, silly boys)))",
 	"farewell": "Bye, silly boys(((",
 	"commands": [

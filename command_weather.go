@@ -11,7 +11,7 @@ import (
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/kpashka/dubmslut/armenia"
+	"github.com/kpashka/dumbslut/armenia"
 	"github.com/nlopes/slack"
 )
 
@@ -20,8 +20,9 @@ const (
 )
 
 type WeatherResponse struct {
-	CityName string  `json:"name"`
-	Message  *string `json:"message,omitempty"`
+	CityName string `json:"name"`
+
+	Message *string `json:"message,omitempty"`
 
 	Main struct {
 		Temperature float64 `json:"temp"`
@@ -79,21 +80,24 @@ func (c *WeatherCommand) buildRequestUrl() string {
 }
 
 func (c *WeatherCommand) normalizeQuery(text, token string) string {
-	city := strings.Replace(strings.ToLower(text), token, "", 1)
-	cityParts := strings.Split(strings.TrimSpace(city), " ")
-	city = cityParts[0]
+	log.Infof("Normalizing query by token %s", token)
 
-	if token == "Եղանակը" {
-
+	if token == "Եղանակը" { // Armenian trigger
+		query := strings.Replace(text, token, "", 1)
+		queryWords := strings.Split(strings.TrimSpace(query), " ")
+		city := armenia.Translit(queryWords[0], armenia.WesternLanguage)
+		return city
 	}
 
-	return city
+	query := strings.Replace(strings.ToLower(text), token, "", 1)
+	queryWords := strings.Split(strings.TrimSpace(query), " ")
+	return queryWords[0]
 }
 
 func (c *WeatherCommand) getWeather(query string) (*WeatherResponse, error) {
 	requestUrl := c.buildRequestUrl()
 
-	log.Debugf("Requesting url: %s", requestUrl)
+	log.Infof("Requesting url: %s", requestUrl)
 	response, err := http.Get(requestUrl)
 	if err != nil {
 		return nil, err
@@ -112,7 +116,7 @@ func (c *WeatherCommand) getWeather(query string) (*WeatherResponse, error) {
 	}
 
 	if weather.Message != nil {
-		return nil, errors.New(*weather.Message)
+		return nil, errors.New(fmt.Sprintf("Can't find weather for %s", query))
 	}
 
 	return weather, nil
@@ -126,7 +130,7 @@ func (c *WeatherCommand) formatResponse(response *WeatherResponse) (string, erro
 
 	params := map[string]interface{}{
 		"city":        response.CityName,
-		"temperature": c.formatTemperature(response.Main.Temperature),
+		"temperature": fmt.Sprintf("%0.0f", response.Main.Temperature),
 		"description": response.Weather[0].Description,
 	}
 
@@ -137,17 +141,4 @@ func (c *WeatherCommand) formatResponse(response *WeatherResponse) (string, erro
 	}
 
 	return doc.String(), nil
-}
-
-func (c *WeatherCommand) formatTemperature(temp float64) string {
-	prepend := ""
-	if temp != 0 {
-		if temp > 0 {
-			prepend = "+"
-		} else {
-			prepend = "-"
-		}
-	}
-
-	return fmt.Sprintf("%s%0.0f", prepend, temp)
 }

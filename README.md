@@ -8,7 +8,7 @@ Little princess for our mens-only Slack team.
 
 ## Usage
 
-Grab the dependencies:
+Grab dependencies:
 
 	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/nlopes/slack

@@ -7,6 +7,7 @@ type Config struct {
 	LogLevel    string      `json:"level,omitempty"`
 	MsgGreeting string      `json:"greeting,omitempty"`
 	MsgFarewell string      `json:"farewell,omitempty"`
+	Shy         bool        `json:"shy,omitempty"`
 	Commands    []CmdConfig `json:"commands,omitempty"`
 }
 
