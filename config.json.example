@@ -1,17 +1,26 @@
 {
-	"api_token": "xoxb-7503613939-OgQqNoztIONFE5VXuZsx6uDP",
+	"api_token": "",
 	"channel": "#general",
-	"debug": true,
+	"debug": false,
 	"log_level": "info",
 	"shy": false,
-	"greeting": "Hey, silly boys)))",
-	"farewell": "Bye, silly boys(((",
+	"salutes": {
+		"greeting": "Hey, boys!",
+		"farewell": "Bye, boys!",
+		"user_active": "Hi, %s :*",
+		"user_away": "Will you come back, %s?"
+	},
 	"commands": [
 		{
 			"type": "Weather",
 			"tokens": ["weather at", "weather in"],
 			"api_url": "http://api.openweathermap.org/data/2.5/weather?lang=ru&units=metric&q=",
-			"response": "Weather in {{.city}}: {{.temperature}} °C, {{.description}}"
-		}
+			"response": "Weather {{.city}}: {{.temperature}} °C, {{.description}}"
+		},
+		{
+			"type": "Feed",
+			"tokens": ["!news"],
+			"api_url": "https://news.ycombinator.com/rss"
+		}	
 	]
 }
