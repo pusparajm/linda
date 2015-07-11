@@ -37,7 +37,7 @@ func (d *DumbSlut) Start() {
 	d.init()
 
 	// Greet everyone
-	d.salute(d.config.Salutes.Greeting)
+	d.salute(d.config.Salutes.Greeting, "")
 
 	// Set own user ID
 	info := d.api.GetInfo()
@@ -119,8 +119,14 @@ func (d *DumbSlut) init() {
 	d.handleInterrupt()
 }
 
-func (d *DumbSlut) salute(message string) {
-	if !d.config.Shy {
+func (d *DumbSlut) salute(message string, userId string) {
+	if d.config.Shy {
+		return
+	}
+
+	if userId != "" {
+		d.TalkTo(message, userId)
+	} else {
 		d.Talk(message)
 	}
 }
@@ -131,7 +137,7 @@ func (d *DumbSlut) handleInterrupt() {
 	signal.Notify(c, syscall.SIGTERM)
 	go func() {
 		<-c
-		d.salute(d.config.Salutes.Farewell)
+		d.salute(d.config.Salutes.Farewell, "")
 		log.Infof("Finished...")
 		os.Exit(1)
 	}()
@@ -198,9 +204,9 @@ func (d *DumbSlut) handlePresenceChange(event *slack.PresenceChangeEvent) {
 
 		switch event.Presence {
 		case "active":
-			d.salute(fmt.Sprintf(d.config.Salutes.UserActive, username))
+			d.salute(fmt.Sprintf(d.config.Salutes.UserActive, username), event.UserId)
 		case "away":
-			d.salute(fmt.Sprintf(d.config.Salutes.UserAway, username))
+			d.salute(fmt.Sprintf(d.config.Salutes.UserAway, username), event.UserId)
 		}
 	}
 }
