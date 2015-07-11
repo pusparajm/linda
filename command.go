@@ -9,6 +9,7 @@ import (
 const (
 	CommandTypeBully     = "Bully"
 	CommandTypeFeed      = "Feed"
+	CommandTypeSwastika  = "Swastika"
 	CommandTypeTranslate = "Translate"
 	CommandTypeWeather   = "Weather"
 )
@@ -25,6 +26,8 @@ func NewCommand(cfg CmdConfig) Command {
 		return NewBullyCommand(cfg)
 	case CommandTypeFeed:
 		return NewFeedCommand(cfg)
+	case CommandTypeSwastika:
+		return NewSwastikaCommand(cfg)
 	case CommandTypeTranslate:
 		return NewTranslateCommand(cfg)
 	case CommandTypeWeather:

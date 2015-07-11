@@ -102,6 +102,7 @@ func (d *DumbSlut) init() {
 	d.msgParams = slack.PostMessageParameters{
 		AsUser:    true,
 		LinkNames: 1,
+		Markdown:  true,
 	}
 
 	if d.config.Channel == "" {

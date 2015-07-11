@@ -120,6 +120,8 @@ func (c *WeatherCommand) getWeather(query string) (*WeatherResponse, error) {
 		return nil, err
 	}
 
+	log.Debugf("Response body: %s", string(bytes))
+
 	if weather.Message != nil {
 		return nil, errors.New(fmt.Sprintf("Can't find weather for %s", query))
 	}
