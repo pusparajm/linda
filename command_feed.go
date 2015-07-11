@@ -33,7 +33,7 @@ func (c *FeedCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 
 	if err := feed.Fetch(c.config.Url, nil); err != nil {
 		log.Error(err.Error())
-		d.Talk(err.Error())
+		d.TalkTo(err.Error(), msg.UserId)
 	}
 
 	response := ""
@@ -43,5 +43,5 @@ func (c *FeedCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 		response = fmt.Sprintf("%s: %s", item.Title, item.Links[0].Href)
 	}
 
-	d.Talk(response)
+	d.TalkTo(response, msg.UserId)
 }

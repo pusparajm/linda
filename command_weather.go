@@ -8,6 +8,7 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 
 	log "github.com/Sirupsen/logrus"
@@ -16,7 +17,7 @@ import (
 )
 
 const (
-	MinQueryLength = 2
+	WeatherMinQuery = 2
 )
 
 type WeatherResponse struct {
@@ -55,7 +56,7 @@ func (c *WeatherCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 	}
 
 	query := c.normalizeQuery(msg.Text, currentToken)
-	if len(query) < MinQueryLength {
+	if len(query) < WeatherMinQuery {
 		return false
 	}
 
@@ -67,37 +68,35 @@ func (c *WeatherCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	weatherResponse, err := c.getWeather(c.query)
 	if err != nil {
 		log.Error(err.Error())
-		d.Talk(err.Error())
+		d.TalkTo(err.Error(), msg.UserId)
 		return
 	}
 
 	response, err := c.formatResponse(weatherResponse)
 	if err != nil {
 		log.Error(err.Error())
-		d.Talk(err.Error())
+		d.TalkTo(err.Error(), msg.UserId)
 		return
 	}
 
-	d.Talk(response)
+	d.TalkTo(response, msg.UserId)
 }
 
 func (c *WeatherCommand) buildRequestUrl() string {
-	return c.config.Url + c.query
+	return c.config.Url + url.QueryEscape(c.query)
 }
 
 func (c *WeatherCommand) normalizeQuery(text, token string) string {
 	log.Infof("Normalizing query by token %s", token)
 
-	if token == "Եղանակը" { // Armenian trigger
+	if token == "!Եղանակը" { // Armenian trigger
 		query := strings.Replace(text, token, "", 1)
-		queryWords := strings.Split(strings.TrimSpace(query), " ")
-		city := armenia.Translit(queryWords[0], armenia.WesternLanguage)
-		return city
+		city := armenia.Translit(query, armenia.EasternLanguage)
+		return strings.TrimSpace(city)
 	}
 
 	query := strings.Replace(strings.ToLower(text), token, "", 1)
-	queryWords := strings.Split(strings.TrimSpace(query), " ")
-	return queryWords[0]
+	return strings.TrimSpace(query)
 }
 
 func (c *WeatherCommand) getWeather(query string) (*WeatherResponse, error) {

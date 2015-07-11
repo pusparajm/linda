@@ -73,6 +73,29 @@ func (d *DumbSlut) Talk(message string) {
 	log.Infof("Message successfully sent to %s at %s", channelId, timestamp)
 }
 
+func (d *DumbSlut) TalkTo(message, userId string) {
+	// React to active/away
+	users, err := d.api.GetUsers()
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error()}).Error("Error at statusReaction()")
+		return
+	}
+
+	username := ""
+	for _, user := range users {
+		if user.Id == userId {
+			username = user.Name
+			break
+		}
+	}
+
+	if username != "" {
+		d.Talk(fmt.Sprintf("@%s %s", username, message))
+	} else {
+		d.Talk(message)
+	}
+}
+
 func (d *DumbSlut) init() {
 	// Default values
 	log.SetLevel(stringToLogLevel(d.config.LogLevel))

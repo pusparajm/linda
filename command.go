@@ -7,9 +7,10 @@ import (
 )
 
 const (
-	CommandTypeBully   = "Bully"
-	CommandTypeFeed    = "Feed"
-	CommandTypeWeather = "Weather"
+	CommandTypeBully     = "Bully"
+	CommandTypeFeed      = "Feed"
+	CommandTypeTranslate = "Translate"
+	CommandTypeWeather   = "Weather"
 )
 
 type Command interface {
@@ -24,6 +25,8 @@ func NewCommand(cfg CmdConfig) Command {
 		return NewBullyCommand(cfg)
 	case CommandTypeFeed:
 		return NewFeedCommand(cfg)
+	case CommandTypeTranslate:
+		return NewTranslateCommand(cfg)
 	case CommandTypeWeather:
 		return NewWeatherCommand(cfg)
 	default:
