@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/nlopes/slack"
@@ -50,7 +51,15 @@ func (c *WikiCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 
 	message := ""
 	for _, page := range serviceResponse.Query.Pages {
-		message = fmt.Sprintf("%s: %s", page["title"].(string), page["fullurl"].(string))
+		rawUrl := page["fullurl"].(string)
+		pageUrl, err := url.QueryUnescape(rawUrl)
+		if err != nil {
+			log.Error(err.Error())
+			d.TalkTo(err.Error(), msg.UserId)
+			return
+		}
+
+		message = fmt.Sprintf("%s: %s", page["title"].(string), pageUrl)
 		break
 	}
 
