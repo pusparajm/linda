@@ -49,7 +49,7 @@ func (c *SwastikaCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 		return
 	}
 
-	response, err := swastika.New(query)
+	response, err := swastika.New(strings.ToUpper(query))
 	if err != nil {
 		log.Error(err.Error())
 		d.TalkTo(err.Error(), msg.UserId)
