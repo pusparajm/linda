@@ -99,7 +99,10 @@ func (d *DumbSlut) TalkTo(message, userId string) {
 func (d *DumbSlut) init() {
 	// Default values
 	log.SetLevel(stringToLogLevel(d.config.LogLevel))
-	d.msgParams = slack.PostMessageParameters{AsUser: true}
+	d.msgParams = slack.PostMessageParameters{
+		AsUser:    true,
+		LinkNames: 1,
+	}
 
 	if d.config.Channel == "" {
 		d.config.Channel = DefaultChannel
