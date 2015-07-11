@@ -1,5 +1,9 @@
 package swastika
 
+import (
+	"unicode/utf8"
+)
+
 type RuneMatrix struct {
 	Table [][]rune
 	Size  int
@@ -24,11 +28,18 @@ func NewRuneMatrix(size int) *RuneMatrix {
 }
 
 func (m *RuneMatrix) FillHorizontal(input string, from, line int) *RuneMatrix {
-	for i := 0; i < len(input); i++ {
+	b := []byte(input)
+	i := 0
+	for len(b) > 0 {
 		j := from + i
 
 		if j < m.Size {
-			m.Table[line][j] = rune(input[i])
+			char, size := utf8.DecodeRune(b)
+			m.Table[line][j] = char
+			b = b[size:]
+			i++
+		} else {
+			break
 		}
 	}
 
@@ -36,15 +47,28 @@ func (m *RuneMatrix) FillHorizontal(input string, from, line int) *RuneMatrix {
 }
 
 func (m *RuneMatrix) FillVertical(input string, from, column int) *RuneMatrix {
-	for i := 0; i < len(input); i++ {
+	b := []byte(input)
+	i := 0
+	for len(b) > 0 {
 		j := from + i
 
 		if j < m.Size {
-			m.Table[j][column] = rune(input[i])
+			char, size := utf8.DecodeRune(b)
+			m.Table[j][column] = char
+			b = b[size:]
+			i++
+		} else {
+			break
 		}
 	}
 
 	return m
+}
+
+func (m *RuneMatrix) runeToString(r rune) string {
+	buf := make([]byte, 3)
+	utf8.EncodeRune(buf, r)
+	return string(buf)
 }
 
 func (m *RuneMatrix) ToString() string {
@@ -53,7 +77,7 @@ func (m *RuneMatrix) ToString() string {
 	for i := 0; i < m.Size; i++ {
 		line := ""
 		for j := 0; j < m.Size; j++ {
-			line += string(m.Table[i][j]) + " "
+			line += m.runeToString(m.Table[i][j]) + " "
 		}
 
 		result += line + "\n"

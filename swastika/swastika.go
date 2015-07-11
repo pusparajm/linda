@@ -2,6 +2,7 @@ package swastika
 
 import (
 	"errors"
+	"unicode/utf8"
 )
 
 const (
@@ -9,7 +10,7 @@ const (
 )
 
 func New(input string) (string, error) {
-	length := len(input)
+	length := utf8.RuneCountInString(input)
 	if length < MinLen {
 		return "", errors.New("Input string length should be more than 2")
 	}

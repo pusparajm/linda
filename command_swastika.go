@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"unicode/utf8"
 
 	log "github.com/Sirupsen/logrus"
 	"github.com/kpashka/dumbslut/swastika"
@@ -40,7 +41,7 @@ func (c *SwastikaCommand) Trigger(d *DumbSlut, msg *slack.MessageEvent) bool {
 
 func (c *SwastikaCommand) Execute(d *DumbSlut, msg *slack.MessageEvent) {
 	query := strings.TrimSpace(strings.Replace(msg.Text, c.currentToken, "", 1))
-	length := len(query)
+	length := utf8.RuneCountInString(query)
 
 	if length < swastika.MinLen || length > SwastikaMaxLen {
 		message := fmt.Sprintf("Input string size should be in range [%d, %d]", swastika.MinLen, SwastikaMaxLen)
