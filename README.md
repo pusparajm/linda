@@ -18,6 +18,7 @@ Grab dependencies:
 Build and run:
 
 	$ go get github.com/kpashka/dumbslut
+	$ cd $GOPATH/src/github.com/kpashka/dumbslut
 	$ go build && ./dumpslut -c config.json
 
 ## Configuration
