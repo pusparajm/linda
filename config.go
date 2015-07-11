@@ -5,7 +5,7 @@ type Config struct {
 	Channel  string `json:"channel,omitempty"`
 
 	Debug    bool   `json:"debug,omitempty"`
-	LogLevel string `json:"level,omitempty"`
+	LogLevel string `json:"log_level,omitempty"`
 
 	Shy       bool              `json:"shy,omitempty"`
 	Nicknames map[string]string `json:"nicknames,omitempty"`
