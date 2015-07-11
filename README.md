@@ -1,6 +1,6 @@
-# :person_with_pouting_face: Dumb Slut
+# Dumb Slut
 
-Little princess for our mens-only Slack team.
+:person_with_pouting_face: Little princess for our mens-only Slack team.
 
 ## Features
 
