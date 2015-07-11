@@ -12,6 +12,7 @@ const (
 	CommandTypeSwastika  = "Swastika"
 	CommandTypeTranslate = "Translate"
 	CommandTypeWeather   = "Weather"
+	CommandTypeWiki      = "Wiki"
 )
 
 type Command interface {
@@ -32,6 +33,8 @@ func NewCommand(cfg CmdConfig) Command {
 		return NewTranslateCommand(cfg)
 	case CommandTypeWeather:
 		return NewWeatherCommand(cfg)
+	case CommandTypeWiki:
+		return NewWikiCommand(cfg)
 	default:
 		return nil
 	}
