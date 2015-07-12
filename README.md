@@ -38,4 +38,4 @@ Build and run:
 
 ## Configuration
 
-See `config.json.example` for details.
+See [config.json.example] for details.
