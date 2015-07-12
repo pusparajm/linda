@@ -89,6 +89,33 @@ func (slut *Slut) Start() {
 	}
 }
 
+func (slut *Slut) runCommand(id int, cmd command.Command, e *event.Event, params []string) {
+	// Execute command
+	response, err := cmd.Run(params)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"command": slut.configs[id].Name,
+			"error":   err.Error(),
+		}).Errorf("Error executing command")
+		return
+	}
+
+	// Send response
+	err = slut.backend.SendMessage(response, e)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"command": slut.configs[id].Name,
+			"error":   err.Error(),
+		}).Errorf("Error sending message")
+		return
+	}
+
+	// Don't execute other commands if necessary
+	if slut.cfg.Params.ExecutionMode == config.ExecutionModeFirst {
+		return
+	}
+}
+
 // Handle incoming events and pass them to commands
 func (slut *Slut) handleEvent(e *event.Event) {
 	// Status change on top-priority
@@ -102,30 +129,14 @@ func (slut *Slut) handleEvent(e *event.Event) {
 		// Define if should react to command by expression
 		shouldReact, params := slut.shouldReact(id, cmd, e)
 		if shouldReact {
-			// Execute command
-			response, err := cmd.Run(params)
-			if err != nil {
-				log.WithFields(log.Fields{
-					"command": slut.configs[id].Name,
-					"error":   err.Error(),
-				}).Errorf("Error executing command")
-				return
+			// Override for help command
+			if slut.configs[id].Type == command.TypeSnitch {
+				slut.runCommand(id, cmd, e, slut.getDescriptions())
+				continue
 			}
 
-			// Send response
-			err = slut.backend.SendMessage(response, e)
-			if err != nil {
-				log.WithFields(log.Fields{
-					"command": slut.configs[id].Name,
-					"error":   err.Error(),
-				}).Errorf("Error sending message")
-				return
-			}
-
-			// Don't execute other commands if necessary
-			if slut.cfg.Params.ExecutionMode == config.ExecutionModeFirst {
-				return
-			}
+			// Run other commands as usual
+			slut.runCommand(id, cmd, e, params)
 		}
 	}
 }
@@ -174,6 +185,17 @@ func (slut *Slut) handleStatusChange(e *event.Event) {
 	}
 }
 
+func (slut *Slut) getDescriptions() []string {
+	descriptions := []string{}
+
+	for _, cfg := range slut.configs {
+		description := fmt.Sprintf("*%s* - %s", cfg.Name, cfg.Description)
+		descriptions = append(descriptions, description)
+	}
+
+	return descriptions
+}
+
 // Initialize bot backend
 func (slut *Slut) init() {
 	// Logger setup
@@ -191,6 +213,7 @@ func (slut *Slut) init() {
 	}
 
 	// Add commands
+	slut.AddCommand(config.NewHelpCommand())
 	slut.AddCommands(slut.cfg.Commands...)
 }
 

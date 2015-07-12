@@ -47,7 +47,7 @@ func (c *Postman) Run(params []string) (string, error) {
 	}
 
 	if response == "" {
-		return nil, errors.New("You've read all news. Please update feed later.")
+		return "", errors.New("You've read all news. Please update feed later.")
 	}
 
 	return response, nil

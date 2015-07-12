@@ -5,14 +5,16 @@ import (
 	"github.com/kpashka/dumbslut/command/bully"
 	"github.com/kpashka/dumbslut/command/postman"
 	"github.com/kpashka/dumbslut/command/proxy"
+	"github.com/kpashka/dumbslut/command/snitch"
 	"github.com/kpashka/dumbslut/config"
 )
 
 const (
-	CommandTypeArtist  = "Artist"
-	CommandTypeBully   = "Bully"
-	CommandTypePostman = "Postman"
-	CommandTypeProxy   = "Proxy"
+	TypeArtist  = "Artist"
+	TypeBully   = "Bully"
+	TypePostman = "Postman"
+	TypeProxy   = "Proxy"
+	TypeSnitch  = "Snitch"
 )
 
 // Command interface
@@ -23,14 +25,16 @@ type Command interface {
 // Creates new Command instance
 func New(cfg config.Command) Command {
 	switch cfg.Type {
-	case CommandTypeArtist:
+	case TypeArtist:
 		return artist.New(cfg)
-	case CommandTypeBully:
+	case TypeBully:
 		return bully.New(cfg)
-	case CommandTypePostman:
+	case TypePostman:
 		return postman.New(cfg)
-	case CommandTypeProxy:
+	case TypeProxy:
 		return proxy.New(cfg)
+	case TypeSnitch:
+		return snitch.New(cfg)
 	default:
 		return nil
 	}

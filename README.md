@@ -14,6 +14,7 @@
 	* `Bully` - reacts with pre-defined phrase to matched text.
 	* `Postman` - grabs latest unread item from RSS/Atom feed.
 	* `Proxy` - fetches JSON document from URL, returns template with populated values from [JSONPath](https://github.com/NodePrime/jsonpath#path-syntax) expressions.
+	* `Snitch` - returns an info about of configured command instances.
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change (only for `Slack` backend).
