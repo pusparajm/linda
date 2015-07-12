@@ -1,7 +1,7 @@
 {
     "backend": {
         "type": "Slack",
-        "token": "xoxb-7503613939-OgQqNoztIONFE5VXuZsx6uDP",
+        "token": "YOUR_API_TOKEN_HERE",
         "channel": "random"
     },
     "commands": [
