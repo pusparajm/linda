@@ -1,0 +1,37 @@
+package config
+
+import (
+	log "github.com/Sirupsen/logrus"
+)
+
+// Returns execution mode by input
+func GetExecutionMode(input string) string {
+	switch input {
+	case ExecutionModeFirst:
+		return ExecutionModeFirst
+	case ExecutionModeAll:
+		return ExecutionModeAll
+	default:
+		return ExecutionModeFirst
+	}
+}
+
+// Returns logrus.LogLevel by provided string
+func StringToLogLevel(str string) log.Level {
+	switch str {
+	case "panic":
+		return log.PanicLevel
+	case "fatal":
+		return log.FatalLevel
+	case "error":
+		return log.ErrorLevel
+	case "warn":
+		return log.WarnLevel
+	case "info":
+		return log.InfoLevel
+	case "debug":
+		return log.DebugLevel
+	default:
+		return log.ErrorLevel
+	}
+}

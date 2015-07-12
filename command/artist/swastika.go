@@ -1,24 +1,13 @@
-package swastika
+package artist
 
 import (
-	"errors"
 	"unicode/utf8"
 )
 
-const (
-	MinLen = 3
-)
-
-func New(input string) (string, error) {
+func NewSwastika(input string) string {
 	length := utf8.RuneCountInString(input)
-	if length < MinLen {
-		return "", errors.New("Input string length should be more than 2")
-	}
-
 	size := length*2 - 1
 	mid := (size - 1) / 2
-
-	//reverse := reverseString(input)
 	matrix := NewRuneMatrix(size)
 
 	// From top to bottom, left to right
@@ -33,15 +22,5 @@ func New(input string) (string, error) {
 	matrix.FillVertical(input, mid, mid)
 	matrix.FillVertical(input, mid, size-1)
 
-	return matrix.ToString(), nil
-}
-
-func reverseString(s string) string {
-	n := len(s)
-	runes := make([]rune, n)
-	for _, rune := range s {
-		n--
-		runes[n] = rune
-	}
-	return string(runes[n:])
+	return matrix.ToString()
 }

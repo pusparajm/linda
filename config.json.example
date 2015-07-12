@@ -1,28 +1,79 @@
 {
-	"api_token": "",
-	"channel": "#general",
-	"debug": false,
-	"log_level": "error",
-	"shy": false,
-	"salutes": {
-		"greeting": "Hey, boys!",
-		"farewell": "Bye, boys!",
-		"user_active": "Hi, %s :*",
-		"user_away": "Will you come back, %s?"
-	},
-	"commands": [
-		{
-			"type": "Weather",
-			"name": "Weather",
-			"tokens": ["weather at", "weather in"],
-			"url": "http://api.openweathermap.org/data/2.5/weather?lang=ru&units=metric&q=",
-			"response": "Weather {{.city}}: {{.temperature}} °C, {{.description}}"
-		},
-		{
-			"type": "Feed",
-			"name": "News",
-			"tokens": ["!news"],
-			"url": "https://news.ycombinator.com/rss"
-		}	
-	]
+    "backend": {
+        "type": "Slack",
+        "token": "xoxb-7503613939-OgQqNoztIONFE5VXuZsx6uDP",
+        "channel": "random"
+    },
+    "commands": [
+        {
+            "type": "Bully",
+            "name": "Reaction to test message",
+            "description": "Simple test of Reaction command",
+            "expression": "(?i)!(test)",
+            "response": "I'm here!"
+        },
+        {
+            "type": "Proxy",
+            "name": "OpenWeatherMap API",
+            "description": "Fetches weather by provided location",
+            "expression": "(?i)!weather ([\\p{L}^,.]+)",
+            "url": "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=ru&units=metric",
+            "params": {
+                "city": "$.name+",
+                "temperature": "$.main.temp+",
+                "description": "$.weather[0].description+"
+            },
+            "response": "Weather at {{.city}}: {{.temperature}} °C, {{.description}}"
+        },
+        {
+            "type": "Proxy",
+            "name": "MyMemory Translation API",
+            "description": "Fetches translation by provided word",
+            "expression": "(?i)!translate ([\\p{L}^,.]+)",
+            "url": "http://mymemory.translated.net/api/get?q=$1&langpair=en|ru",
+            "params": {
+                "translation": "$.responseData.translatedText+"
+            },
+            "response": "Translation: {{.translation}}"
+        },
+        {
+            "type": "Proxy",
+            "name": "Wikipedia API",
+            "description": "Fetches random page from Wikipedia",
+            "expression": "(?i)!random",
+            "url": "https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=info&inprop=url&format=json",
+            "params": {
+                "title": "$.query.pages.*.title+",
+                "link": "$.query.pages.*.fullurl+"
+            },
+            "response": "Read more about {{.title}} at {{.link | query_unescape }}"
+        },
+        {
+            "type": "Artist",
+            "name": "Heil Buddha!",
+            "description": "Renders ASCII-swastika from input word",
+            "expression": "(?i)!buddha ([\\p{L}^,.]+)"
+        },
+        {
+            "type": "Postman",
+            "name": "Football News",
+            "description": "Returns latest unread RSS item from Championat.com",
+            "expression": "(?i)!football",
+            "url": "http://www.championat.com/xml/rss_football-article.xml"
+        }
+    ],
+    "params": {
+        "execution_mode": "first",
+        "log_level": "debug",
+        "nicknames": {
+            "kpashka": "Pasha"
+        },
+        "salutes": {
+            "greeting": "Hey, silly boys!",
+            "farewell": "Bye, silly boys!",
+            "user_entered": "Nice to meet you, %s!",
+            "user_left": "See you later, %s!"
+        },
+        "shy": false
+    }
 }

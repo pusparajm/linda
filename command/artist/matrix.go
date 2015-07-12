@@ -1,4 +1,4 @@
-package swastika
+package artist
 
 import (
 	"unicode/utf8"

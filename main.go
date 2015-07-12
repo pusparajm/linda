@@ -1,32 +1,28 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
-	"io/ioutil"
+	"log"
+	"os"
 
-	log "github.com/Sirupsen/logrus"
+	"github.com/kpashka/dumbslut/config"
 )
 
 func main() {
 	// Parse command-line flags
-	cfgFilePath := flag.String("c", "config.json", "Config file location")
+	location := flag.String("c", "config.json", "Config file location (URL or filesystem)")
 	flag.Parse()
 
-	// Read config file
-	bytes, err := ioutil.ReadFile(*cfgFilePath)
+	// Load configuration
+	config := config.New()
+	err := config.Load(*location)
 	if err != nil {
-		log.WithFields(log.Fields{"file": *cfgFilePath}).Fatalf("Couldn't open config file: %s", err.Error())
-	}
-
-	// Create config instance
-	config := Config{}
-	err = json.Unmarshal(bytes, &config)
-	if err != nil {
-		log.WithFields(log.Fields{"file": *cfgFilePath}).Fatalf("Error in config file: %s", err.Error())
+		log.Printf("Can't load configuration from location: %s", *location)
+		log.Printf("Error: %s", err.Error())
+		os.Exit(1)
 	}
 
 	// Create bot instance and run
-	d := NewDumbSlut(&config)
+	d := NewSlut(config)
 	d.Start()
 }
