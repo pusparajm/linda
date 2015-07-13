@@ -219,7 +219,7 @@ func (linda *Linda) init() {
 
 func (linda *Linda) salute(message string) error {
 	// Don't salute if shy
-	if linda.cfg.Params.Shy || len(message) == 0 {
+	if linda.cfg.Params.Shy {
 		return nil
 	}
 

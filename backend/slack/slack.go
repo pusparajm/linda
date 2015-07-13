@@ -124,15 +124,11 @@ func (backend *Slack) Listen(events chan *event.Event) {
 
 // Send message
 func (backend *Slack) SendMessage(msg string, e *event.Event) error {
-	if e == nil {
+	if e != nil && e.Type == event.TypeMessage && e.SlackMsg.UserId == backend.userId {
 		return nil
 	}
 
-	if e.Type == event.TypeMessage && e.SlackMsg.UserId == backend.userId {
-		return nil
-	}
-
-	if e.Type == event.TypeStatusChange && e.SlackPce.UserId == backend.userId {
+	if e != nil && e.Type == event.TypeStatusChange && e.SlackPce.UserId == backend.userId {
 		return nil
 	}
 
