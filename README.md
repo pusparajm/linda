@@ -44,21 +44,23 @@ Because of the fact that backend services have different protocols and available
 
 ## Installation
 
-Grab dependencies:
-
-	$ go get github.com/jteeuwen/go-pkg-rss
-	$ go get github.com/nlopes/slack
-	$ go get github.com/NodePrime/jsonpath
-	$ go get github.com/Sirupsen/logrus
-	$ go get github.com/tucnak/telebot
-
 Build and run:
 
-	$ go get github.com/kpashka/linda
+	$ mkdir -p $GOPATH/src/github.com/kpashka/linda
 	$ cd $GOPATH/src/github.com/kpashka/linda
+	$ git clone https://github.com/kpashka/linda .
+	$ go get -v ./...
 	$ go build && ./linda -c config.json
 
 ## Configuration
 
 * See [config.example.json](config.example.json) for configuration example.
 * See [Configuration](https://github.com/kpashka/linda/wiki/Configuration) page for detailed information.
+
+## Dependencies
+
+* [`jteeuwen/go-pkg-rss`](github.com/jteeuwen/go-pkg-rss)
+* [`nlopes/slack`](github.com/nlopes/slack)
+* [`NodePrime/jsonpath`](github.com/NodePrime/jsonpath)
+* [`Sirupsen/logrus`](github.com/Sirupsen/logrus)
+* [`tucnak/telebot`](github.com/tucnak/telebot)
