@@ -24,7 +24,19 @@
             "description": "Returns latest unread article from championat.com. Usage: `!football`",
             "expression": "(?i)!football",
             "url": "http://www.championat.com/xml/rss_football-article.xml"
-        },        
+        },
+        {
+            "type": "Proxy",
+            "name": "currency",
+            "description": "Fetches currency rate by pair. Usage `!currency <input>`",
+            "expression": "(?i)!currency ([\\p{L}^,.]+)",
+            "url": "http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.xchange where pair in (\"$1\")&env=store://datatables.org/alltableswithkeys&format=json",
+            "params": {
+                "rate": "$.query.results.rate.Rate+",
+                "pair": "$.query.results.rate.id+"
+            },
+            "response": "Currency for {{.pair}}: {{.rate}}"
+        },           
         {
             "type": "Proxy",
             "name": "translate",
