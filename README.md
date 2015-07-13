@@ -21,7 +21,7 @@ Navigation:
 	* [`Bully`](command/bully) - reacts with pre-defined phrase to matched text.
 	* [`Postman`](command/postman) - grabs latest unread item from RSS/Atom feed.
 	* [`Proxy`](command/proxy) - fetches JSON document from URL, returns computed template.
-	* [`Snitch`](command/snitch) - returns an info about available computed commands.
+	* [`Snitch`](command/snitch) - prints information about available computed commands.
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change.
