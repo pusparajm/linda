@@ -51,7 +51,6 @@ Grab dependencies:
 	$ go get github.com/NodePrime/jsonpath
 	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/tucnak/telebot
-	$ go get golang.org/x/exp
 
 Build and run:
 
