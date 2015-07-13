@@ -223,6 +223,11 @@ func (linda *Linda) salute(message string) error {
 		return nil
 	}
 
+	// Don't salute if empty message
+	if len(message) == 0 {
+		return nil
+	}
+
 	return linda.backend.SendMessage(message, nil)
 }
 
