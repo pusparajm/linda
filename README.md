@@ -2,7 +2,14 @@
 
 [![GoDoc](https://godoc.org/github.com/kpashka/linda?status.svg)](https://godoc.org/github.com/kpashka/linda)
 
-:princess: Little princess, programmed to serve in mens-only conference rooms.
+:princess: Little princess, programmed to serve in mens-only online conference rooms.
+
+Navigation:
+
+1. [Features](#features)
+1. [Limitations](#limitations)
+1. [Installation](#installation)
+1. [Configuration](#configuration)
 
 ## Features
 
@@ -35,7 +42,7 @@ Because of the fact that backend services were created by different people, ther
 | Greetings & farewells   | :white_check_mark: Supported             | :x: (TBD)                                  |
 | Status change reactions | :white_check_mark: Supported             | :x: (TBD)                                  |
 
-## Usage
+## Installation
 
 Grab dependencies:
 
