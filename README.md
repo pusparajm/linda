@@ -27,14 +27,14 @@ Because of the fact that backend services were created by different people, ther
 
 | Feature                 | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots) |
 | ----------------------- | ---------------------------------------- | ------------------------------------------ |
-| Greetings               | :white_check_mark:                       | :x: (not sure, if possible)                |
-| Farewells               | :white_check_mark:                       | :x: (probably possible)                    |
-| Status change reactions | :white_check_mark:                       | :x: (looks like impossible)                |
-| `Artist` command        | :white_check_mark:                       | :x: (no Markdown support)                  |
-| `Bully` command         | :white_check_mark:                       | :white_check_mark:                         |
-| `Proxy` command         | :white_check_mark:                       | :white_check_mark:                         |
-| `Postman` command       | :white_check_mark:                       | :white_check_mark:                         |
-| `Snitch` command        | :white_check_mark:                       | :white_check_mark: Limited support         |
+| Greetings               | :white_check_mark: Supported             | :x: (not sure, if possible)                |
+| Farewells               | :white_check_mark: Supported             | :x: (probably possible)                    |
+| Status change reactions | :white_check_mark: Supported             | :x: (looks like impossible)                |
+| `Artist` command        | :white_check_mark: Supported             | :x: (no Markdown support)                  |
+| `Bully` command         | :white_check_mark: Supported             | :white_check_mark: Supported               |
+| `Proxy` command         | :white_check_mark: Supported             | :white_check_mark: Supported               |
+| `Postman` command       | :white_check_mark: Supported             | :white_check_mark: Supported               |
+| `Snitch` command        | :white_check_mark: Supported             | :white_check_mark: Limited support         |
 
 ## Usage
 
