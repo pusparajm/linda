@@ -48,6 +48,7 @@ Grab dependencies:
 
 	$ go get github.com/jteeuwen/go-pkg-rss
 	$ go get github.com/nlopes/slack
+	$ go get github.com/NodePrime/jsonpath
 	$ go get github.com/Sirupsen/logrus
 	$ go get github.com/tucnak/telebot
 	$ go get golang.org/x/exp
