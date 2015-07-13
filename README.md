@@ -10,6 +10,7 @@ Navigation:
 1. [Limitations](#limitations)
 1. [Installation](#installation)
 1. [Configuration](#configuration)
+1. [Dependencies](#dependencies)
 
 ## Features
 
