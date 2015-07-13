@@ -2,7 +2,7 @@
 
 [![GoDoc](https://godoc.org/github.com/kpashka/linda?status.svg)](https://godoc.org/github.com/kpashka/linda)
 
-:person_with_pouting_face: Little princess, programmed to serve in mens-only conference rooms.
+:princess: Little princess, programmed to serve in mens-only conference rooms.
 
 ## Features
 
