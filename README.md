@@ -60,5 +60,5 @@ Build and run:
 
 ## Configuration
 
-* See [config.example.json](config.example.json) for generic example of configuration.
-* See [Configuration](https://github.com/kpashka/linda/wiki/Configuration) article for explained fields.
+* See [config.example.json](config.example.json) for configuration example.
+* See [wiki entry](https://github.com/kpashka/linda/wiki/Configuration) for explained fields.
