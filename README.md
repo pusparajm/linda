@@ -27,14 +27,13 @@ Because of the fact that backend services were created by different people, ther
 
 | Feature                 | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots) |
 | ----------------------- | ---------------------------------------- | ------------------------------------------ |
-| Greetings               | :white_check_mark: Supported             | :x: (TBD)                                  |
-| Farewells               | :white_check_mark: Supported             | :x: (TBD)                                  |
-| Status change reactions | :white_check_mark: Supported             | :x: (TBD)                                  |
 | `Artist` command        | :white_check_mark: Supported             | :x: (no Markdown support)                  |
 | `Bully` command         | :white_check_mark: Supported             | :white_check_mark: Supported               |
 | `Proxy` command         | :white_check_mark: Supported             | :white_check_mark: Supported               |
 | `Postman` command       | :white_check_mark: Supported             | :white_check_mark: Supported               |
 | `Snitch` command        | :white_check_mark: Supported             | :white_check_mark: Limited support         |
+| Greetings & farewells   | :white_check_mark: Supported             | :x: (TBD)                                  |
+| Status change reactions | :white_check_mark: Supported             | :x: (TBD)                                  |
 
 ## Usage
 
