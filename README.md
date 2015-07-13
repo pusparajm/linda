@@ -30,7 +30,7 @@ Navigation:
 
 ## Limitations
 
-Because of the fact that backend services were created by different people, there are some usage limitations. The table of differences lies below:
+Because of the fact that backend services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
 | Feature                              | [Slack](backend/slack)       | [Telegram](backend/telegram)       |
 | ------------------------------------ | ---------------------------- | ---------------------------------- |
