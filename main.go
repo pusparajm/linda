@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/kpashka/linda/config"
+	"github.com/kpashka/linda/kernel"
 )
 
 func main() {
@@ -23,6 +24,6 @@ func main() {
 	}
 
 	// Create bot instance and run
-	d := NewLinda(config)
+	d := kernel.NewLinda(config)
 	d.Start()
 }
