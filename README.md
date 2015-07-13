@@ -25,8 +25,8 @@ Navigation:
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change.
-	* "Shy" mode in case of being annoyed by chatterbox servant.
-	* Live configuration reload from URL - share access to the ear with your mates (upcoming).
+	* `shy` mode in case of being annoyed by chatterbox servant.
+	* Live configuration reload from URL - share access to the ear with your mates (TBD).
 
 ## Limitations
 
