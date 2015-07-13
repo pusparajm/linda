@@ -60,8 +60,8 @@ Build and run:
 
 ## Dependencies
 
-* [`jteeuwen/go-pkg-rss`](github.com/jteeuwen/go-pkg-rss)
-* [`nlopes/slack`](github.com/nlopes/slack)
-* [`NodePrime/jsonpath`](github.com/NodePrime/jsonpath)
-* [`Sirupsen/logrus`](github.com/Sirupsen/logrus)
-* [`tucnak/telebot`](github.com/tucnak/telebot)
+* [`jteeuwen/go-pkg-rss`](https://github.com/jteeuwen/go-pkg-rss)
+* [`nlopes/slack`](https://github.com/nlopes/slack)
+* [`NodePrime/jsonpath`](https://github.com/NodePrime/jsonpath)
+* [`Sirupsen/logrus`](https://github.com/Sirupsen/logrus)
+* [`tucnak/telebot`](https://github.com/tucnak/telebot)
