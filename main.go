@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/config"
 )
 
 func main() {
@@ -23,6 +23,6 @@ func main() {
 	}
 
 	// Create bot instance and run
-	d := NewSlut(config)
+	d := NewLinda(config)
 	d.Start()
 }

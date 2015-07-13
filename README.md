@@ -1,6 +1,6 @@
-# Dumb Slut
+# Linda
 
-[![GoDoc](https://godoc.org/github.com/kpashka/dumbslut?status.svg)](https://godoc.org/github.com/kpashka/dumbslut)
+[![GoDoc](https://godoc.org/github.com/kpashka/linda?status.svg)](https://godoc.org/github.com/kpashka/linda)
 
 :person_with_pouting_face: Little princess, programmed to serve in mens-only conference rooms.
 
@@ -48,9 +48,9 @@ Grab dependencies:
 
 Build and run:
 
-	$ go get github.com/kpashka/dumbslut
-	$ cd $GOPATH/src/github.com/kpashka/dumbslut
-	$ go build && ./dumpslut -c config.json
+	$ go get github.com/kpashka/linda
+	$ cd $GOPATH/src/github.com/kpashka/linda
+	$ go build && ./linda -c config.json
 
 ## Configuration
 

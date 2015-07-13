@@ -5,8 +5,8 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/kpashka/dumbslut/config"
-	"github.com/kpashka/dumbslut/event"
+	"github.com/kpashka/linda/config"
+	"github.com/kpashka/linda/event"
 	wrapper "github.com/nlopes/slack"
 )
 

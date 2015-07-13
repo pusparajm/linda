@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"unicode/utf8"
 
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/config"
 )
 
 const (

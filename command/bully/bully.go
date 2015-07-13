@@ -1,7 +1,7 @@
 package bully
 
 import (
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/config"
 )
 
 // Bully - simple command that react with static phrase to expression

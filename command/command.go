@@ -1,12 +1,12 @@
 package command
 
 import (
-	"github.com/kpashka/dumbslut/command/artist"
-	"github.com/kpashka/dumbslut/command/bully"
-	"github.com/kpashka/dumbslut/command/postman"
-	"github.com/kpashka/dumbslut/command/proxy"
-	"github.com/kpashka/dumbslut/command/snitch"
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/command/artist"
+	"github.com/kpashka/linda/command/bully"
+	"github.com/kpashka/linda/command/postman"
+	"github.com/kpashka/linda/command/proxy"
+	"github.com/kpashka/linda/command/snitch"
+	"github.com/kpashka/linda/config"
 )
 
 const (

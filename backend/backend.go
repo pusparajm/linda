@@ -1,10 +1,10 @@
 package backend
 
 import (
-	"github.com/kpashka/dumbslut/backend/slack"
-	"github.com/kpashka/dumbslut/backend/telegram"
-	"github.com/kpashka/dumbslut/config"
-	"github.com/kpashka/dumbslut/event"
+	"github.com/kpashka/linda/backend/slack"
+	"github.com/kpashka/linda/backend/telegram"
+	"github.com/kpashka/linda/config"
+	"github.com/kpashka/linda/event"
 )
 
 const (

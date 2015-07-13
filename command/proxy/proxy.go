@@ -13,7 +13,7 @@ import (
 
 	"github.com/NodePrime/jsonpath"
 	log "github.com/Sirupsen/logrus"
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/config"
 )
 
 // Proxy command - performs HTTP request to JSON API and returns result

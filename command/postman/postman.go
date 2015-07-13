@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	rss "github.com/jteeuwen/go-pkg-rss"
-	"github.com/kpashka/dumbslut/config"
+	"github.com/kpashka/linda/config"
 )
 
 type Postman struct {
