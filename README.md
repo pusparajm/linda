@@ -14,13 +14,13 @@ Navigation:
 ## Features
 
 * Different backends support:
-	* [Slack](https://api.slack.com/bot-users)
-	* [Telegram](https://core.telegram.org/bots)<sup>beta</sup> 
+	* [Slack](backend/slack)
+	* [Telegram](backend/telegram)<sup>beta</sup> 
 * Configurable commands:
-	* [Artist](command/artist) - draws symbolic ASCII art from input word.
+	* [artist](command/artist) - draws symbolic ASCII art from input word.
 	* [Bully](command/bully) - reacts with pre-defined phrase to matched text.
 	* [Postman](command/postman) - grabs latest unread item from RSS/Atom feed.
-	* [Proxy](command/proxy)- fetches JSON document from URL, returns template with populated values from [JSONPath](https://github.com/NodePrime/jsonpath#path-syntax) expressions.
+	* [Proxy](command/proxy) - fetches JSON document from URL, returns computed template.
 	* [Snitch](command/snitch) - returns an info about of configured command instances.
 * User-friendly:
 	* Configurable greeting and farewell messages.
@@ -32,15 +32,15 @@ Navigation:
 
 Because of the fact that backend services were created by different people, there are some usage limitations. The table of differences lies below:
 
-| Feature                            | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots) |
-| ---------------------------------- | ---------------------------------------- | ------------------------------------------ |
-| [Artist](command/artist) command   | :white_check_mark: Supported             | :x: (no Markdown support)                  |
-| [Bully](command/bully) command     | :white_check_mark: Supported             | :white_check_mark: Supported               |
-| [Postman](command/postman) command | :white_check_mark: Supported             | :white_check_mark: Supported               |
-| [Proxy](command/proxy) command     | :white_check_mark: Supported             | :white_check_mark: Supported               |
-| [Snitch](command/snitch) command   | :white_check_mark: Supported             | :white_check_mark: Limited support         |
-| Greetings & farewells              | :white_check_mark: Supported             | :x: (TBD)                                  |
-| Status change reactions            | :white_check_mark: Supported             | :x: (TBD)                                  |
+| Feature                            | [Slack](backend/slack)       | [Telegram](backend/telegram)       |
+| ---------------------------------- | ---------------------------- | ---------------------------------- |
+| [Artist](command/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
+| [Bully](command/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [Postman](command/postman) command | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [Proxy](command/proxy) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [Snitch](command/snitch) command   | :white_check_mark: Supported | :white_check_mark: Limited support |
+| Greetings & farewells              | :white_check_mark: Supported | :x: (TBD)                          |
+| Status change reactions            | :white_check_mark: Supported | :x: (TBD)                          |
 
 ## Installation
 
