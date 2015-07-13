@@ -1,3 +1,4 @@
 *.exe
 *.tmp
 config.json
+config.telegram.json

@@ -219,7 +219,7 @@ func (slut *Slut) init() {
 
 func (slut *Slut) salute(message string) error {
 	// Don't salute if shy
-	if slut.cfg.Params.Shy {
+	if slut.cfg.Params.Shy || len(message) == 0 {
 		return nil
 	}
 

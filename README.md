@@ -8,7 +8,7 @@
 
 * Different backends support:
 	* [Slack](https://api.slack.com/bot-users)
-	* [Telegram](https://core.telegram.org/bots) (in progress)
+	* [Telegram](https://core.telegram.org/bots)<sup>beta</sup> 
 * Configurable commands:
 	* `Artist` - draws symbolic ASCII art from input word.
 	* `Bully` - reacts with pre-defined phrase to matched text.
@@ -17,9 +17,24 @@
 	* `Snitch` - returns an info about of configured command instances.
 * User-friendly:
 	* Configurable greeting and farewell messages.
-	* Configurable reaction to user status change (only for `Slack` backend).
+	* Configurable reaction to user status change.
 	* "Shy" mode in case of being annoyed by chatterbox servant.
 	* Live configuration reload from URL - share access to the ear with your mates (upcoming).
+
+## Limitations
+
+Because of the fact that backend services were created by different people, there are some usage limitations. The table of differences lies below:
+
+| Feature                 | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots) |
+| ----------------------- | ---------------------------------------- | ------------------------------------------ |
+| Greetings               | :white_check_mark:                       | :x: (not sure, if possible)                |
+| Farewells               | :white_check_mark:                       | :x: (probably possible)                    |
+| Status change reactions | :white_check_mark:                       | :x: (looks like impossible)                |
+| `Artist` command        | :white_check_mark:                       | :x: (no Markdown support)                  |
+| `Bully` command         | :white_check_mark:                       | :white_check_mark:                         |
+| `Proxy` command         | :white_check_mark:                       | :white_check_mark:                         |
+| `Postman` command       | :white_check_mark:                       | :white_check_mark:                         |
+| `Snitch` command        | :white_check_mark:                       | :white_check_mark: Limited support         |
 
 ## Usage
 

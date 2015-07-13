@@ -6,18 +6,42 @@
     },
     "commands": [
         {
+            "type": "Artist",
+            "name": "buddha",
+            "description": "Renders ASCII-swastika from input word. Usage: `!buddha <input>`",
+            "expression": "(?i)!buddha ([\\p{L}^,.]+)"
+        },    
+        {
             "type": "Bully",
-            "name": "Reaction to test message",
-            "description": "Simple test of Reaction command",
-            "expression": "(?i)!(test)",
+            "name": "bully",
+            "description": "Simple test of Bully command. Usage: `!bully`",
+            "expression": "(?i)!(bully)",
             "response": "I'm here!"
         },
         {
+            "type": "Postman",
+            "name": "football",
+            "description": "Returns latest unread article from championat.com. Usage: `!football`",
+            "expression": "(?i)!football",
+            "url": "http://www.championat.com/xml/rss_football-article.xml"
+        },        
+        {
             "type": "Proxy",
-            "name": "OpenWeatherMap API",
-            "description": "Fetches weather by provided location",
+            "name": "translate",
+            "description": "Fetches translation by russian word. Usage: `!translate <input>`",
+            "expression": "(?i)!translate ([\\p{L}^,.]+)",
+            "url": "http://mymemory.translated.net/api/get?q=$1&langpair=ru|en",
+            "params": {
+                "translation": "$.responseData.translatedText+"
+            },
+            "response": "Translation: {{.translation}}"
+        },
+        {
+            "type": "Proxy",
+            "name": "weather",
+            "description": "Fetches weather by provided location. Usage: `!weather <input>`",
             "expression": "(?i)!weather ([\\p{L}^,.]+)",
-            "url": "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=ru&units=metric",
+            "url": "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=en&units=metric",
             "params": {
                 "city": "$.name+",
                 "temperature": "$.main.temp+",
@@ -27,19 +51,8 @@
         },
         {
             "type": "Proxy",
-            "name": "MyMemory Translation API",
-            "description": "Fetches translation by provided word",
-            "expression": "(?i)!translate ([\\p{L}^,.]+)",
-            "url": "http://mymemory.translated.net/api/get?q=$1&langpair=en|ru",
-            "params": {
-                "translation": "$.responseData.translatedText+"
-            },
-            "response": "Translation: {{.translation}}"
-        },
-        {
-            "type": "Proxy",
-            "name": "Wikipedia API",
-            "description": "Fetches random page from Wikipedia",
+            "name": "wikipedia",
+            "description": "Fetches random page from Wikipedia. Usage: `!random`",
             "expression": "(?i)!random",
             "url": "https://en.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=info&inprop=url&format=json",
             "params": {
@@ -47,19 +60,6 @@
                 "link": "$.query.pages.*.fullurl+"
             },
             "response": "Read more about {{.title}} at {{.link | query_unescape }}"
-        },
-        {
-            "type": "Artist",
-            "name": "Heil Buddha!",
-            "description": "Renders ASCII-swastika from input word",
-            "expression": "(?i)!buddha ([\\p{L}^,.]+)"
-        },
-        {
-            "type": "Postman",
-            "name": "Football News",
-            "description": "Returns latest unread RSS item from Championat.com",
-            "expression": "(?i)!football",
-            "url": "http://www.championat.com/xml/rss_football-article.xml"
         }
     ],
     "params": {

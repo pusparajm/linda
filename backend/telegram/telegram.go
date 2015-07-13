@@ -43,7 +43,7 @@ func (backend *Telegram) Listen(events chan *event.Event) {
 
 		for message := range messages {
 			log.WithField("backend", backend.cfg.Type).Debugf("Message: %v", message)
-			events <- MessageToEvent(message)
+			events <- event.FromTelegramMessage(message)
 		}
 
 		time.Sleep(time.Second)
@@ -52,12 +52,14 @@ func (backend *Telegram) Listen(events chan *event.Event) {
 
 // Send message
 func (backend *Telegram) SendMessage(msg string, e *event.Event) error {
-	if e != nil && e.UserId == backend.userId {
+	if e != nil && e.TgMsg.Sender.ID == backend.bot.Identity.ID {
 		return nil
 	}
 
-	return nil
-	//bot.SendMessage(message.Chat, "Hello, "+message.Sender.FirstName+"!", nil)
-	//_, _, err := backend.api.PostMessage("#general", message, backend.msgParams)
-	//return err
+	options := telebot.SendOptions{}
+	if e != nil {
+		options.ReplyTo = e.TgMsg
+	}
+
+	return backend.bot.SendMessage(e.TgMsg.Chat, msg, &options)
 }

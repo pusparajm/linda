@@ -92,7 +92,7 @@ func (backend *Slack) Listen(events chan *event.Event) {
 				// Operate only on selected channel
 				if channelName == backend.cfg.Channel {
 					log.WithField("backend", backend.cfg.Type).Debugf("Message: %v", slackEvent)
-					e := MessageToEvent(slackEvent)
+					e := event.FromSlackMessage(slackEvent)
 					events <- e
 				}
 
@@ -102,7 +102,7 @@ func (backend *Slack) Listen(events chan *event.Event) {
 
 				// Get username for presence change event
 				if slackEvent.UserId != backend.userId {
-					e := PresenceToEvent(slackEvent)
+					e := event.FromSlackPresenceChange(slackEvent)
 					backend.syncUsers()
 					e.Username = backend.getUsername(slackEvent.UserId)
 					events <- e
@@ -124,7 +124,15 @@ func (backend *Slack) Listen(events chan *event.Event) {
 
 // Send message
 func (backend *Slack) SendMessage(msg string, e *event.Event) error {
-	if e != nil && e.UserId == backend.userId {
+	if e == nil {
+		return nil
+	}
+
+	if e.Type == event.TypeMessage && e.SlackMsg.UserId == backend.userId {
+		return nil
+	}
+
+	if e.Type == event.TypeStatusChange && e.SlackPce.UserId == backend.userId {
 		return nil
 	}
 
