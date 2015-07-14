@@ -3,11 +3,13 @@ package hooks
 import (
 	"github.com/kpashka/linda/hooks/cyber"
 	"github.com/kpashka/linda/hooks/translit"
+	"github.com/kpashka/linda/hooks/zalgo"
 )
 
 const (
 	TypeCyber    = "cyber"
 	TypeTranslit = "translit"
+	TypeZalgo    = "zalgo"
 )
 
 // Hook interface
@@ -22,6 +24,8 @@ func New(hook string) Hook {
 		return cyber.New()
 	case TypeTranslit:
 		return translit.New()
+	case TypeZalgo:
+		return zalgo.New()
 	default:
 		return nil
 	}

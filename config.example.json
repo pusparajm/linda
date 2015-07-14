@@ -9,7 +9,7 @@
             "type": "Artist",
             "name": "buddha",
             "description": "Renders ASCII-swastika from input word. Usage: `!buddha <input>`",
-            "expression": "(?i)!buddha ([\\p{L}^,.]+)"
+            "expression": "(?i)!buddha ([^\\p{P}]+)"
         },    
         {
             "type": "Bully",
@@ -29,7 +29,7 @@
             "type": "Proxy",
             "name": "currency",
             "description": "Fetches currency rate by pair. Usage `!currency <input>`",
-            "expression": "(?i)!currency ([\\p{L}^,.]+)",
+            "expression": "(?i)!currency ([^\\p{P}]+)",
             "url": "http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.xchange where pair in (\"$1\")&env=store://datatables.org/alltableswithkeys&format=json",
             "params": {
                 "rate": "$.query.results.rate.Rate+",
@@ -41,7 +41,7 @@
             "type": "Proxy",
             "name": "translate",
             "description": "Fetches translation by russian word. Usage: `!translate <input>`",
-            "expression": "(?i)!translate ([\\p{L}^,.]+)",
+            "expression": "(?i)!translate ([^\\p{P}]+)",
             "url": "http://mymemory.translated.net/api/get?q=$1&langpair=ru|en",
             "params": {
                 "translation": "$.responseData.translatedText+"
@@ -52,7 +52,7 @@
             "type": "Proxy",
             "name": "weather",
             "description": "Fetches weather by provided location. Usage: `!weather <input>`",
-            "expression": "(?i)!weather ([\\p{L}^,.]+)",
+            "expression": "(?i)!weather ([^\\p{P}]+)",
             "url": "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=en&units=metric",
             "params": {
                 "city": "$.name+",
