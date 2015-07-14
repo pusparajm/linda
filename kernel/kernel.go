@@ -131,7 +131,13 @@ func (linda *Linda) runCommand(id int, cmd commands.Command, e *commons.Event, p
 			"command": linda.configs[id].Name,
 			"error":   err.Error(),
 		}).Errorf("Error executing command")
-		return
+
+		// Send error back to chat if tracing mode is active
+		if linda.cfg.Params.Tracing {
+			response = err.Error()
+		} else {
+			return
+		}
 	}
 
 	// Send response

@@ -33,4 +33,7 @@ type Params struct {
 
 	// Salutes override switch
 	Shy bool `json:"shy,omitempty"`
+
+	// Tracing - send errors back to chat
+	Tracing bool `json:"tracing,omitempty"`
 }
