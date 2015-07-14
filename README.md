@@ -15,8 +15,8 @@ Navigation:
 ## Features
 
 * Different backends support:
-	* [`Slack`](backend/slack)
-	* [`Telegram`](backend/telegram)<sup>beta</sup> 
+	* [`Slack`](adapters/slack)
+	* [`Telegram`](adapters/telegram)<sup>beta</sup> 
 * Configurable commands:
 	* [`Artist`](command/artist) - draws symbolic ASCII art from input word.
 	* [`Bully`](command/bully) - reacts with pre-defined phrase to matched text.
@@ -31,9 +31,9 @@ Navigation:
 
 ## Limitations
 
-Because of the fact that backend services have different protocols and available options, some usage limitations are present. The table of differences lies below:
+Because of the fact that different chat services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
-| Feature                              | [Slack](backend/slack)       | [Telegram](backend/telegram)       |
+| Feature                              | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
 | ------------------------------------ | ---------------------------- | ---------------------------------- |
 | [`Artist`](command/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
 | [`Bully`](command/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
@@ -55,8 +55,8 @@ Build and run:
 
 ## Configuration
 
-* See [config.example.json](config.example.json) for configuration example.
 * See [Configuration](https://github.com/kpashka/linda/wiki/Configuration) page for detailed information.
+* See [config.example.json](config.example.json) for configuration example.
 
 ## Dependencies
 
