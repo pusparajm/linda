@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"unicode/utf8"
 
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -25,7 +26,7 @@ func New(cfg config.Command) *Artist {
 }
 
 // Return response
-func (c *Artist) Run(params []string) (string, error) {
+func (c *Artist) Run(user *commons.User, params []string) (string, error) {
 	if len(params) < 1 {
 		return "", errors.New("Matching error")
 	}

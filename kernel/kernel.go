@@ -10,8 +10,8 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/kpashka/linda/adapters"
 	"github.com/kpashka/linda/commands"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
-	"github.com/kpashka/linda/event"
 	"github.com/kpashka/linda/hooks"
 )
 
@@ -89,7 +89,7 @@ func (linda *Linda) Start() {
 	}
 
 	log.Infof("Listening to events...")
-	events := make(chan *event.Event)
+	events := make(chan *commons.Event)
 	go linda.adapter.Listen(events)
 
 	for {
@@ -119,11 +119,13 @@ func (linda *Linda) applyHooks(id int, params []string) []string {
 	return params
 }
 
-func (linda *Linda) runCommand(id int, cmd commands.Command, e *event.Event, params []string) {
+func (linda *Linda) runCommand(id int, cmd commands.Command, e *commons.Event, params []string) {
+	// Prepare
 	params = linda.applyHooks(id, params)
+	user := commons.NewUser(e.Username, linda.getNickname(e.Username))
 
 	// Execute command
-	response, err := cmd.Run(params)
+	response, err := cmd.Run(user, params)
 	if err != nil {
 		log.WithFields(log.Fields{
 			"command": linda.configs[id].Name,
@@ -149,9 +151,9 @@ func (linda *Linda) runCommand(id int, cmd commands.Command, e *event.Event, par
 }
 
 // Handle incoming events and pass them to commands
-func (linda *Linda) handleEvent(e *event.Event) {
+func (linda *Linda) handleEvent(e *commons.Event) {
 	// Status change on top-priority
-	if e.Type == event.TypeStatusChange {
+	if e.Type == commons.EventTypeStatusChange {
 		linda.handleStatusChange(e)
 		return
 	}
@@ -196,13 +198,18 @@ func (linda *Linda) handleInterrupt() {
 	}()
 }
 
-// Temporary Slack-only builtin presence change handler
-func (linda *Linda) handleStatusChange(e *event.Event) {
-	// Search for nicknames
-	username := e.Username
+func (linda *Linda) getNickname(username string) string {
 	if nickname, ok := linda.cfg.Params.Nicknames[username]; ok {
-		username = nickname
+		return nickname
 	}
+
+	return username
+}
+
+// Temporary Slack-only builtin presence change handler
+func (linda *Linda) handleStatusChange(e *commons.Event) {
+	// Search for nicknames
+	username := linda.getNickname(e.Username)
 
 	var err error
 	switch e.Status {
@@ -264,7 +271,7 @@ func (linda *Linda) salute(message string) error {
 }
 
 // Defines whether bot should react to event
-func (linda *Linda) shouldReact(id int, cmd commands.Command, e *event.Event) (bool, []string) {
+func (linda *Linda) shouldReact(id int, cmd commands.Command, e *commons.Event) (bool, []string) {
 	expression := linda.expressions[id]
 	matches := expression.FindStringSubmatch(e.Text)
 

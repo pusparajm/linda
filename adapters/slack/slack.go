@@ -5,8 +5,8 @@ import (
 	"time"
 
 	log "github.com/Sirupsen/logrus"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
-	"github.com/kpashka/linda/event"
 	wrapper "github.com/nlopes/slack"
 )
 
@@ -76,7 +76,7 @@ func (adapter *Slack) Init() error {
 }
 
 // Listen to incoming events
-func (adapter *Slack) Listen(events chan *event.Event) {
+func (adapter *Slack) Listen(events chan *commons.Event) {
 	for {
 		select {
 		case msg := <-adapter.chReceiver:
@@ -92,7 +92,9 @@ func (adapter *Slack) Listen(events chan *event.Event) {
 				// Operate only on selected channel
 				if channelName == adapter.cfg.Channel {
 					log.WithField("adapter", adapter.cfg.Type).Debugf("Message: %v", slackEvent)
-					e := event.FromSlackMessage(slackEvent)
+					e := commons.NewEvent().FromSlackMessage(slackEvent)
+					adapter.syncUsers()
+					e.Username = adapter.getUsername(slackEvent.UserId)
 					events <- e
 				}
 
@@ -102,7 +104,7 @@ func (adapter *Slack) Listen(events chan *event.Event) {
 
 				// Get username for presence change event
 				if slackEvent.UserId != adapter.userId {
-					e := event.FromSlackPresenceChange(slackEvent)
+					e := commons.NewEvent().FromSlackStatus(slackEvent)
 					adapter.syncUsers()
 					e.Username = adapter.getUsername(slackEvent.UserId)
 					events <- e
@@ -123,12 +125,12 @@ func (adapter *Slack) Listen(events chan *event.Event) {
 }
 
 // Send message
-func (adapter *Slack) SendMessage(msg string, e *event.Event) error {
-	if e != nil && e.Type == event.TypeMessage && e.SlackMsg.UserId == adapter.userId {
+func (adapter *Slack) SendMessage(msg string, e *commons.Event) error {
+	if e != nil && e.Type == commons.EventTypeMessage && e.SlackMsg.UserId == adapter.userId {
 		return nil
 	}
 
-	if e != nil && e.Type == event.TypeStatusChange && e.SlackPce.UserId == adapter.userId {
+	if e != nil && e.Type == commons.EventTypeStatusChange && e.SlackPce.UserId == adapter.userId {
 		return nil
 	}
 

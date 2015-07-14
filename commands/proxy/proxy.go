@@ -13,6 +13,7 @@ import (
 
 	"github.com/NodePrime/jsonpath"
 	log "github.com/Sirupsen/logrus"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -29,7 +30,7 @@ func New(cfg config.Command) *Proxy {
 }
 
 // Runs service command
-func (c *Proxy) Run(params []string) (string, error) {
+func (c *Proxy) Run(user *commons.User, params []string) (string, error) {
 	// Build request URL
 	requestUrl, err := c.buildRequestUrl(params)
 	if err != nil {
@@ -43,7 +44,7 @@ func (c *Proxy) Run(params []string) (string, error) {
 	}
 
 	// Format response
-	response, err := c.formatResponse(jsonResponse)
+	response, err := c.formatResponse(user, jsonResponse)
 	if err != nil {
 		return "", err
 	}
@@ -101,7 +102,7 @@ func (c *Proxy) doRequest(url string) ([]byte, error) {
 }
 
 // Formats response
-func (c *Proxy) formatResponse(response []byte) (string, error) {
+func (c *Proxy) formatResponse(user *commons.User, response []byte) (string, error) {
 	t, err := template.New("Service Template").Funcs(FuncMap).Parse(c.cfg.Response)
 	if err != nil {
 		return "", err
@@ -141,8 +142,11 @@ func (c *Proxy) formatResponse(response []byte) (string, error) {
 
 			params[name] = param
 		}
-
 	}
+
+	// Override params
+	params["username"] = user.Username
+	params["nickname"] = user.Nickname
 
 	// Execute template to string
 	doc := bytes.Buffer{}

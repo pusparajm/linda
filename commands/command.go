@@ -6,6 +6,7 @@ import (
 	"github.com/kpashka/linda/commands/postman"
 	"github.com/kpashka/linda/commands/proxy"
 	"github.com/kpashka/linda/commands/snitch"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -19,7 +20,7 @@ const (
 
 // Command interface
 type Command interface {
-	Run(params []string) (string, error)
+	Run(user *commons.User, params []string) (string, error)
 }
 
 // Creates new Command instance

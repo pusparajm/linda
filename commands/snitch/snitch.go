@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -20,7 +21,7 @@ func New(cfg config.Command) *Snitch {
 }
 
 // Return response
-func (c *Snitch) Run(params []string) (string, error) {
-	response := fmt.Sprintf("Available commands:\n%s", strings.Join(params, "\n"))
+func (c *Snitch) Run(user *commons.User, params []string) (string, error) {
+	response := fmt.Sprintf("\nAvailable commands:\n%s", strings.Join(params, "\n"))
 	return response, nil
 }

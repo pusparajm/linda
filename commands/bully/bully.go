@@ -1,6 +1,7 @@
 package bully
 
 import (
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -17,6 +18,6 @@ func New(cfg config.Command) *Bully {
 }
 
 // Return response
-func (c *Bully) Run(params []string) (string, error) {
+func (c *Bully) Run(user *commons.User, params []string) (string, error) {
 	return c.cfg.Response, nil
 }

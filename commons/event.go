@@ -1,4 +1,4 @@
-package event
+package commons
 
 import (
 	"github.com/nlopes/slack"
@@ -6,13 +6,14 @@ import (
 )
 
 const (
-	TypeMessage = iota
-	TypeStatusChange
+	EventTypeMessage = iota
+	EventTypeStatusChange
 )
 
 // Abstract event (message or presence change) containing all necessary info for reply
 type Event struct {
-	Type     int
+	Type int
+
 	SlackMsg *slack.MessageEvent
 	SlackPce *slack.PresenceChangeEvent
 	TgMsg    telebot.Message
@@ -22,29 +23,35 @@ type Event struct {
 	Text     string
 }
 
-// Convert slack.MessageEvent to event.Event
-func FromSlackMessage(msg *slack.MessageEvent) *Event {
+func NewEvent() *Event {
 	e := new(Event)
-	e.Type = TypeMessage
+	return e
+}
+
+// Convert slack.MessageEvent to event.Event
+func (e *Event) FromSlackMessage(msg *slack.MessageEvent) *Event {
+	e.Type = EventTypeMessage
 	e.SlackMsg = msg
+
 	e.Text = msg.Text
 	return e
 }
 
 // Convert slack.PresenceChangeEvent to event.Event
-func FromSlackPresenceChange(msg *slack.PresenceChangeEvent) *Event {
-	e := new(Event)
-	e.Type = TypeStatusChange
+func (e *Event) FromSlackStatus(msg *slack.PresenceChangeEvent) *Event {
+	e.Type = EventTypeStatusChange
 	e.SlackPce = msg
+
 	e.Status = msg.Presence
 	return e
 }
 
 // Convert telebot.Message to event.Event
-func FromTelegramMessage(msg telebot.Message) *Event {
-	e := new(Event)
-	e.Type = TypeMessage
+func (e *Event) FromTelegramMessage(msg telebot.Message) *Event {
+	e.Type = EventTypeMessage
+
 	e.TgMsg = msg
 	e.Text = msg.Text
+	e.Username = msg.Sender.Username
 	return e
 }

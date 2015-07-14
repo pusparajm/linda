@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	rss "github.com/jteeuwen/go-pkg-rss"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 )
 
@@ -21,7 +22,7 @@ func New(cfg config.Command) *Postman {
 }
 
 // Return response
-func (c *Postman) Run(params []string) (string, error) {
+func (c *Postman) Run(user *commons.User, params []string) (string, error) {
 	feed := rss.New(10, false, nil, nil)
 
 	if err := feed.Fetch(c.cfg.Url, nil); err != nil {

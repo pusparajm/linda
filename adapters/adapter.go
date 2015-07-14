@@ -3,8 +3,8 @@ package adapters
 import (
 	"github.com/kpashka/linda/adapters/slack"
 	"github.com/kpashka/linda/adapters/telegram"
+	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
-	"github.com/kpashka/linda/event"
 )
 
 const (
@@ -15,8 +15,8 @@ const (
 // Adapter interface
 type Adapter interface {
 	Init() error
-	Listen(events chan *event.Event)
-	SendMessage(msg string, e *event.Event) error
+	Listen(events chan *commons.Event)
+	SendMessage(msg string, e *commons.Event) error
 }
 
 // Creates new Adapter instance
