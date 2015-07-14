@@ -3,6 +3,7 @@ package commands
 import (
 	"github.com/kpashka/linda/commands/artist"
 	"github.com/kpashka/linda/commands/bully"
+	"github.com/kpashka/linda/commands/copycat"
 	"github.com/kpashka/linda/commands/postman"
 	"github.com/kpashka/linda/commands/proxy"
 	"github.com/kpashka/linda/commands/snitch"
@@ -13,6 +14,7 @@ import (
 const (
 	TypeArtist  = "Artist"
 	TypeBully   = "Bully"
+	TypeCopycat = "Copycat"
 	TypePostman = "Postman"
 	TypeProxy   = "Proxy"
 	TypeSnitch  = "Snitch"
@@ -30,6 +32,8 @@ func New(cfg config.Command) Command {
 		return artist.New(cfg)
 	case TypeBully:
 		return bully.New(cfg)
+	case TypeCopycat:
+		return copycat.New(cfg)
 	case TypePostman:
 		return postman.New(cfg)
 	case TypeProxy:

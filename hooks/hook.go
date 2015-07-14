@@ -1,10 +1,12 @@
 package hooks
 
 import (
+	"github.com/kpashka/linda/hooks/cyber"
 	"github.com/kpashka/linda/hooks/translit"
 )
 
 const (
+	TypeCyber    = "cyber"
 	TypeTranslit = "translit"
 )
 
@@ -16,6 +18,8 @@ type Hook interface {
 // Creates new Hook instance
 func New(hook string) Hook {
 	switch hook {
+	case TypeCyber:
+		return cyber.New()
 	case TypeTranslit:
 		return translit.New()
 	default:
