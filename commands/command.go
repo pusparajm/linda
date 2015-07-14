@@ -1,11 +1,11 @@
-package command
+package commands
 
 import (
-	"github.com/kpashka/linda/command/artist"
-	"github.com/kpashka/linda/command/bully"
-	"github.com/kpashka/linda/command/postman"
-	"github.com/kpashka/linda/command/proxy"
-	"github.com/kpashka/linda/command/snitch"
+	"github.com/kpashka/linda/commands/artist"
+	"github.com/kpashka/linda/commands/bully"
+	"github.com/kpashka/linda/commands/postman"
+	"github.com/kpashka/linda/commands/proxy"
+	"github.com/kpashka/linda/commands/snitch"
 	"github.com/kpashka/linda/config"
 )
 

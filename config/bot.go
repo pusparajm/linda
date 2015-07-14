@@ -9,8 +9,8 @@ import (
 
 // Bot configuration
 type Bot struct {
-	// Backend configuration
-	Backend Backend `json:"backend,omitempty"`
+	// Adapter configuration
+	Adapter Adapter `json:"adapter,omitempty"`
 
 	// Commands configuration
 	Commands []Command `json:"commands,omitempty"`

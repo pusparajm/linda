@@ -8,32 +8,35 @@ import (
 	"syscall"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/kpashka/linda/backend"
-	"github.com/kpashka/linda/command"
+	"github.com/kpashka/linda/adapters"
+	"github.com/kpashka/linda/commands"
 	"github.com/kpashka/linda/config"
 	"github.com/kpashka/linda/event"
+	"github.com/kpashka/linda/hooks"
 )
 
 // Bot object
 type Linda struct {
-	backend     backend.Backend
-	commands    []command.Command
+	adapter     adapters.Adapter
+	commands    []commands.Command
 	configs     []config.Command
 	cfg         *config.Bot
 	expressions []*regexp.Regexp
+	hooks       map[string]hooks.Hook
 }
 
 // Create new Bot instance
 func NewLinda(cfg *config.Bot) *Linda {
 	linda := new(Linda)
 	linda.cfg = cfg
-	linda.commands = []command.Command{}
+	linda.commands = []commands.Command{}
+	linda.hooks = map[string]hooks.Hook{}
 	return linda
 }
 
 // Add command to bot
 func (linda *Linda) AddCommand(cfg config.Command) *Linda {
-	cmd := command.New(cfg)
+	cmd := commands.New(cfg)
 	if cmd != nil {
 		r, err := regexp.Compile(cfg.Expression)
 		if err != nil {
@@ -43,6 +46,14 @@ func (linda *Linda) AddCommand(cfg config.Command) *Linda {
 		linda.expressions = append(linda.expressions, r)
 		linda.commands = append(linda.commands, cmd)
 		linda.configs = append(linda.configs, cfg)
+
+		// Prepare hook instances
+		for hook, _ := range cfg.Hooks {
+			if _, ok := linda.hooks[hook]; !ok {
+				log.Infof("Preloading hook %s", hook)
+				linda.hooks[hook] = hooks.New(hook)
+			}
+		}
 	}
 
 	return linda
@@ -63,7 +74,7 @@ func (linda *Linda) Start() {
 	linda.init()
 
 	// Init backend
-	err := linda.backend.Init()
+	err := linda.adapter.Init()
 	if err != nil {
 		log.WithField("error", err.Error()).Fatal("Error initializing backend")
 	}
@@ -79,7 +90,7 @@ func (linda *Linda) Start() {
 
 	log.Infof("Listening to events...")
 	events := make(chan *event.Event)
-	go linda.backend.Listen(events)
+	go linda.adapter.Listen(events)
 
 	for {
 		select {
@@ -89,7 +100,28 @@ func (linda *Linda) Start() {
 	}
 }
 
-func (linda *Linda) runCommand(id int, cmd command.Command, e *event.Event, params []string) {
+func (linda *Linda) applyHooks(id int, params []string) []string {
+	// Apply hooks to params if necessary
+	for hook, hookParams := range linda.configs[id].Hooks {
+		// Find hook
+		if _, ok := linda.hooks[hook]; ok {
+			log.Infof("Applying hook %s in command %s", hook, linda.configs[id].Name)
+
+			// Range over params
+			for _, num := range hookParams {
+				if num < len(params) {
+					params[num] = linda.hooks[hook].Fire(params[num])
+				}
+			}
+		}
+	}
+
+	return params
+}
+
+func (linda *Linda) runCommand(id int, cmd commands.Command, e *event.Event, params []string) {
+	params = linda.applyHooks(id, params)
+
 	// Execute command
 	response, err := cmd.Run(params)
 	if err != nil {
@@ -101,7 +133,7 @@ func (linda *Linda) runCommand(id int, cmd command.Command, e *event.Event, para
 	}
 
 	// Send response
-	err = linda.backend.SendMessage(response, e)
+	err = linda.adapter.SendMessage(response, e)
 	if err != nil {
 		log.WithFields(log.Fields{
 			"command": linda.configs[id].Name,
@@ -130,7 +162,7 @@ func (linda *Linda) handleEvent(e *event.Event) {
 		shouldReact, params := linda.shouldReact(id, cmd, e)
 		if shouldReact {
 			// Override for help command
-			if linda.configs[id].Type == command.TypeSnitch {
+			if linda.configs[id].Type == commands.TypeSnitch {
 				linda.runCommand(id, cmd, e, linda.getDescriptions())
 				continue
 			}
@@ -196,7 +228,7 @@ func (linda *Linda) getDescriptions() []string {
 	return descriptions
 }
 
-// Initialize bot backend
+// Initialize bot adapter
 func (linda *Linda) init() {
 	// Logger setup
 	log.SetFormatter(&log.TextFormatter{ForceColors: true})
@@ -206,10 +238,10 @@ func (linda *Linda) init() {
 	// Set default execution mode
 	linda.cfg.Params.ExecutionMode = config.GetExecutionMode(linda.cfg.Params.ExecutionMode)
 
-	// Init backend
-	linda.backend = backend.New(linda.cfg.Backend)
-	if linda.backend == nil {
-		log.Fatal("Incorrect backend configuration")
+	// Init adapter
+	linda.adapter = adapters.New(linda.cfg.Adapter)
+	if linda.adapter == nil {
+		log.Fatal("Incorrect adapter configuration")
 	}
 
 	// Add commands
@@ -228,11 +260,11 @@ func (linda *Linda) salute(message string) error {
 		return nil
 	}
 
-	return linda.backend.SendMessage(message, nil)
+	return linda.adapter.SendMessage(message, nil)
 }
 
 // Defines whether bot should react to event
-func (linda *Linda) shouldReact(id int, cmd command.Command, e *event.Event) (bool, []string) {
+func (linda *Linda) shouldReact(id int, cmd commands.Command, e *event.Event) (bool, []string) {
 	expression := linda.expressions[id]
 	matches := expression.FindStringSubmatch(e.Text)
 

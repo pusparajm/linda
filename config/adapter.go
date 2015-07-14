@@ -1,8 +1,8 @@
 package config
 
-// Backend configuration
-type Backend struct {
-	// Backend type - Slack, Telegram etc.
+// Adapter configuration
+type Adapter struct {
+	// Adapter type - Slack, Telegram etc.
 	Type string `json:"type,omitempty"`
 
 	// Bot API token

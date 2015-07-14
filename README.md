@@ -60,6 +60,7 @@ Build and run:
 
 ## Dependencies
 
+* [`fiam/gounidecode`](https://github.com/fiam/gounidecode)
 * [`jteeuwen/go-pkg-rss`](https://github.com/jteeuwen/go-pkg-rss)
 * [`nlopes/slack`](https://github.com/nlopes/slack)
 * [`NodePrime/jsonpath`](https://github.com/NodePrime/jsonpath)
