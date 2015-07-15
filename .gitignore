@@ -1,4 +1,5 @@
 *.exe
 *.tmp
+linda.sh
 config.json
 config.telegram.json
