@@ -8,61 +8,73 @@ import (
 	"syscall"
 
 	log "github.com/Sirupsen/logrus"
+
 	"github.com/kpashka/linda/adapters"
 	"github.com/kpashka/linda/commands"
 	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
-	"github.com/kpashka/linda/hooks"
+	"github.com/kpashka/linda/filters"
 )
 
 // Bot object
 type Linda struct {
 	adapter     adapters.Adapter
-	commands    []commands.Command
-	configs     []config.Command
+	commands    map[string]commands.Command
+	configs     map[string]config.Command
 	cfg         *config.Bot
-	expressions []*regexp.Regexp
-	hooks       map[string]hooks.Hook
+	expressions map[string]*regexp.Regexp
+	filters     map[string]filters.Filter
 }
 
 // Create new Bot instance
 func NewLinda(cfg *config.Bot) *Linda {
 	linda := new(Linda)
 	linda.cfg = cfg
-	linda.commands = []commands.Command{}
-	linda.hooks = map[string]hooks.Hook{}
+
+	linda.commands = map[string]commands.Command{}
+	linda.configs = map[string]config.Command{}
+	linda.expressions = map[string]*regexp.Regexp{}
+	linda.filters = map[string]filters.Filter{}
 	return linda
 }
 
 // Add command to bot
-func (linda *Linda) AddCommand(cfg config.Command) *Linda {
-	cmd := commands.New(cfg)
+func (linda *Linda) AddCommand(id string, cfg config.Command) *Linda {
+	cmd := commands.New(id, cfg)
+
 	if cmd != nil {
 		r, err := regexp.Compile(cfg.Expression)
 		if err != nil {
-			log.Fatalf("Invalid expression in command %s", cfg.Name)
+			log.Fatalf("Invalid regular expression in command [%s]", id)
 		}
 
-		linda.expressions = append(linda.expressions, r)
-		linda.commands = append(linda.commands, cmd)
-		linda.configs = append(linda.configs, cfg)
+		// Save all instances
+		linda.expressions[id] = r
+		linda.commands[id] = cmd
+		linda.configs[id] = cfg
 
-		// Prepare hook instances
-		for hook, _ := range cfg.Hooks {
-			if _, ok := linda.hooks[hook]; !ok {
-				log.Infof("Preloading hook %s", hook)
-				linda.hooks[hook] = hooks.New(hook)
+		// Prepare filters if necessary
+		for _, filtersList := range cfg.Filters {
+			for _, name := range filtersList {
+				if name != "" {
+					log.Infof("Preloading hook [%s]", name)
+					linda.filters[name] = filters.New(name)
+				}
 			}
 		}
+
+	} else {
+		log.Errorf("Failed to load command [%s]", id)
 	}
 
 	return linda
 }
 
 // Add multiple commands to bot
-func (linda *Linda) AddCommands(configurations ...config.Command) *Linda {
-	for _, cfg := range configurations {
-		linda.AddCommand(cfg)
+func (linda *Linda) AddCommands(configurations map[string]config.Command) *Linda {
+	for id, cfg := range configurations {
+		log.Infof("Initializing command [%s]", id)
+		linda.AddCommand(id, cfg)
 	}
 
 	return linda
@@ -76,7 +88,7 @@ func (linda *Linda) Start() {
 	// Init backend
 	err := linda.adapter.Init()
 	if err != nil {
-		log.WithField("error", err.Error()).Fatal("Error initializing backend")
+		log.WithField("error", err.Error()).Fatal("Error initializing adapter")
 	}
 
 	// Handle process interruption
@@ -85,7 +97,7 @@ func (linda *Linda) Start() {
 	// Say hello if necessary
 	err = linda.salute(linda.cfg.Params.Salutes.Greeting)
 	if err != nil {
-		log.WithField("error", err.Error()).Error("Error while saying hello")
+		log.WithField("error", err.Error()).Error("Error when greeting")
 	}
 
 	log.Infof("Listening to events...")
@@ -100,64 +112,52 @@ func (linda *Linda) Start() {
 	}
 }
 
-func (linda *Linda) applyHooks(id int, params []string) []string {
-	// Apply hooks to params if necessary
-	for hook, hookParams := range linda.configs[id].Hooks {
-		// Find hook
-		if _, ok := linda.hooks[hook]; ok {
-			log.Infof("Applying hook %s in command %s", hook, linda.configs[id].Name)
+// Initialize bot adapter
+func (linda *Linda) init() {
+	// Logger setup
+	log.SetFormatter(&log.TextFormatter{ForceColors: true})
+	log.SetLevel(config.StringToLogLevel(linda.cfg.Params.LogLevel))
+	log.Infof("Initializing Linda...")
 
-			// Range over params
-			for _, num := range hookParams {
-				if num < len(params) {
-					params[num] = linda.hooks[hook].Fire(params[num])
-				}
-			}
-		}
+	// Set default execution mode
+	linda.cfg.Params.ExecutionMode = config.GetExecutionMode(linda.cfg.Params.ExecutionMode)
+
+	// Init adapter
+	linda.adapter = adapters.New(linda.cfg.Adapter)
+	if linda.adapter == nil {
+		log.Fatal("Incorrect adapter configuration")
 	}
 
-	return params
+	// Add commands
+	linda.AddCommand("help", config.NewHelpCommand())
+	linda.AddCommands(linda.cfg.Commands)
 }
 
-func (linda *Linda) runCommand(id int, cmd commands.Command, e *commons.Event, params []string) {
-	// Prepare
-	params = linda.applyHooks(id, params)
-	user := commons.NewUser(e.Username, linda.getNickname(e.Username))
-
-	// Execute command
-	response, err := cmd.Run(user, params)
-	if err != nil {
-		log.WithFields(log.Fields{
-			"command": linda.configs[id].Name,
-			"error":   err.Error(),
-		}).Errorf("Error executing command")
-
-		// Send error back to chat if tracing mode is active
-		if linda.cfg.Params.Tracing {
-			response = err.Error()
-		} else {
-			return
-		}
+func (linda *Linda) salute(message string) error {
+	// Don't salute if shy
+	if linda.cfg.Params.Shy {
+		return nil
 	}
 
-	// Send response
-	err = linda.adapter.SendMessage(response, e)
-	if err != nil {
-		log.WithFields(log.Fields{
-			"command": linda.configs[id].Name,
-			"error":   err.Error(),
-		}).Errorf("Error sending message")
-		return
+	// Don't salute if empty message
+	if len(message) == 0 {
+		return nil
 	}
 
-	// Don't execute other commands if necessary
-	if linda.cfg.Params.ExecutionMode == config.ExecutionModeFirst {
-		return
-	}
+	return linda.sendMessage(message, nil)
+}
+
+func (linda *Linda) sendMessage(message string, event *commons.Event) error {
+	return linda.adapter.SendMessage(message, event)
 }
 
 // Handle incoming events and pass them to commands
 func (linda *Linda) handleEvent(e *commons.Event) {
+	// Ignore own events
+	if e.UserId == linda.adapter.BotId() {
+		return
+	}
+
 	// Status change on top-priority
 	if e.Type == commons.EventTypeStatusChange {
 		linda.handleStatusChange(e)
@@ -169,19 +169,142 @@ func (linda *Linda) handleEvent(e *commons.Event) {
 		// Define if should react to command by expression
 		shouldReact, params := linda.shouldReact(id, cmd, e)
 		if shouldReact {
+			log.Infof("Found pattern for command [%s]", id)
+
 			// Override for help command
-			if linda.configs[id].Type == commands.TypeSnitch {
+			if linda.configs[id].Type == commands.TypeHelp {
 				linda.runCommand(id, cmd, e, linda.getDescriptions())
-				continue
+			} else {
+				// Run other commands as usual
+				linda.runCommand(id, cmd, e, params)
 			}
 
-			// Run other commands as usual
-			linda.runCommand(id, cmd, e, params)
+			// Don't execute other commands if necessary
+			if linda.cfg.Params.ExecutionMode == config.ExecutionModeFirst {
+				return
+			}
 		}
 	}
 }
 
-// Handle program interruption
+// Defines whether bot should react to event
+func (linda *Linda) shouldReact(id string, cmd commands.Command, e *commons.Event) (bool, []string) {
+	expression := linda.expressions[id]
+	matches := expression.FindStringSubmatch(e.Text)
+
+	if len(matches) > 0 {
+		return true, matches
+	}
+
+	return false, matches
+}
+
+// Execute specified command
+func (linda *Linda) runCommand(id string, cmd commands.Command, e *commons.Event, params []string) {
+	// Prepare
+	params = linda.applyFilters(id, params)
+	user := commons.NewUser(e.Username, linda.getNickname(e.Username))
+
+	// Execute command
+	response, err := cmd.Run(user, params)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error()}).Errorf("Error executing command [%s]", id)
+
+		// Send error back to chat if tracing mode is active
+		if linda.cfg.Params.Tracing {
+			response = err.Error()
+		} else {
+			return
+		}
+	}
+
+	// Send response
+	err = linda.sendMessage(response, e)
+	if err != nil {
+		log.WithFields(log.Fields{"error": err.Error()}).Errorf("Error sending message from command [%s]", id)
+		return
+	}
+}
+
+// Apply specified filter
+func (linda *Linda) applyFilter(filter, param string) string {
+	if _, ok := linda.filters[filter]; ok {
+		param = linda.filters[filter](param)
+	}
+
+	return param
+}
+
+// Apply filters for command parameters
+func (linda *Linda) applyFilters(id string, params []string) []string {
+	length := len(params)
+	if length == 0 {
+		return params
+	}
+
+	for p, hooks := range linda.configs[id].Filters {
+		for _, name := range hooks {
+			if p < length && name != "" {
+				log.Infof("Applying filter [%s] for param [%d] in command [%s]", name, p, id)
+				params[p] = linda.applyFilter(name, params[p])
+			}
+		}
+	}
+
+	return params
+}
+
+// Get user nickname from config
+func (linda *Linda) getNickname(username string) string {
+	if nickname, ok := linda.cfg.Params.Nicknames[username]; ok {
+		return nickname
+	}
+
+	return username
+}
+
+// Get each command description for `help` command
+func (linda *Linda) getDescriptions() []string {
+	descriptions := []string{}
+	markdown := linda.adapter.Markdown()
+
+	for id, _ := range linda.commands {
+		description := linda.getDescription(id, markdown)
+		descriptions = append(descriptions, description)
+	}
+
+	return descriptions
+}
+
+// Get specified command description
+func (linda *Linda) getDescription(id string, markdown bool) string {
+	template := "[%s] - %s"
+	if markdown {
+		template = "*%s* - %s"
+	}
+
+	return fmt.Sprintf(template, id, linda.configs[id].Description)
+}
+
+// Temporary Slack-only builtin presence change handler
+func (linda *Linda) handleStatusChange(e *commons.Event) {
+	// Search for nicknames
+	username := linda.getNickname(e.Username)
+
+	var err error
+	switch e.Status {
+	case "active":
+		err = linda.salute(fmt.Sprintf(linda.cfg.Params.Salutes.UserActive, username))
+	case "away":
+		err = linda.salute(fmt.Sprintf(linda.cfg.Params.Salutes.UserAway, username))
+	}
+
+	if err != nil {
+		log.WithField("error", err.Error()).Errorf("Error while saluting user")
+	}
+}
+
+// Handle program interruption / termination
 func (linda *Linda) handleInterrupt() {
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt)
@@ -202,88 +325,4 @@ func (linda *Linda) handleInterrupt() {
 		log.Infof("Interrupted...")
 		os.Exit(1)
 	}()
-}
-
-func (linda *Linda) getNickname(username string) string {
-	if nickname, ok := linda.cfg.Params.Nicknames[username]; ok {
-		return nickname
-	}
-
-	return username
-}
-
-// Temporary Slack-only builtin presence change handler
-func (linda *Linda) handleStatusChange(e *commons.Event) {
-	// Search for nicknames
-	username := linda.getNickname(e.Username)
-
-	var err error
-	switch e.Status {
-	case "active":
-		err = linda.salute(fmt.Sprintf(linda.cfg.Params.Salutes.UserEntered, username))
-	case "away":
-		err = linda.salute(fmt.Sprintf(linda.cfg.Params.Salutes.UserLeft, username))
-	}
-
-	if err != nil {
-		log.WithField("error", err.Error()).Errorf("Error while saluting user")
-	}
-}
-
-func (linda *Linda) getDescriptions() []string {
-	descriptions := []string{}
-
-	for _, cfg := range linda.configs {
-		description := fmt.Sprintf("*%s* - %s", cfg.Name, cfg.Description)
-		descriptions = append(descriptions, description)
-	}
-
-	return descriptions
-}
-
-// Initialize bot adapter
-func (linda *Linda) init() {
-	// Logger setup
-	log.SetFormatter(&log.TextFormatter{ForceColors: true})
-	log.SetLevel(config.StringToLogLevel(linda.cfg.Params.LogLevel))
-	log.Infof("Initializing...")
-
-	// Set default execution mode
-	linda.cfg.Params.ExecutionMode = config.GetExecutionMode(linda.cfg.Params.ExecutionMode)
-
-	// Init adapter
-	linda.adapter = adapters.New(linda.cfg.Adapter)
-	if linda.adapter == nil {
-		log.Fatal("Incorrect adapter configuration")
-	}
-
-	// Add commands
-	linda.AddCommand(config.NewHelpCommand())
-	linda.AddCommands(linda.cfg.Commands...)
-}
-
-func (linda *Linda) salute(message string) error {
-	// Don't salute if shy
-	if linda.cfg.Params.Shy {
-		return nil
-	}
-
-	// Don't salute if empty message
-	if len(message) == 0 {
-		return nil
-	}
-
-	return linda.adapter.SendMessage(message, nil)
-}
-
-// Defines whether bot should react to event
-func (linda *Linda) shouldReact(id int, cmd commands.Command, e *commons.Event) (bool, []string) {
-	expression := linda.expressions[id]
-	matches := expression.FindStringSubmatch(e.Text)
-
-	if len(matches) > 0 {
-		return true, matches
-	}
-
-	return false, matches
 }

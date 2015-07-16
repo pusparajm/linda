@@ -33,6 +33,16 @@ func New(cfg config.Adapter) *Slack {
 	return adapter
 }
 
+// Has markdown support
+func (adapter *Slack) Markdown() bool {
+	return true
+}
+
+// Returns bot ID
+func (adapter *Slack) BotId() string {
+	return adapter.userId
+}
+
 // Initialize Slack adapter
 func (adapter *Slack) Init() error {
 	// Initialize Slack API
@@ -126,14 +136,6 @@ func (adapter *Slack) Listen(events chan *commons.Event) {
 
 // Send message
 func (adapter *Slack) SendMessage(msg string, e *commons.Event) error {
-	if e != nil && e.Type == commons.EventTypeMessage && e.SlackMsg.UserId == adapter.userId {
-		return nil
-	}
-
-	if e != nil && e.Type == commons.EventTypeStatusChange && e.SlackPce.UserId == adapter.userId {
-		return nil
-	}
-
 	channel := fmt.Sprintf("#%s", adapter.cfg.Channel)
 	_, _, err := adapter.api.PostMessage(channel, msg, adapter.msgParams)
 	return err

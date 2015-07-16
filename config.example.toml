@@ -1,0 +1,53 @@
+# Example bot configuration
+
+[adapter]
+type 	= "slack"
+token 	= "YOUR_SLACK_API_TOKEN_HERE"
+channel = "general"
+
+[commands]
+
+	# Translit
+	[commands.translit]
+	type 		= "copycat"
+	description = "Transliterates text. Usage: `!translit <input>`"
+	filters 	= [[""], ["translit"]]
+	expression 	= "(?i)!translit (.*)"
+
+	# MD5
+	[commands.md5]
+	type 		= "copycat"
+	description = "Calculates md5 sum of text. Usage: `!md5 <input>`"
+	filters 	= [[""], ["md5"]]
+	expression 	= "(?i)!md5 (.*)"
+
+	# Base64
+	[commands.base64]
+	type 		= "copycat"
+	description = "Encodes text to base64. Usage: `!base64 <input>`"
+	filters 	= [[""], ["base64"]]
+	expression 	= "(?i)!base64 (.*)"
+
+	# Uppercase
+	[commands.uppercase]
+	type 		= "copycat"
+	description = "Uppercases text. Usage: `!uppercase <input>`"
+	filters 	= [[""], ["uppercase"]]
+	expression 	= "(?i)!uppercase (.*)"
+
+[params]
+execution_mode 	= "first"
+log_level 		= "debug"
+shy_mode		= true
+trace_errors	= true
+
+	# Nicknames
+	[params.nicknames]
+	kpashka 	= "Pasha"
+
+	# Salutes
+	[params.salutes]
+	greeting 	= "Hi, guys!"
+	farewell 	= "Bye, guys!"
+	user_active = "Nice to meet you, %s!"
+	user_away 	= "Please return, %s!"

@@ -1,6 +1,8 @@
 package commons
 
 import (
+	"strconv"
+
 	"github.com/nlopes/slack"
 	"github.com/tucnak/telebot"
 )
@@ -20,6 +22,7 @@ type Event struct {
 
 	Status   string
 	Username string
+	UserId   string
 	Text     string
 }
 
@@ -34,6 +37,7 @@ func (e *Event) FromSlackMessage(msg *slack.MessageEvent) *Event {
 	e.SlackMsg = msg
 
 	e.Text = msg.Text
+	e.UserId = msg.UserId
 	return e
 }
 
@@ -43,6 +47,7 @@ func (e *Event) FromSlackStatus(msg *slack.PresenceChangeEvent) *Event {
 	e.SlackPce = msg
 
 	e.Status = msg.Presence
+	e.Username = msg.UserId
 	return e
 }
 
@@ -53,5 +58,6 @@ func (e *Event) FromTelegramMessage(msg telebot.Message) *Event {
 	e.TgMsg = msg
 	e.Text = msg.Text
 	e.Username = msg.Sender.Username
+	e.UserId = strconv.Itoa(msg.Sender.ID)
 	return e
 }

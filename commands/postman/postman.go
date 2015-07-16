@@ -10,12 +10,14 @@ import (
 )
 
 type Postman struct {
+	id    string
 	cache map[string]int
 	cfg   config.Command
 }
 
-func New(cfg config.Command) *Postman {
+func New(id string, cfg config.Command) *Postman {
 	c := new(Postman)
+	c.id = id
 	c.cache = map[string]int{}
 	c.cfg = cfg
 	return c

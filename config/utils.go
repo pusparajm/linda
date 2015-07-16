@@ -4,11 +4,10 @@ import (
 	log "github.com/Sirupsen/logrus"
 )
 
-// Returns built-in Help command
+// Returns built-in Help command configuration
 func NewHelpCommand() Command {
 	return Command{
-		Type:        "Snitch",
-		Name:        "help",
+		Type:        "help",
 		Description: "Displays a list of commands. Usage: `!help`",
 		Expression:  "(?i)!help",
 	}

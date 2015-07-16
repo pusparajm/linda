@@ -19,12 +19,14 @@ import (
 
 // Proxy command - performs HTTP request to JSON API and returns result
 type Proxy struct {
+	id  string
 	cfg config.Command
 }
 
 // Creates new instance of proxy command
-func New(cfg config.Command) *Proxy {
+func New(id string, cfg config.Command) *Proxy {
 	c := new(Proxy)
+	c.id = id
 	c.cfg = cfg
 	return c
 }
@@ -71,7 +73,7 @@ func (c *Proxy) buildRequestUrl(params []string) (string, error) {
 
 // Performs http request
 func (c *Proxy) doRequest(url string) ([]byte, error) {
-	log.WithField("command", c.cfg.Name).Infof("Requesting URL: %s", url)
+	log.WithField("command", c.id).Infof("Requesting URL: %s", url)
 	response, err := http.Get(url)
 	if err != nil {
 		return nil, err

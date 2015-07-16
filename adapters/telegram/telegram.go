@@ -1,6 +1,7 @@
 package telegram
 
 import (
+	"strconv"
 	"time"
 
 	log "github.com/Sirupsen/logrus"
@@ -21,6 +22,16 @@ func New(cfg config.Adapter) *Telegram {
 	adapter := new(Telegram)
 	adapter.cfg = cfg
 	return adapter
+}
+
+// Has no markdown support
+func (adapter *Telegram) Markdown() bool {
+	return false
+}
+
+// Returns bot ID
+func (adapter *Telegram) BotId() string {
+	return strconv.Itoa(adapter.bot.Identity.ID)
 }
 
 // Initialize Telegram adapter
@@ -52,10 +63,6 @@ func (adapter *Telegram) Listen(events chan *commons.Event) {
 
 // Send message
 func (adapter *Telegram) SendMessage(msg string, e *commons.Event) error {
-	if e != nil && e.TgMsg.Sender.ID == adapter.bot.Identity.ID {
-		return nil
-	}
-
 	options := telebot.SendOptions{}
 	if e != nil {
 		options.ReplyTo = e.TgMsg

@@ -8,14 +8,16 @@ import (
 )
 
 const (
-	TypeSlack    = "Slack"
-	TypeTelegram = "Telegram"
+	TypeSlack    = "slack"
+	TypeTelegram = "telegram"
 )
 
 // Adapter interface
 type Adapter interface {
+	BotId() string
 	Init() error
 	Listen(events chan *commons.Event)
+	Markdown() bool
 	SendMessage(msg string, e *commons.Event) error
 }
 

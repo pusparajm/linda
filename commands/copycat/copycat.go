@@ -9,12 +9,14 @@ import (
 
 // Help command, nothing valuable here
 type Copycat struct {
+	id  string
 	cfg config.Command
 }
 
 // Create new Copycat instance
-func New(cfg config.Command) *Copycat {
+func New(id string, cfg config.Command) *Copycat {
 	c := new(Copycat)
+	c.id = id
 	c.cfg = cfg
 	return c
 }

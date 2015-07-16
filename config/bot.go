@@ -1,23 +1,12 @@
 package config
 
 import (
-	"encoding/json"
 	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"github.com/BurntSushi/toml"
 )
-
-// Bot configuration
-type Bot struct {
-	// Adapter configuration
-	Adapter Adapter `json:"adapter,omitempty"`
-
-	// Commands configuration
-	Commands []Command `json:"commands,omitempty"`
-
-	// Additional bot parameters
-	Params Params `json:"params,omitempty"`
-}
 
 // Create new bot configuration instance
 func New() *Bot {
@@ -27,50 +16,35 @@ func New() *Bot {
 
 // Load configuration from specified location
 func (bot *Bot) Load(location string) error {
+	var bytes []byte
 	var err error
+
+	// Load file / url
 	if strings.Contains(location, "http://") || strings.Contains(location, "https://") {
-		err = bot.loadFromUrl(location)
+		bytes, err = bot.loadFromUrl(location)
 	} else {
-		err = bot.loadFromFile(location)
+		bytes, err = ioutil.ReadFile(location)
+	}
+
+	if err != nil {
+		return err
+	}
+
+	// Load config from bytes
+	if _, err := toml.Decode(string(bytes), bot); err != nil {
+		return err
 	}
 
 	return err
 }
 
-// Load configuration from file
-func (bot *Bot) loadFromFile(location string) error {
-	// Read config file
-	bytes, err := ioutil.ReadFile(location)
-	if err != nil {
-		return err
-	}
-
-	// Create config instance
-	err = json.Unmarshal(bytes, bot)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
 // Load configuration from URL
-func (bot *Bot) loadFromUrl(location string) error {
+func (bot *Bot) loadFromUrl(location string) ([]byte, error) {
 	response, err := http.Get(location)
 	if err != nil {
-		return err
+		return nil, err
 	}
 
 	defer response.Body.Close()
-	bytes, err := ioutil.ReadAll(response.Body)
-	if err != nil {
-		return err
-	}
-
-	err = json.Unmarshal(bytes, bot)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return ioutil.ReadAll(response.Body)
 }

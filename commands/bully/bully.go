@@ -7,12 +7,14 @@ import (
 
 // Bully - simple command that react with static phrase to expression
 type Bully struct {
+	id  string
 	cfg config.Command
 }
 
 // Create new Bully instance
-func New(cfg config.Command) *Bully {
+func New(id string, cfg config.Command) *Bully {
 	c := new(Bully)
+	c.id = id
 	c.cfg = cfg
 	return c
 }

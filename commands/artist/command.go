@@ -15,12 +15,14 @@ const (
 )
 
 type Artist struct {
+	id           string
 	cfg          config.Command
 	currentToken string
 }
 
-func New(cfg config.Command) *Artist {
+func New(id string, cfg config.Command) *Artist {
 	c := new(Artist)
+	c.id = id
 	c.cfg = cfg
 	return c
 }
