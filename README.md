@@ -18,13 +18,13 @@ Navigation:
 	* [`slack`](adapters/slack)
 	* [`telegram`](adapters/telegram)<sup>beta</sup> 
 * Configurable commands:
-	* [`artist`](command/artist) - draws symbolic ASCII art from input word.
-	* [`bully`](command/bully) - reacts with pre-defined phrase to matched text.
-	* [`copycat`](command/copycat) - returns same text, can be powerful in combination with filters.
-	* [`postman`](command/postman) - grabs latest unread item from RSS/Atom feed.
-	* [`proxy`](command/proxy) - fetches JSON document from URL, returns computed template.
+	* [`artist`](commands/artist) - draws symbolic ASCII art from input word.
+	* [`bully`](commands/bully) - reacts with pre-defined phrase to matched text.
+	* [`copycat`](commands/copycat) - returns same text, can be powerful in combination with filters.
+	* [`postman`](commands/postman) - grabs latest unread item from RSS/Atom feed.
+	* [`proxy`](commands/proxy) - fetches JSON document from URL, returns computed template.
 * Built-in commands:
-	* [`help`](command/help) - prints information about instanced commands.
+	* [`help`](commands/help) - prints information about instanced commands.
 * Built-in filters:
 	* `base64` - encodes input text to base64.
 	* `md5` - calculates md5 sum of input text.
@@ -39,16 +39,16 @@ Navigation:
 
 Because of the fact that different chat services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
-| Feature                              | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
-| ------------------------------------ | ---------------------------- | ---------------------------------- |
-| [`artist`](command/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
-| [`bully`](command/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`copycat`](command/copycat) command | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`help`](command/help) command   	   | :white_check_mark: Supported | :white_check_mark: Supported	   |
-| [`postman`](command/postman) command | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`proxy`](command/proxy) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
-| Greetings & farewells                | :white_check_mark: Supported | :x: (TBD)                          |
-| Status change reactions              | :white_check_mark: Supported | :x: (TBD)                          |
+| Feature                               | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
+| ------------------------------------- | ---------------------------- | ---------------------------------- |
+| [`artist`](commands/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
+| [`bully`](commands/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [`copycat`](commands/copycat) command | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [`help`](commands/help) command   	| :white_check_mark: Supported | :white_check_mark: Supported	    |
+| [`postman`](commands/postman) command | :white_check_mark: Supported | :white_check_mark: Supported       |
+| [`proxy`](commands/proxy) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
+| Greetings & farewells                 | :white_check_mark: Supported | :x: (TBD)                          |
+| Status change reactions               | :white_check_mark: Supported | :x: (TBD)                          |
 
 ## Installation
 
