@@ -11,28 +11,28 @@ channel	= "general"
 	[commands.translit]
 	type		= "copycat"
 	description	= "Transliterates text. Usage: `!translit <input>`"
-	filters		= [[""], ["translit"]]
+	filters		= [[], ["translit"]]
 	expression	= "(?i)!translit (.*)"
 
 	# MD5
 	[commands.md5]
 	type		= "copycat"
 	description	= "Calculates md5 sum of text. Usage: `!md5 <input>`"
-	filters		= [[""], ["md5"]]
+	filters		= [[], ["md5"]]
 	expression	= "(?i)!md5 (.*)"
 
 	# Base64
 	[commands.base64]
 	type		= "copycat"
 	description	= "Encodes text to base64. Usage: `!base64 <input>`"
-	filters		= [[""], ["base64"]]
+	filters		= [[], ["base64"]]
 	expression	= "(?i)!base64 (.*)"
 
 	# Uppercase
 	[commands.uppercase]
 	type		= "copycat"
 	description	= "Uppercases text. Usage: `!uppercase <input>`"
-	filters		= [[""], ["uppercase"]]
+	filters		= [[], ["uppercase"]]
 	expression	= "(?i)!uppercase (.*)"
 
 [params]
