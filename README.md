@@ -33,7 +33,7 @@ Navigation:
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change.
-	* "Shy mode" in case of being annoyed by chatterbox servant.
+	* "Shy mode" in case of being annoyed by chatterbox.
 
 ## Limitations
 
