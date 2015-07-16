@@ -14,7 +14,7 @@ Navigation:
 
 ## Features
 
-* Different backends support:
+* Different adapters support:
 	* [`slack`](adapters/slack)
 	* [`telegram`](adapters/telegram)<sup>beta</sup> 
 * Configurable commands:
