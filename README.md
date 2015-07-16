@@ -62,7 +62,7 @@ Build and run:
 
 ## Configuration
 
-* See [config.example.toml](config.example.toml) for configuration example.
+* See [linda.example.toml](linda.example.toml) for configuration example.
 
 ## Dependencies
 

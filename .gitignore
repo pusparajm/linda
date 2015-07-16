@@ -1,5 +1,3 @@
 *.exe
 *.tmp
-linda.sh
-config.toml
-config.json
+linda.toml

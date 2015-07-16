@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// Parse command-line flags
-	location := flag.String("c", "config.toml", "Config file location (URL or filesystem)")
+	location := flag.String("c", "linda.toml", "Config file location (URL or filesystem)")
 	flag.Parse()
 
 	// Load configuration
