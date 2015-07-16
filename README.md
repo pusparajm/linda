@@ -39,7 +39,7 @@ Navigation:
 
 Because of the fact that different chat services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
-| Feature                              | [`slack`](adapters/slack)    | [`telegram`](adapters/telegram)    |
+| Feature                              | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
 | ------------------------------------ | ---------------------------- | ---------------------------------- |
 | [`artist`](command/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
 | [`bully`](command/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
