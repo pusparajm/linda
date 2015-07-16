@@ -58,7 +58,7 @@ Build and run:
 	$ cd $GOPATH/src/github.com/kpashka/linda
 	$ git clone https://github.com/kpashka/linda .
 	$ go get -v ./...
-	$ go build && ./linda -c config.toml
+	$ go build && ./linda
 
 ## Configuration
 
