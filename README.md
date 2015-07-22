@@ -18,7 +18,6 @@ Navigation:
 	* [`slack`](adapters/slack)
 	* [`telegram`](adapters/telegram)<sup>beta</sup> 
 * Configurable commands:
-	* [`artist`](commands/artist) - draws symbolic ASCII art from input word.
 	* [`bully`](commands/bully) - reacts with pre-defined phrase to matched text.
 	* [`copycat`](commands/copycat) - returns same text, can be powerful in combination with filters.
 	* [`postman`](commands/postman) - grabs latest unread item from RSS/Atom feed.
@@ -33,7 +32,7 @@ Navigation:
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change.
-	* "Shy mode" in case of being annoyed by chatterbox.
+	* `shy mode` in case of being annoyed by chatterbox.
 
 ## Limitations
 
@@ -41,7 +40,6 @@ Because of the fact that different chat services have different protocols and av
 
 | Feature                               | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
 | ------------------------------------- | ---------------------------- | ---------------------------------- |
-| [`artist`](commands/artist) command   | :white_check_mark: Supported | :x: (no Markdown support)          |
 | [`bully`](commands/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
 | [`copycat`](commands/copycat) command | :white_check_mark: Supported | :white_check_mark: Supported       |
 | [`help`](commands/help) command   	| :white_check_mark: Supported | :white_check_mark: Supported	    |
