@@ -20,10 +20,9 @@ Navigation:
 * Configurable commands:
 	* [`bully`](commands/bully) - reacts with pre-defined phrase to matched text.
 	* [`copycat`](commands/copycat) - returns same text, can be powerful in combination with filters.
+	* [`help`](commands/help) - prints information about instanced commands.
 	* [`postman`](commands/postman) - grabs latest unread item from RSS/Atom feed.
 	* [`proxy`](commands/proxy) - fetches JSON document from URL, returns computed template.
-* Built-in commands:
-	* [`help`](commands/help) - prints information about instanced commands.
 * Built-in filters:
 	* `base64` - encodes input text to base64.
 	* `md5` - calculates md5 sum of input text.
