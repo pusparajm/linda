@@ -20,7 +20,7 @@ Navigation:
 * Configurable commands:
 	* [`bully`](commands/bully) - reacts with pre-defined phrase to matched text.
 	* [`copycat`](commands/copycat) - returns same text, can be powerful in combination with filters.
-	* [`help`](commands/help) - prints information about instanced commands.
+	* [`help`](commands/help) - prints information about instantiated commands.
 	* [`postman`](commands/postman) - grabs latest unread item from RSS/Atom feed.
 	* [`proxy`](commands/proxy) - fetches JSON document from URL, returns computed template.
 * Built-in filters:
