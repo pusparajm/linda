@@ -2,7 +2,13 @@
 
 [![Build Status](https://travis-ci.org/kpashka/linda.svg)](https://travis-ci.org/kpashka/linda) [![GoDoc](https://godoc.org/github.com/kpashka/linda?status.svg)](https://godoc.org/github.com/kpashka/linda)
 
-:princess: Multi-platform, highly configurable conference bot.
+Multi-platform, highly configurable conference bot.
+
+Example usage:
+
+<p align="center">
+	<img src="http://i.imgur.com/cDKo8FA.png">
+</p>
 
 Navigation:
 
