@@ -1,0 +1,46 @@
+{
+	"ImportPath": "github.com/kpashka/linda",
+	"GoVersion": "go1.4.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/BurntSushi/toml",
+			"Comment": "v0.1.0-21-g056c9bc",
+			"Rev": "056c9bc7be7190eaa7715723883caffa5f8fa3e4"
+		},
+		{
+			"ImportPath": "github.com/NodePrime/jsonpath",
+			"Comment": "v0.3.1-9-g84403de",
+			"Rev": "84403ded544328c99be3472727667179eef23a91"
+		},
+		{
+			"ImportPath": "github.com/Sirupsen/logrus",
+			"Comment": "v0.8.3-3-g07d998d",
+			"Rev": "07d998d174c4e2dc90e2f1989a20724220bca1ff"
+		},
+		{
+			"ImportPath": "github.com/fiam/gounidecode/unidecode",
+			"Rev": "8deddbd03fec2c28969266e52f27b6fb22be1823"
+		},
+		{
+			"ImportPath": "github.com/jteeuwen/go-pkg-rss",
+			"Rev": "5576b8d83ed75cbb4bc43ef18c07414f880b3472"
+		},
+		{
+			"ImportPath": "github.com/jteeuwen/go-pkg-xmlx",
+			"Rev": "cf505b97c711dd1c5a4682f68ea04dd35e385b8f"
+		},
+		{
+			"ImportPath": "github.com/nlopes/slack",
+			"Rev": "1da32686c2e7143de764729a1d52732047f7aa84"
+		},
+		{
+			"ImportPath": "github.com/tucnak/telebot",
+			"Comment": "v1.0",
+			"Rev": "40c91ee0b4c635ca2f520c54617306092cabb845"
+		},
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "d9558e5c97f85372afee28cf2b6059d7d3818919"
+		}
+	]
+}

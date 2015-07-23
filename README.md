@@ -16,7 +16,7 @@ Navigation:
 1. [Limitations](#limitations)
 1. [Installation](#installation)
 1. [Configuration](#configuration)
-1. [Dependencies](#dependencies)
+1. [Credits](#credits)
 
 ## Features
 
@@ -37,7 +37,8 @@ Navigation:
 * User-friendly:
 	* Configurable greeting and farewell messages.
 	* Configurable reaction to user status change.
-	* `shy mode` in case of being annoyed by chatterbox.
+	* Has option to get configuration file by provided URL.
+	* `shy mode` in case of being annoyed by large amount of greetings.
 
 ## Limitations
 
@@ -57,23 +58,22 @@ Because of the fact that different chat services have different protocols and av
 
 Build and run:
 
-	$ mkdir -p $GOPATH/src/github.com/kpashka/linda
-	$ cd $GOPATH/src/github.com/kpashka/linda
-	$ git clone https://github.com/kpashka/linda .
-	$ go get -v ./...
-	$ go build && ./linda
+	$ go get https://github.com/kpashka/linda
+	$ godep restore
+	$ go build && ./linda -c <path_to_your_configuration_file>
 
 ## Configuration
 
 * See [linda.example.toml](linda.example.toml) for configuration example.
 * Detailed explanation for each option available on [wiki](https://github.com/kpashka/linda/wiki/Configuration).
 
-## Dependencies
+## Credits
 
-* [`BurntSushi/toml`](https://github.com/BurntSushi/toml)
-* [`fiam/gounidecode`](https://github.com/fiam/gounidecode)
-* [`jteeuwen/go-pkg-rss`](https://github.com/jteeuwen/go-pkg-rss)
-* [`nlopes/slack`](https://github.com/nlopes/slack)
-* [`NodePrime/jsonpath`](https://github.com/NodePrime/jsonpath)
-* [`Sirupsen/logrus`](https://github.com/Sirupsen/logrus)
-* [`tucnak/telebot`](https://github.com/tucnak/telebot)
+* [BurntSushi/toml](https://github.com/BurntSushi/toml)
+* [fiam/gounidecode](https://github.com/fiam/gounidecode)
+* [jteeuwen/go-pkg-rss](https://github.com/jteeuwen/go-pkg-rss)
+* [nlopes/slack](https://github.com/nlopes/slack)
+* [NodePrime/jsonpath](https://github.com/NodePrime/jsonpath)
+* [Sirupsen/logrus](https://github.com/Sirupsen/logrus)
+* [tools/godep](https://github.com/tools/godep)
+* [tucnak/telebot](https://github.com/tucnak/telebot)

@@ -1,4 +1,4 @@
-// Linda - little princess, programmed to serve in mens-only online conference rooms.
+// Linda - multi-platform, highly configurable conference bot.
 package main
 
 import (

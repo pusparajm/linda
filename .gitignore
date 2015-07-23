@@ -1,3 +1,4 @@
 *.exe
 *.tmp
 linda.toml
+Godeps/_workspace
