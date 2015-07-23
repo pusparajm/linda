@@ -7,77 +7,77 @@ channel = "general"
 
 [commands]
 
-	# Copycat base64
-	[commands.base64]
-	type           = "copycat"
-	description    = "Encodes text to base64. Usage: `!base64 <input>`"
-	filters        = [[], ["base64"]]
-	expression     = "(?i)!base64 (.*)"
+    # Copycat base64
+    [commands.base64]
+    type           = "copycat"
+    description    = "Encodes text to base64. Usage: `!base64 <input>`"
+    filters        = [[], ["base64"]]
+    expression     = "(?i)!base64 (.*)"
 
-	# Copycat md5
-	[commands.md5]
-	type           = "copycat"
-	description    = "Calculates md5 sum of text. Usage: `!md5 <input>`"
-	filters        = [[], ["md5"]]
-	expression     = "(?i)!md5 (.*)"
+    # Copycat md5
+    [commands.md5]
+    type           = "copycat"
+    description    = "Calculates md5 sum of text. Usage: `!md5 <input>`"
+    filters        = [[], ["md5"]]
+    expression     = "(?i)!md5 (.*)"
 
-	# Copycat translit
-	[commands.translit]
-	type           = "copycat"
-	description    = "Transliterates text. Usage: `!translit <input>`"
-	filters        = [[], ["translit"]]
-	expression     = "(?i)!translit (.*)"
+    # Copycat translit
+    [commands.translit]
+    type           = "copycat"
+    description    = "Transliterates text. Usage: `!translit <input>`"
+    filters        = [[], ["translit"]]
+    expression     = "(?i)!translit (.*)"
 
-	# Copycat uppercase
-	[commands.uppercase]
-	type           = "copycat"
-	description    = "Uppercases text. Usage: `!uppercase <input>`"
-	filters        = [[], ["uppercase"]]
-	expression     = "(?i)!uppercase (.*)"
+    # Copycat uppercase
+    [commands.uppercase]
+    type           = "copycat"
+    description    = "Uppercases text. Usage: `!uppercase <input>`"
+    filters        = [[], ["uppercase"]]
+    expression     = "(?i)!uppercase (.*)"
 
-	# Postman football news
-	[commands.football]
-	type           = "postman"
-	description    = "Returns latest unread football news. Usage `!football`"
-	expression     = "(?i)!football"
-	url            = "http://www.championat.com/xml/rss_football-article.xml"
+    # Postman football news
+    [commands.football]
+    type           = "postman"
+    description    = "Returns latest unread football news. Usage `!football`"
+    expression     = "(?i)!football"
+    url            = "http://www.championat.com/xml/rss_football-article.xml"
 
-	# Proxy translator
-	[commands.translate]
-	type           = "proxy"
-	description    = "Translates input text. Usage `!translate <from>:<to> <input>"
-	expression     = "(?i)!translate (.*):(.*) (.*)"
-	url            = "http://mymemory.translated.net/api/get?q=$3&langpair=$1|$2"
-	response       = "Translation: {{.result}}"
+    # Proxy translator
+    [commands.translate]
+    type           = "proxy"
+    description    = "Translates input text. Usage `!translate <from>:<to> <input>"
+    expression     = "(?i)!translate (.*):(.*) (.*)"
+    url            = "http://mymemory.translated.net/api/get?q=$3&langpair=$1|$2"
+    response       = "Translation: {{.result}}"
 
-		[commands.translate.params]
-		result     = "$.responseData.translatedText+"
+        [commands.translate.params]
+        result     = "$.responseData.translatedText+"
 
-	# Proxy random wikipedia page
-	[commands.random]
-	type           = "proxy"
-	description    = "Fetches random wiki page. Usage `!random <language>"
-	expression     = "(?i)!random (.*)"
-	url            = "https://$1.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=info&inprop=url&format=json"
-	response       = "Read more about {{.title}} at {{.link | query_unescape }}"
+    # Proxy random wikipedia page
+    [commands.random]
+    type           = "proxy"
+    description    = "Fetches random wiki page. Usage `!random <language>"
+    expression     = "(?i)!random (.*)"
+    url            = "https://$1.wikipedia.org/w/api.php?action=query&generator=random&grnnamespace=0&prop=info&inprop=url&format=json"
+    response       = "Read more about {{.title}} at {{.link | query_unescape }}"
 
-		[commands.random.params]
-		title      = "$.query.pages.*.title+"
-		link       = "$.query.pages.*.fullurl+"
+        [commands.random.params]
+        title      = "$.query.pages.*.title+"
+        link       = "$.query.pages.*.fullurl+"
 
-	# Proxy weathers
-	[commands.weather]
-	type           = "proxy"
-	description    = "Fetches weather by location. Usage `!weather <location>"
-	expression     = "(?i)!weather (.*)"
-	filters        = [[], ["translit"]]
-	url            = "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=en&units=metric"
-	response       = "Weather at {{.city}}: {{.temp}} °C, {{.desc}}"
+    # Proxy weathers
+    [commands.weather]
+    type           = "proxy"
+    description    = "Fetches weather by location. Usage `!weather <location>"
+    expression     = "(?i)!weather (.*)"
+    filters        = [[], ["translit"]]
+    url            = "http://api.openweathermap.org/data/2.5/weather?q=$1&lang=en&units=metric"
+    response       = "Weather at {{.city}}: {{.temp}} °C, {{.desc}}"
 
-		[commands.weather.params]
-		city       = "$.name+"
-		temp       = "$.main.temp+"
-		desc       = "$.weather[0].description+"
+        [commands.weather.params]
+        city       = "$.name+"
+        temp       = "$.main.temp+"
+        desc       = "$.weather[0].description+"
 
 [params]
 execution_mode      = "first"
@@ -85,12 +85,12 @@ log_level           = "debug"
 shy_mode            = false
 trace_errors        = false
 
-	# Nicknames
-	[params.nicknames]
-	kpashka        = "Pasha"
+    # Nicknames
+    [params.nicknames]
+    kpashka        = "Pasha"
 
-	# Salutes
-	[params.salutes]
+    # Salutes
+    [params.salutes]
     greeting       = "Hi, guys!"
     farewell       = "Bye, guys!"
     user_active    = "It's nice to see you again, %s!"
