@@ -45,8 +45,8 @@ channel = "general"
 	# Proxy translator
 	[commands.translate]
 	type           = "proxy"
-	description    = "Translates input text. Usage `!translate <from>|<to> <input>"
-	expression     = "(?i)!translate (.*)|(.*) (.*)"
+	description    = "Translates input text. Usage `!translate <from>:<to> <input>"
+	expression     = "(?i)!translate (.*):(.*) (.*)"
 	url            = "http://mymemory.translated.net/api/get?q=$3&langpair=$1|$2"
 	response       = "Translation: {{.result}}"
 
@@ -82,8 +82,8 @@ channel = "general"
 [params]
 execution_mode      = "first"
 log_level           = "debug"
-shy_mode            = true
-trace_errors        = true
+shy_mode            = false
+trace_errors        = false
 
 	# Nicknames
 	[params.nicknames]

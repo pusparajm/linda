@@ -44,7 +44,7 @@ type Params struct {
 	Salutes   struct {
 		Greeting   string
 		Farewell   string
-		UserActive string
-		UserAway   string
+		UserActive string `toml:"user_active"`
+		UserAway   string `toml:"user_away"`
 	}
 }
