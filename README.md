@@ -56,9 +56,12 @@ Because of the fact that different chat services have different protocols and av
 
 ## Installation
 
+Install [godep](https://github.com/tools/godep) tool.
+
 Build and run:
 
 	$ go get https://github.com/kpashka/linda
+	$ cd $GOPATH/src/github.com/kpashka/linda
 	$ godep restore
 	$ go build && ./linda -c <path_to_your_configuration_file>
 
