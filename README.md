@@ -21,10 +21,10 @@ Navigation:
 ## Features
 
 * Different adapters support:
-	* [`slack`](adapters/slack)
-	* [`telegram`](adapters/telegram)<sup>beta</sup> 
+	* [Slack](https://api.slack.com/bot-users)
+	* [Telegram](https://core.telegram.org/bots/api)<sup>beta</sup> 
 * Configurable commands:
-	* [`bully`](commands/bully) - reacts with pre-defined phrase to matched text.
+	* [`bully`](commands/bully) - reacts with predefined phrase to matched text.
 	* [`copycat`](commands/copycat) - returns same text, can be powerful in combination with filters.
 	* [`help`](commands/help) - prints information about instantiated commands.
 	* [`postman`](commands/postman) - grabs latest unread item from RSS/Atom feed.
@@ -43,7 +43,7 @@ Navigation:
 
 Because of the fact that different chat services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
-| Feature                               | [Slack](adapters/slack)      | [Telegram](adapters/telegram)      |
+| Feature                               | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots/api) |
 | ------------------------------------- | ---------------------------- | ---------------------------------- |
 | [`bully`](commands/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
 | [`copycat`](commands/copycat) command | :white_check_mark: Supported | :white_check_mark: Supported       |
