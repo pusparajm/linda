@@ -91,7 +91,7 @@ trace_errors        = false
 
 	# Salutes
 	[params.salutes]
-	greeting       = "Hi, guys!"
-	farewell       = "Bye, guys!"
+    greeting       = "Hi, guys!"
+    farewell       = "Bye, guys!"
     user_active    = "It's nice to see you again, %s!"
     user_away      = "Don't forget about us, %s!"
