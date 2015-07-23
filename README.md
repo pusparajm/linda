@@ -44,14 +44,14 @@ Navigation:
 Because of the fact that different chat services have different protocols and available options, some usage limitations are present. The table of differences lies below:
 
 | Feature                               | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots/api) |
-| ------------------------------------- | ---------------------------- | ---------------------------------- |
-| [`bully`](commands/bully) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`copycat`](commands/copycat) command | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`help`](commands/help) command   	| :white_check_mark: Supported | :white_check_mark: Supported	    |
-| [`postman`](commands/postman) command | :white_check_mark: Supported | :white_check_mark: Supported       |
-| [`proxy`](commands/proxy) command     | :white_check_mark: Supported | :white_check_mark: Supported       |
-| Greetings & farewells                 | :white_check_mark: Supported | :x: (TBD)                          |
-| Status change reactions               | :white_check_mark: Supported | :x: (TBD)                          |
+| ------------------------------------- | ---------------------------------------- | ---------------------------------------------- |
+| [`bully`](commands/bully) command     | :white_check_mark: Supported             | :white_check_mark: Supported                   |
+| [`copycat`](commands/copycat) command | :white_check_mark: Supported             | :white_check_mark: Supported                   |
+| [`help`](commands/help) command   	| :white_check_mark: Supported             | :white_check_mark: Supported	                |
+| [`postman`](commands/postman) command | :white_check_mark: Supported             | :white_check_mark: Supported                   |
+| [`proxy`](commands/proxy) command     | :white_check_mark: Supported             | :white_check_mark: Supported                   |
+| Greetings & farewells                 | :white_check_mark: Supported             | :x: (TBD)                                      |
+| Status change reactions               | :white_check_mark: Supported             | :x: (TBD)                                      |
 
 ## Installation
 
