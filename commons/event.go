@@ -3,7 +3,7 @@ package commons
 import (
 	"strconv"
 
-	"github.com/nlopes/slack"
+	"github.com/kpashka/slack"
 	"github.com/tucnak/telebot"
 )
 

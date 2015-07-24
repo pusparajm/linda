@@ -30,8 +30,8 @@
 			"Rev": "cf505b97c711dd1c5a4682f68ea04dd35e385b8f"
 		},
 		{
-			"ImportPath": "github.com/nlopes/slack",
-			"Rev": "1da32686c2e7143de764729a1d52732047f7aa84"
+			"ImportPath": "github.com/kpashka/slack",
+			"Rev": "98192ca2f51dea68287643f781ab236e0f7a7d02"
 		},
 		{
 			"ImportPath": "github.com/tucnak/telebot",

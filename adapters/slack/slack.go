@@ -7,7 +7,7 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
-	wrapper "github.com/nlopes/slack"
+	wrapper "github.com/kpashka/slack"
 )
 
 const (
