@@ -1,1 +1,1 @@
-worker: linda -c $LINDA_CONFIG_FILE
+web: linda -c $LINDA_CONFIG_FILE
