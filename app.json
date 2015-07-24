@@ -1,6 +1,6 @@
 {
-    "name": "Linda bot for Slack",
-    "description": "Helpful bot for your Slack team.",
+    "name": "Linda - multi-platform, highly configurable conference bot.",
+    "description": "Currently supported platforms: Slack and Telegram.",
     "repository": "https://github.com/kpashka/linda",
     "logo": "https://rawgit.com/kpashka/linda/master/static/logo.png",
     "keywords": [
