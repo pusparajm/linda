@@ -1,1 +1,1 @@
-web: linda -c linda.example.toml
+web: linda -c $LINDA_CONFIG_FILE

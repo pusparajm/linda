@@ -2,9 +2,11 @@ package kernel
 
 import (
 	"fmt"
+	"net/http"
 	"os"
 	"os/signal"
 	"regexp"
+	"strconv"
 	"syscall"
 
 	log "github.com/Sirupsen/logrus"
@@ -14,6 +16,11 @@ import (
 	"github.com/kpashka/linda/commons"
 	"github.com/kpashka/linda/config"
 	"github.com/kpashka/linda/filters"
+)
+
+const (
+	// Default web port to listen
+	DefaultWebPort = "8080"
 )
 
 // Bot object
@@ -91,6 +98,9 @@ func (linda *Linda) Start() {
 		log.WithField("error", err.Error()).Fatal("Error initializing adapter")
 	}
 
+	// Init web-listener
+	linda.initWeb()
+
 	// Handle process interruption
 	linda.handleInterrupt()
 
@@ -110,6 +120,21 @@ func (linda *Linda) Start() {
 			linda.handleEvent(e)
 		}
 	}
+}
+
+// Init basic web interface
+func (linda *Linda) initWeb() {
+	port := strconv.Itoa(linda.cfg.Params.HttpPort)
+	if port == "" {
+		port = DefaultWebPort
+	}
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello from Linda! I'm currently running on %s, channel: %s", linda.cfg.Adapter.Type, linda.cfg.Adapter.Channel)
+	})
+
+	log.Infof("Web interface available at http://localhost:%s", port)
+	go http.ListenAndServe(":"+port, nil)
 }
 
 // Initialize bot adapter

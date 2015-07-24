@@ -10,8 +10,8 @@
         "heroku"
     ],
     "env": {
-        "LINDA_API_TOKEN": {
-            "description": "Your slack bot API token. You can generate it here https://my.slack.com/services/new/bot",
+        "LINDA_CONFIG_FILE": {
+            "description": "Filepath or URL to your Linda configuration.",
             "required": true
         }
     }
