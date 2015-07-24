@@ -48,13 +48,10 @@ Because of the fact that different chat services have different protocols and av
 
 | Feature                               | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots/api) |
 | ------------------------------------- | ---------------------------------------- | ---------------------------------------------- |
-| [`bully`](commands/bully) command     | :white_check_mark: Supported             | :white_check_mark: Supported                   |
-| [`copycat`](commands/copycat) command | :white_check_mark: Supported             | :white_check_mark: Supported                   |
-| [`help`](commands/help) command   	| :white_check_mark: Supported             | :white_check_mark: Supported	                |
-| [`postman`](commands/postman) command | :white_check_mark: Supported             | :white_check_mark: Supported                   |
-| [`proxy`](commands/proxy) command     | :white_check_mark: Supported             | :white_check_mark: Supported                   |
-| Greetings & farewells                 | :white_check_mark: Supported             | :x: (TBD)                                      |
-| Status change reactions               | :white_check_mark: Supported             | :x: (TBD)                                      |
+| All types of commands                 | :white_check_mark: Supported             | :white_check_mark: Supported                   |
+| Specific channel to listen            | :white_check_mark: Supported             | :x: (Currently Linda responses to everyone)    |
+| Greetings & farewells                 | :white_check_mark: Supported             | :x: (Possible, but not yet implemented)        |
+| Status change reactions               | :white_check_mark: Supported             | :x: (Possible, but not yet implemented)        |
 
 ## Installation
 
