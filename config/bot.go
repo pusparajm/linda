@@ -3,9 +3,15 @@ package config
 import (
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/BurntSushi/toml"
+)
+
+const (
+	// Environment variable for platform API token
+	ApiTokenEnvVar = "LINDA_API_TOKEN"
 )
 
 // Create new bot configuration instance
@@ -33,6 +39,11 @@ func (bot *Bot) Load(location string) error {
 	// Load config from bytes
 	if _, err := toml.Decode(string(bytes), bot); err != nil {
 		return err
+	}
+
+	// Try to grab API token from env variable if empty
+	if bot.Adapter.Token == "" {
+		bot.Adapter.Token = os.Getenv(ApiTokenEnvVar)
 	}
 
 	return err

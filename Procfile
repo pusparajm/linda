@@ -1,0 +1,1 @@
+web: linda -c linda.example.toml

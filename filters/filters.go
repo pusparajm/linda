@@ -9,21 +9,35 @@ import (
 	"github.com/fiam/gounidecode/unidecode"
 )
 
+const (
+	// Base64 filter
+	FilterBase64 = "base64"
+
+	// MD5 filter
+	FilterMd5 = "md5"
+
+	// Transliteration filter
+	FilterTranslit = "translit"
+
+	// Uppercase filter
+	FilterUppercase = "uppercase"
+)
+
 type Filter func(input string) string
 
 var filters = map[string]Filter{
-	"base64": func(input string) string {
+	FilterBase64: func(input string) string {
 		data := []byte(input)
 		return base64.StdEncoding.EncodeToString(data)
 	},
-	"md5": func(input string) string {
+	FilterMd5: func(input string) string {
 		hash := md5.Sum([]byte(input))
 		return hex.EncodeToString(hash[:])
 	},
-	"translit": func(input string) string {
+	FilterTranslit: func(input string) string {
 		return unidecode.Unidecode(input)
 	},
-	"uppercase": func(input string) string {
+	FilterUppercase: func(input string) string {
 		return strings.ToUpper(input)
 	},
 }
