@@ -99,7 +99,7 @@ func (linda *Linda) Start() {
 	}
 
 	// Init web-listener
-	linda.initWeb()
+	//linda.initWeb()
 
 	// Handle process interruption
 	linda.handleInterrupt()
