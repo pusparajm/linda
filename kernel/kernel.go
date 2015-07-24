@@ -125,6 +125,11 @@ func (linda *Linda) Start() {
 // Init basic web interface
 func (linda *Linda) initWeb() {
 	port := strconv.Itoa(linda.cfg.Params.HttpPort)
+
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
+
 	if port == "" {
 		port = DefaultWebPort
 	}

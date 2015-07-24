@@ -9,9 +9,12 @@
         "chat",
         "heroku"
     ],
+    "addons": [
+        "papertrail:choklad"
+    ],
     "env": {
         "LINDA_CONFIG_FILE": {
-            "description": "Filepath or URL to your Linda configuration.",
+            "description": "Filepath or URL to your Linda configuration. See example at https://github.com/kpashka/linda/blob/master/linda.example.toml",
             "required": true
         }
     }
