@@ -310,6 +310,10 @@ func (linda *Linda) getDescriptions() []string {
 
 // Get specified command description
 func (linda *Linda) getDescription(id string, markdown bool) string {
+	if len(linda.configs[id].Description) == 0 {
+		return linda.configs[id].Description
+	}
+
 	template := "[%s] - %s"
 	if markdown {
 		template = "*%s* - %s"
@@ -348,7 +352,7 @@ func (linda *Linda) handleInterrupt() {
 		<-c
 
 		// Say goodbye if necessary
-		err := linda.salute(linda.cfg.Params.Salutes.Greeting)
+		err := linda.salute(linda.cfg.Params.Salutes.Farewell)
 		if err != nil {
 			log.WithField("error", err.Error()).Error("Error while saying goodbye")
 		}
