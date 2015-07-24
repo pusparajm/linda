@@ -2,7 +2,7 @@
     "name": "Linda bot for Slack",
     "description": "Helpful bot for your Slack team.",
     "repository": "https://github.com/kpashka/linda",
-    "logo": "http://i.imgur.com/GecHRRa.jpg",
+    "logo": "https://rawgit.com/kpashka/linda/master/static/logo.png",
     "keywords": [
         "bot",
         "slack",
