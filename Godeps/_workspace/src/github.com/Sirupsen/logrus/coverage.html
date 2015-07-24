@@ -1,0 +1,567 @@
+
+<html>
+    <head>
+        <title>Coverage Report</title>
+        
+        <style type="text/css">
+            body { background-color: #fff; }
+            table {
+                margin-left: 10px;
+                border-collapse: collapse;
+            }
+            td { 
+                background-color: #fff; 
+                padding: 2px;
+            }
+            table.overview td {
+                padding-right: 20px;
+            }
+            td.percent, td.linecount { text-align: right; }
+            div.package, #totalcov { 
+                color: #fff;
+                background-color: #375eab; 
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px;
+                border-radius: 5px 5px 5px 5px;
+            }
+            div.package, #totalcov { 
+                float: right; 
+                right: 10px;
+            }
+            #totalcov { 
+                top: 10px;
+                position: relative;
+                background-color: #fff;
+                color: #000;
+                border: 1px solid #375eab;
+                clear: both;
+            }
+            #summaryWrapper {
+                position: fixed;
+                top: 10px;
+                float: right;
+                right: 10px;
+
+            }
+            span.packageTotal {
+                float: right;
+                color: #000;
+            }
+            #doctitle { 
+                background-color: #fff; 
+                font-size: 24px;
+                margin-top: 20px;
+                margin-left: 10px;
+                color: #375eab;
+                font-weight: bold;
+            }
+            #about {
+                margin-left: 18px;
+                font-size: 10px;
+            }
+            table tr:last-child td {
+                font-weight: bold;
+            }
+            .functitle, .funcname { 
+                text-align: center; 
+                font-size: 20px; 
+                font-weight: bold; 
+                color: 375eab; 
+            }
+            .funcname {
+                text-align: left;
+                margin-top: 20px;
+                margin-left: 10px;
+                margin-bottom: 20px;
+                padding: 2px 5px 5px;
+                background-color: #e0ebf5;
+            }
+            table.listing {
+                margin-left: 10px;
+            }
+            table.listing td {
+                padding: 0px;
+                font-size: 12px;
+                background-color: #eee; 
+                vertical-align: top;
+                padding-left: 10px;
+                border-bottom: 1px solid #fff;
+            }
+            table.listing td:first-child {
+                text-align: right;
+                font-weight: bold;
+                vertical-align: center;
+            }
+            table.listing tr.miss td {
+                background-color: #FFBBB8;
+            }
+            table.listing tr:last-child td {
+                font-weight: normal;
+                color: #000;
+            }
+            table.listing tr:last-child td:first-child {
+                font-weight: bold;
+            }
+            .info {
+                margin-left: 10px;
+            }
+            .info code {
+            }
+            pre { margin: 1px; }
+            pre.cmd { 
+                background-color: #e9e9e9;
+                border-radius: 5px 5px 5px 5px;
+                padding: 10px;
+                margin: 20px;
+                line-height: 18px;
+                font-size; 14px;
+            }
+            a { 
+                text-decoration: none; 
+                color: #375eab;
+            }
+            a:hover { text-decoration: underline; }
+            p { margin-left: 10px; }
+        </style>
+        
+    </head>
+    <body>
+        <div id="doctitle">Coverage Report</div>
+    <div id="about">Generated on 03 Jul 15 00:03 +0700 with <a href="https://github.com/matm/gocov-html">gocov-html</a></div><div id="pkg_github.com\Sirupsen\logrus" class="funcname">Package Overview: github.com\Sirupsen\logrus <span class="packageTotal">53.41%</span></div><p>This is a coverage report created after analysis of the <code>github.com\Sirupsen\logrus</code> package. It 
+        has been generated with the following command:</p><pre class="cmd">gocov test github.com\Sirupsen\logrus | gocov-html</pre>        <p>Here are the stats. Please select a function name to view its implementation and see what's left for testing.</p><table class="overview">
+<tr id="s_fn_TextFormatter.Format"><td><code><a href="#fn_TextFormatter.Format">TextFormatter.Format(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>20/20</code></td></tr>
+<tr id="s_fn_ParseLevel"><td><code><a href="#fn_ParseLevel">ParseLevel(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logrus.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>9/9</code></td></tr>
+<tr id="s_fn_prefixFieldClashes"><td><code><a href="#fn_prefixFieldClashes">prefixFieldClashes(...)</a></code></td><td><code>github.com\Sirupsen\logrus/formatter.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>9/9</code></td></tr>
+<tr id="s_fn_Entry.WithFields"><td><code><a href="#fn_Entry.WithFields">Entry.WithFields(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>6/6</code></td></tr>
+<tr id="s_fn_IsTerminal"><td><code><a href="#fn_IsTerminal">IsTerminal(...)</a></code></td><td><code>github.com\Sirupsen\logrus/terminal_windows.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>4/4</code></td></tr>
+<tr id="s_fn_needsQuoting"><td><code><a href="#fn_needsQuoting">needsQuoting(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>4/4</code></td></tr>
+<tr id="s_fn_SetLevel"><td><code><a href="#fn_SetLevel">SetLevel(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>3/3</code></td></tr>
+<tr id="s_fn_GetLevel"><td><code><a href="#fn_GetLevel">GetLevel(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>3/3</code></td></tr>
+<tr id="s_fn_Logger.Infoln"><td><code><a href="#fn_Logger.Infoln">Logger.Infoln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Logger.Error"><td><code><a href="#fn_Logger.Error">Logger.Error(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Logger.Warn"><td><code><a href="#fn_Logger.Warn">Logger.Warn(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_levelHooks.Add"><td><code><a href="#fn_levelHooks.Add">levelHooks.Add(...)</a></code></td><td><code>github.com\Sirupsen\logrus/hooks.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Error"><td><code><a href="#fn_Entry.Error">Entry.Error(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Reader"><td><code><a href="#fn_Entry.Reader">Entry.Reader(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Panicf"><td><code><a href="#fn_Entry.Panicf">Entry.Panicf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Warn"><td><code><a href="#fn_Entry.Warn">Entry.Warn(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Infoln"><td><code><a href="#fn_Entry.Infoln">Entry.Infoln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Info"><td><code><a href="#fn_Entry.Info">Entry.Info(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.Panicln"><td><code><a href="#fn_Entry.Panicln">Entry.Panicln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Entry.sprintlnn"><td><code><a href="#fn_Entry.sprintlnn">Entry.sprintlnn(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_Logger.Info"><td><code><a href="#fn_Logger.Info">Logger.Info(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_init"><td><code><a href="#fn_init">init(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>2/2</code></td></tr>
+<tr id="s_fn_WithField"><td><code><a href="#fn_WithField">WithField(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_New"><td><code><a href="#fn_New">New(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_Logger.WithField"><td><code><a href="#fn_Logger.WithField">Logger.WithField(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_Entry.Print"><td><code><a href="#fn_Entry.Print">Entry.Print(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_Logger.WithFields"><td><code><a href="#fn_Logger.WithFields">Logger.WithFields(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_Logger.Print"><td><code><a href="#fn_Logger.Print">Logger.Print(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_miniTS"><td><code><a href="#fn_miniTS">miniTS(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_NewEntry"><td><code><a href="#fn_NewEntry">NewEntry(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_Entry.WithField"><td><code><a href="#fn_Entry.WithField">Entry.WithField(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>100.00%</code></td><td class="linecount"><code>1/1</code></td></tr>
+<tr id="s_fn_JSONFormatter.Format"><td><code><a href="#fn_JSONFormatter.Format">JSONFormatter.Format(...)</a></code></td><td><code>github.com\Sirupsen\logrus/json_formatter.go</code></td><td class="percent"><code>93.33%</code></td><td class="linecount"><code>14/15</code></td></tr>
+<tr id="s_fn_TextFormatter.appendKeyValue"><td><code><a href="#fn_TextFormatter.appendKeyValue">TextFormatter.appendKeyValue(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>87.50%</code></td><td class="linecount"><code>7/8</code></td></tr>
+<tr id="s_fn_Level.String"><td><code><a href="#fn_Level.String">Level.String(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logrus.go</code></td><td class="percent"><code>87.50%</code></td><td class="linecount"><code>7/8</code></td></tr>
+<tr id="s_fn_levelHooks.Fire"><td><code><a href="#fn_levelHooks.Fire">levelHooks.Fire(...)</a></code></td><td><code>github.com\Sirupsen\logrus/hooks.go</code></td><td class="percent"><code>75.00%</code></td><td class="linecount"><code>3/4</code></td></tr>
+<tr id="s_fn_TextFormatter.printColored"><td><code><a href="#fn_TextFormatter.printColored">TextFormatter.printColored(...)</a></code></td><td><code>github.com\Sirupsen\logrus/text_formatter.go</code></td><td class="percent"><code>69.23%</code></td><td class="linecount"><code>9/13</code></td></tr>
+<tr id="s_fn_Entry.Panic"><td><code><a href="#fn_Entry.Panic">Entry.Panic(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>66.67%</code></td><td class="linecount"><code>2/3</code></td></tr>
+<tr id="s_fn_Entry.log"><td><code><a href="#fn_Entry.log">Entry.log(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>63.16%</code></td><td class="linecount"><code>12/19</code></td></tr>
+<tr id="s_fn_Logger.writerScanner"><td><code><a href="#fn_Logger.writerScanner">Logger.writerScanner(...)</a></code></td><td><code>github.com\Sirupsen\logrus/writer.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/6</code></td></tr>
+<tr id="s_fn_Entry.String"><td><code><a href="#fn_Entry.String">Entry.String(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/4</code></td></tr>
+<tr id="s_fn_Logger.Writer"><td><code><a href="#fn_Logger.Writer">Logger.Writer(...)</a></code></td><td><code>github.com\Sirupsen\logrus/writer.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/4</code></td></tr>
+<tr id="s_fn_SetFormatter"><td><code><a href="#fn_SetFormatter">SetFormatter(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/3</code></td></tr>
+<tr id="s_fn_AddHook"><td><code><a href="#fn_AddHook">AddHook(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/3</code></td></tr>
+<tr id="s_fn_Entry.Fatal"><td><code><a href="#fn_Entry.Fatal">Entry.Fatal(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/3</code></td></tr>
+<tr id="s_fn_SetOutput"><td><code><a href="#fn_SetOutput">SetOutput(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/3</code></td></tr>
+<tr id="s_fn_Logger.Fatalln"><td><code><a href="#fn_Logger.Fatalln">Logger.Fatalln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Debug"><td><code><a href="#fn_Entry.Debug">Entry.Debug(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Debugf"><td><code><a href="#fn_Entry.Debugf">Entry.Debugf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Infof"><td><code><a href="#fn_Entry.Infof">Entry.Infof(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Warnf"><td><code><a href="#fn_Entry.Warnf">Entry.Warnf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Errorf"><td><code><a href="#fn_Entry.Errorf">Entry.Errorf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Fatalf"><td><code><a href="#fn_Entry.Fatalf">Entry.Fatalf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Debugln"><td><code><a href="#fn_Entry.Debugln">Entry.Debugln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Warnln"><td><code><a href="#fn_Entry.Warnln">Entry.Warnln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Errorln"><td><code><a href="#fn_Entry.Errorln">Entry.Errorln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Entry.Fatalln"><td><code><a href="#fn_Entry.Fatalln">Entry.Fatalln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Debugf"><td><code><a href="#fn_Logger.Debugf">Logger.Debugf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Infof"><td><code><a href="#fn_Logger.Infof">Logger.Infof(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Warnf"><td><code><a href="#fn_Logger.Warnf">Logger.Warnf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Warningf"><td><code><a href="#fn_Logger.Warningf">Logger.Warningf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Errorf"><td><code><a href="#fn_Logger.Errorf">Logger.Errorf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Fatalf"><td><code><a href="#fn_Logger.Fatalf">Logger.Fatalf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Panicf"><td><code><a href="#fn_Logger.Panicf">Logger.Panicf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Debug"><td><code><a href="#fn_Logger.Debug">Logger.Debug(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Warning"><td><code><a href="#fn_Logger.Warning">Logger.Warning(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Fatal"><td><code><a href="#fn_Logger.Fatal">Logger.Fatal(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Panic"><td><code><a href="#fn_Logger.Panic">Logger.Panic(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Debugln"><td><code><a href="#fn_Logger.Debugln">Logger.Debugln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Warnln"><td><code><a href="#fn_Logger.Warnln">Logger.Warnln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Warningln"><td><code><a href="#fn_Logger.Warningln">Logger.Warningln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Errorln"><td><code><a href="#fn_Logger.Errorln">Logger.Errorln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Panicln"><td><code><a href="#fn_Logger.Panicln">Logger.Panicln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/2</code></td></tr>
+<tr id="s_fn_Logger.Printf"><td><code><a href="#fn_Logger.Printf">Logger.Printf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Error"><td><code><a href="#fn_Error">Error(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Print"><td><code><a href="#fn_Print">Print(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warning"><td><code><a href="#fn_Warning">Warning(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warn"><td><code><a href="#fn_Warn">Warn(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Info"><td><code><a href="#fn_Info">Info(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Debug"><td><code><a href="#fn_Debug">Debug(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_writerFinalizer"><td><code><a href="#fn_writerFinalizer">writerFinalizer(...)</a></code></td><td><code>github.com\Sirupsen\logrus/writer.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Printf"><td><code><a href="#fn_Printf">Printf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Debugf"><td><code><a href="#fn_Debugf">Debugf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_WithFields"><td><code><a href="#fn_WithFields">WithFields(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Fatal"><td><code><a href="#fn_Fatal">Fatal(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_StandardLogger"><td><code><a href="#fn_StandardLogger">StandardLogger(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Entry.Warningln"><td><code><a href="#fn_Entry.Warningln">Entry.Warningln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Entry.Println"><td><code><a href="#fn_Entry.Println">Entry.Println(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Panic"><td><code><a href="#fn_Panic">Panic(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Logger.Println"><td><code><a href="#fn_Logger.Println">Logger.Println(...)</a></code></td><td><code>github.com\Sirupsen\logrus/logger.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Entry.Warningf"><td><code><a href="#fn_Entry.Warningf">Entry.Warningf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Println"><td><code><a href="#fn_Println">Println(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Infoln"><td><code><a href="#fn_Infoln">Infoln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warnln"><td><code><a href="#fn_Warnln">Warnln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warningln"><td><code><a href="#fn_Warningln">Warningln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Errorln"><td><code><a href="#fn_Errorln">Errorln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Panicln"><td><code><a href="#fn_Panicln">Panicln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Fatalln"><td><code><a href="#fn_Fatalln">Fatalln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Debugln"><td><code><a href="#fn_Debugln">Debugln(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Fatalf"><td><code><a href="#fn_Fatalf">Fatalf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Errorf"><td><code><a href="#fn_Errorf">Errorf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Panicf"><td><code><a href="#fn_Panicf">Panicf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warningf"><td><code><a href="#fn_Warningf">Warningf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Warnf"><td><code><a href="#fn_Warnf">Warnf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Infof"><td><code><a href="#fn_Infof">Infof(...)</a></code></td><td><code>github.com\Sirupsen\logrus/exported.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Entry.Printf"><td><code><a href="#fn_Entry.Printf">Entry.Printf(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr id="s_fn_Entry.Warning"><td><code><a href="#fn_Entry.Warning">Entry.Warning(...)</a></code></td><td><code>github.com\Sirupsen\logrus/entry.go</code></td><td class="percent"><code>0.00%</code></td><td class="linecount"><code>0/1</code></td></tr>
+<tr><td colspan="2"><code>github.com\Sirupsen\logrus</code></td><td class="percent"><code>53.41%</code></td><td class="linecount"><code>149/279</code></td></tr>
+</table>
+
+<div class="funcname" id="fn_TextFormatter.Format">func TextFormatter.Format</div><div class="info"><a href="#s_fn_TextFormatter.Format">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>58</td><td><code><pre>func (f *TextFormatter) Format(entry *Entry) ([]byte, error) {</pre></code></td></tr><tr><td>59</td><td><code><pre>        var keys []string = make([]string, 0, len(entry.Data))</pre></code></td></tr><tr><td>60</td><td><code><pre>        for k := range entry.Data {</pre></code></td></tr><tr><td>61</td><td><code><pre>                keys = append(keys, k)</pre></code></td></tr><tr><td>62</td><td><code><pre>        }</pre></code></td></tr><tr><td>63</td><td><code><pre></pre></code></td></tr><tr><td>64</td><td><code><pre>        if !f.DisableSorting {</pre></code></td></tr><tr><td>65</td><td><code><pre>                sort.Strings(keys)</pre></code></td></tr><tr><td>66</td><td><code><pre>        }</pre></code></td></tr><tr><td>67</td><td><code><pre></pre></code></td></tr><tr><td>68</td><td><code><pre>        b := &amp;bytes.Buffer{}</pre></code></td></tr><tr><td>69</td><td><code><pre></pre></code></td></tr><tr><td>70</td><td><code><pre>        prefixFieldClashes(entry.Data)</pre></code></td></tr><tr><td>71</td><td><code><pre></pre></code></td></tr><tr><td>72</td><td><code><pre>        isColored := (f.ForceColors || isTerminal) &amp;&amp; !f.DisableColors</pre></code></td></tr><tr><td>73</td><td><code><pre></pre></code></td></tr><tr><td>74</td><td><code><pre>        if f.TimestampFormat == &#34;&#34; {</pre></code></td></tr><tr><td>75</td><td><code><pre>                f.TimestampFormat = DefaultTimestampFormat</pre></code></td></tr><tr><td>76</td><td><code><pre>        }</pre></code></td></tr><tr><td>77</td><td><code><pre>        if isColored {</pre></code></td></tr><tr><td>78</td><td><code><pre>                f.printColored(b, entry, keys)</pre></code></td></tr><tr><td>79</td><td><code><pre>        } else {</pre></code></td></tr><tr><td>80</td><td><code><pre>                if !f.DisableTimestamp {</pre></code></td></tr><tr><td>81</td><td><code><pre>                        f.appendKeyValue(b, &#34;time&#34;, entry.Time.Format(f.TimestampFormat))</pre></code></td></tr><tr><td>82</td><td><code><pre>                }</pre></code></td></tr><tr><td>83</td><td><code><pre>                f.appendKeyValue(b, &#34;level&#34;, entry.Level.String())</pre></code></td></tr><tr><td>84</td><td><code><pre>                f.appendKeyValue(b, &#34;msg&#34;, entry.Message)</pre></code></td></tr><tr><td>85</td><td><code><pre>                for _, key := range keys {</pre></code></td></tr><tr><td>86</td><td><code><pre>                        f.appendKeyValue(b, key, entry.Data[key])</pre></code></td></tr><tr><td>87</td><td><code><pre>                }</pre></code></td></tr><tr><td>88</td><td><code><pre>        }</pre></code></td></tr><tr><td>89</td><td><code><pre></pre></code></td></tr><tr><td>90</td><td><code><pre>        b.WriteByte(&#39;\n&#39;)</pre></code></td></tr><tr><td>91</td><td><code><pre>        return b.Bytes(), nil</pre></code></td></tr><tr><td>92</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_ParseLevel">func ParseLevel</div><div class="info"><a href="#s_fn_ParseLevel">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logrus.go</code>:</p></div><table class="listing">
+<tr><td>35</td><td><code><pre>func ParseLevel(lvl string) (Level, error) {</pre></code></td></tr><tr><td>36</td><td><code><pre>        switch lvl {</pre></code></td></tr><tr><td>37</td><td><code><pre>        case &#34;panic&#34;:</pre></code></td></tr><tr><td>38</td><td><code><pre>                return PanicLevel, nil</pre></code></td></tr><tr><td>39</td><td><code><pre>        case &#34;fatal&#34;:</pre></code></td></tr><tr><td>40</td><td><code><pre>                return FatalLevel, nil</pre></code></td></tr><tr><td>41</td><td><code><pre>        case &#34;error&#34;:</pre></code></td></tr><tr><td>42</td><td><code><pre>                return ErrorLevel, nil</pre></code></td></tr><tr><td>43</td><td><code><pre>        case &#34;warn&#34;, &#34;warning&#34;:</pre></code></td></tr><tr><td>44</td><td><code><pre>                return WarnLevel, nil</pre></code></td></tr><tr><td>45</td><td><code><pre>        case &#34;info&#34;:</pre></code></td></tr><tr><td>46</td><td><code><pre>                return InfoLevel, nil</pre></code></td></tr><tr><td>47</td><td><code><pre>        case &#34;debug&#34;:</pre></code></td></tr><tr><td>48</td><td><code><pre>                return DebugLevel, nil</pre></code></td></tr><tr><td>49</td><td><code><pre>        }</pre></code></td></tr><tr><td>50</td><td><code><pre></pre></code></td></tr><tr><td>51</td><td><code><pre>        var l Level</pre></code></td></tr><tr><td>52</td><td><code><pre>        return l, fmt.Errorf(&#34;not a valid logrus Level: %q&#34;, lvl)</pre></code></td></tr><tr><td>53</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_prefixFieldClashes">func prefixFieldClashes</div><div class="info"><a href="#s_fn_prefixFieldClashes">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\formatter.go</code>:</p></div><table class="listing">
+<tr><td>33</td><td><code><pre>func prefixFieldClashes(data Fields) {</pre></code></td></tr><tr><td>34</td><td><code><pre>        _, ok := data[&#34;time&#34;]</pre></code></td></tr><tr><td>35</td><td><code><pre>        if ok {</pre></code></td></tr><tr><td>36</td><td><code><pre>                data[&#34;fields.time&#34;] = data[&#34;time&#34;]</pre></code></td></tr><tr><td>37</td><td><code><pre>        }</pre></code></td></tr><tr><td>38</td><td><code><pre></pre></code></td></tr><tr><td>39</td><td><code><pre>        _, ok = data[&#34;msg&#34;]</pre></code></td></tr><tr><td>40</td><td><code><pre>        if ok {</pre></code></td></tr><tr><td>41</td><td><code><pre>                data[&#34;fields.msg&#34;] = data[&#34;msg&#34;]</pre></code></td></tr><tr><td>42</td><td><code><pre>        }</pre></code></td></tr><tr><td>43</td><td><code><pre></pre></code></td></tr><tr><td>44</td><td><code><pre>        _, ok = data[&#34;level&#34;]</pre></code></td></tr><tr><td>45</td><td><code><pre>        if ok {</pre></code></td></tr><tr><td>46</td><td><code><pre>                data[&#34;fields.level&#34;] = data[&#34;level&#34;]</pre></code></td></tr><tr><td>47</td><td><code><pre>        }</pre></code></td></tr><tr><td>48</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.WithFields">func Entry.WithFields</div><div class="info"><a href="#s_fn_Entry.WithFields">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>62</td><td><code><pre>func (entry *Entry) WithFields(fields Fields) *Entry {</pre></code></td></tr><tr><td>63</td><td><code><pre>        data := Fields{}</pre></code></td></tr><tr><td>64</td><td><code><pre>        for k, v := range entry.Data {</pre></code></td></tr><tr><td>65</td><td><code><pre>                data[k] = v</pre></code></td></tr><tr><td>66</td><td><code><pre>        }</pre></code></td></tr><tr><td>67</td><td><code><pre>        for k, v := range fields {</pre></code></td></tr><tr><td>68</td><td><code><pre>                data[k] = v</pre></code></td></tr><tr><td>69</td><td><code><pre>        }</pre></code></td></tr><tr><td>70</td><td><code><pre>        return &amp;Entry{Logger: entry.Logger, Data: data}</pre></code></td></tr><tr><td>71</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_IsTerminal">func IsTerminal</div><div class="info"><a href="#s_fn_IsTerminal">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\terminal_windows.go</code>:</p></div><table class="listing">
+<tr><td>22</td><td><code><pre>func IsTerminal() bool {</pre></code></td></tr><tr><td>23</td><td><code><pre>        fd := syscall.Stdout</pre></code></td></tr><tr><td>24</td><td><code><pre>        var st uint32</pre></code></td></tr><tr><td>25</td><td><code><pre>        r, _, e := syscall.Syscall(procGetConsoleMode.Addr(), 2, uintptr(fd), uintptr(unsafe.Pointer(&amp;st)), 0)</pre></code></td></tr><tr><td>26</td><td><code><pre>        return r != 0 &amp;&amp; e == 0</pre></code></td></tr><tr><td>27</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_needsQuoting">func needsQuoting</div><div class="info"><a href="#s_fn_needsQuoting">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>120</td><td><code><pre>func needsQuoting(text string) bool {</pre></code></td></tr><tr><td>121</td><td><code><pre>        for _, ch := range text {</pre></code></td></tr><tr><td>122</td><td><code><pre>                if !((ch &gt;= &#39;a&#39; &amp;&amp; ch &lt;= &#39;z&#39;) ||</pre></code></td></tr><tr><td>123</td><td><code><pre>                        (ch &gt;= &#39;A&#39; &amp;&amp; ch &lt;= &#39;Z&#39;) ||</pre></code></td></tr><tr><td>124</td><td><code><pre>                        (ch &gt;= &#39;0&#39; &amp;&amp; ch &lt;= &#39;9&#39;) ||</pre></code></td></tr><tr><td>125</td><td><code><pre>                        ch == &#39;-&#39; || ch == &#39;.&#39;) {</pre></code></td></tr><tr><td>126</td><td><code><pre>                        return false</pre></code></td></tr><tr><td>127</td><td><code><pre>                }</pre></code></td></tr><tr><td>128</td><td><code><pre>        }</pre></code></td></tr><tr><td>129</td><td><code><pre>        return true</pre></code></td></tr><tr><td>130</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_SetLevel">func SetLevel</div><div class="info"><a href="#s_fn_SetLevel">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>31</td><td><code><pre>func SetLevel(level Level) {</pre></code></td></tr><tr><td>32</td><td><code><pre>        std.mu.Lock()</pre></code></td></tr><tr><td>33</td><td><code><pre>        defer std.mu.Unlock()</pre></code></td></tr><tr><td>34</td><td><code><pre>        std.Level = level</pre></code></td></tr><tr><td>35</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_GetLevel">func GetLevel</div><div class="info"><a href="#s_fn_GetLevel">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>38</td><td><code><pre>func GetLevel() Level {</pre></code></td></tr><tr><td>39</td><td><code><pre>        std.mu.Lock()</pre></code></td></tr><tr><td>40</td><td><code><pre>        defer std.mu.Unlock()</pre></code></td></tr><tr><td>41</td><td><code><pre>        return std.Level</pre></code></td></tr><tr><td>42</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Infoln">func Logger.Infoln</div><div class="info"><a href="#s_fn_Logger.Infoln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>165</td><td><code><pre>func (logger *Logger) Infoln(args ...interface{}) {</pre></code></td></tr><tr><td>166</td><td><code><pre>        if logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr><td>167</td><td><code><pre>                NewEntry(logger).Infoln(args...)</pre></code></td></tr><tr><td>168</td><td><code><pre>        }</pre></code></td></tr><tr><td>169</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Error">func Logger.Error</div><div class="info"><a href="#s_fn_Logger.Error">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>141</td><td><code><pre>func (logger *Logger) Error(args ...interface{}) {</pre></code></td></tr><tr><td>142</td><td><code><pre>        if logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr><td>143</td><td><code><pre>                NewEntry(logger).Error(args...)</pre></code></td></tr><tr><td>144</td><td><code><pre>        }</pre></code></td></tr><tr><td>145</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warn">func Logger.Warn</div><div class="info"><a href="#s_fn_Logger.Warn">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>129</td><td><code><pre>func (logger *Logger) Warn(args ...interface{}) {</pre></code></td></tr><tr><td>130</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr><td>131</td><td><code><pre>                NewEntry(logger).Warn(args...)</pre></code></td></tr><tr><td>132</td><td><code><pre>        }</pre></code></td></tr><tr><td>133</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_levelHooks.Add">func levelHooks.Add</div><div class="info"><a href="#s_fn_levelHooks.Add">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\hooks.go</code>:</p></div><table class="listing">
+<tr><td>18</td><td><code><pre>func (hooks levelHooks) Add(hook Hook) {</pre></code></td></tr><tr><td>19</td><td><code><pre>        for _, level := range hook.Levels() {</pre></code></td></tr><tr><td>20</td><td><code><pre>                hooks[level] = append(hooks[level], hook)</pre></code></td></tr><tr><td>21</td><td><code><pre>        }</pre></code></td></tr><tr><td>22</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Error">func Entry.Error</div><div class="info"><a href="#s_fn_Entry.Error">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>133</td><td><code><pre>func (entry *Entry) Error(args ...interface{}) {</pre></code></td></tr><tr><td>134</td><td><code><pre>        if entry.Logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr><td>135</td><td><code><pre>                entry.log(ErrorLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>136</td><td><code><pre>        }</pre></code></td></tr><tr><td>137</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Reader">func Entry.Reader</div><div class="info"><a href="#s_fn_Entry.Reader">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>40</td><td><code><pre>func (entry *Entry) Reader() (*bytes.Buffer, error) {</pre></code></td></tr><tr><td>41</td><td><code><pre>        serialized, err := entry.Logger.Formatter.Format(entry)</pre></code></td></tr><tr><td>42</td><td><code><pre>        return bytes.NewBuffer(serialized), err</pre></code></td></tr><tr><td>43</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Panicf">func Entry.Panicf</div><div class="info"><a href="#s_fn_Entry.Panicf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>193</td><td><code><pre>func (entry *Entry) Panicf(format string, args ...interface{}) {</pre></code></td></tr><tr><td>194</td><td><code><pre>        if entry.Logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr><td>195</td><td><code><pre>                entry.Panic(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>196</td><td><code><pre>        }</pre></code></td></tr><tr><td>197</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warn">func Entry.Warn</div><div class="info"><a href="#s_fn_Entry.Warn">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>123</td><td><code><pre>func (entry *Entry) Warn(args ...interface{}) {</pre></code></td></tr><tr><td>124</td><td><code><pre>        if entry.Logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr><td>125</td><td><code><pre>                entry.log(WarnLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>126</td><td><code><pre>        }</pre></code></td></tr><tr><td>127</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Infoln">func Entry.Infoln</div><div class="info"><a href="#s_fn_Entry.Infoln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>207</td><td><code><pre>func (entry *Entry) Infoln(args ...interface{}) {</pre></code></td></tr><tr><td>208</td><td><code><pre>        if entry.Logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr><td>209</td><td><code><pre>                entry.Info(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>210</td><td><code><pre>        }</pre></code></td></tr><tr><td>211</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Info">func Entry.Info</div><div class="info"><a href="#s_fn_Entry.Info">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>117</td><td><code><pre>func (entry *Entry) Info(args ...interface{}) {</pre></code></td></tr><tr><td>118</td><td><code><pre>        if entry.Logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr><td>119</td><td><code><pre>                entry.log(InfoLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>120</td><td><code><pre>        }</pre></code></td></tr><tr><td>121</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Panicln">func Entry.Panicln</div><div class="info"><a href="#s_fn_Entry.Panicln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>239</td><td><code><pre>func (entry *Entry) Panicln(args ...interface{}) {</pre></code></td></tr><tr><td>240</td><td><code><pre>        if entry.Logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr><td>241</td><td><code><pre>                entry.Panic(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>242</td><td><code><pre>        }</pre></code></td></tr><tr><td>243</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.sprintlnn">func Entry.sprintlnn</div><div class="info"><a href="#s_fn_Entry.sprintlnn">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>249</td><td><code><pre>func (entry *Entry) sprintlnn(args ...interface{}) string {</pre></code></td></tr><tr><td>250</td><td><code><pre>        msg := fmt.Sprintln(args...)</pre></code></td></tr><tr><td>251</td><td><code><pre>        return msg[:len(msg)-1]</pre></code></td></tr><tr><td>252</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Info">func Logger.Info</div><div class="info"><a href="#s_fn_Logger.Info">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>119</td><td><code><pre>func (logger *Logger) Info(args ...interface{}) {</pre></code></td></tr><tr><td>120</td><td><code><pre>        if logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr><td>121</td><td><code><pre>                NewEntry(logger).Info(args...)</pre></code></td></tr><tr><td>122</td><td><code><pre>        }</pre></code></td></tr><tr><td>123</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_init">func init</div><div class="info"><a href="#s_fn_init">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>25</td><td><code><pre>func init() {</pre></code></td></tr><tr><td>26</td><td><code><pre>        baseTimestamp = time.Now()</pre></code></td></tr><tr><td>27</td><td><code><pre>        isTerminal = IsTerminal()</pre></code></td></tr><tr><td>28</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_WithField">func WithField</div><div class="info"><a href="#s_fn_WithField">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>56</td><td><code><pre>func WithField(key string, value interface{}) *Entry {</pre></code></td></tr><tr><td>57</td><td><code><pre>        return std.WithField(key, value)</pre></code></td></tr><tr><td>58</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_New">func New</div><div class="info"><a href="#s_fn_New">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>45</td><td><code><pre>func New() *Logger {</pre></code></td></tr><tr><td>46</td><td><code><pre>        return &amp;Logger{</pre></code></td></tr><tr><td>47</td><td><code><pre>                Out:       os.Stdout,</pre></code></td></tr><tr><td>48</td><td><code><pre>                Formatter: new(TextFormatter),</pre></code></td></tr><tr><td>49</td><td><code><pre>                Hooks:     make(levelHooks),</pre></code></td></tr><tr><td>50</td><td><code><pre>                Level:     InfoLevel,</pre></code></td></tr><tr><td>51</td><td><code><pre>        }</pre></code></td></tr><tr><td>52</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.WithField">func Logger.WithField</div><div class="info"><a href="#s_fn_Logger.WithField">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>57</td><td><code><pre>func (logger *Logger) WithField(key string, value interface{}) *Entry {</pre></code></td></tr><tr><td>58</td><td><code><pre>        return NewEntry(logger).WithField(key, value)</pre></code></td></tr><tr><td>59</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Print">func Entry.Print</div><div class="info"><a href="#s_fn_Entry.Print">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>113</td><td><code><pre>func (entry *Entry) Print(args ...interface{}) {</pre></code></td></tr><tr><td>114</td><td><code><pre>        entry.Info(args...)</pre></code></td></tr><tr><td>115</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.WithFields">func Logger.WithFields</div><div class="info"><a href="#s_fn_Logger.WithFields">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>63</td><td><code><pre>func (logger *Logger) WithFields(fields Fields) *Entry {</pre></code></td></tr><tr><td>64</td><td><code><pre>        return NewEntry(logger).WithFields(fields)</pre></code></td></tr><tr><td>65</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Print">func Logger.Print</div><div class="info"><a href="#s_fn_Logger.Print">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>125</td><td><code><pre>func (logger *Logger) Print(args ...interface{}) {</pre></code></td></tr><tr><td>126</td><td><code><pre>        NewEntry(logger).Info(args...)</pre></code></td></tr><tr><td>127</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_miniTS">func miniTS</div><div class="info"><a href="#s_fn_miniTS">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>30</td><td><code><pre>func miniTS() int {</pre></code></td></tr><tr><td>31</td><td><code><pre>        return int(time.Since(baseTimestamp) / time.Second)</pre></code></td></tr><tr><td>32</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_NewEntry">func NewEntry</div><div class="info"><a href="#s_fn_NewEntry">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>31</td><td><code><pre>func NewEntry(logger *Logger) *Entry {</pre></code></td></tr><tr><td>32</td><td><code><pre>        return &amp;Entry{</pre></code></td></tr><tr><td>33</td><td><code><pre>                Logger: logger,</pre></code></td></tr><tr><td>34</td><td><code><pre>                // Default is three fields, give a little extra room</pre></code></td></tr><tr><td>35</td><td><code><pre>                Data: make(Fields, 5),</pre></code></td></tr><tr><td>36</td><td><code><pre>        }</pre></code></td></tr><tr><td>37</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.WithField">func Entry.WithField</div><div class="info"><a href="#s_fn_Entry.WithField">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>57</td><td><code><pre>func (entry *Entry) WithField(key string, value interface{}) *Entry {</pre></code></td></tr><tr><td>58</td><td><code><pre>        return entry.WithFields(Fields{key: value})</pre></code></td></tr><tr><td>59</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_JSONFormatter.Format">func JSONFormatter.Format</div><div class="info"><a href="#s_fn_JSONFormatter.Format">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\json_formatter.go</code>:</p></div><table class="listing">
+<tr><td>13</td><td><code><pre>func (f *JSONFormatter) Format(entry *Entry) ([]byte, error) {</pre></code></td></tr><tr><td>14</td><td><code><pre>        data := make(Fields, len(entry.Data)+3)</pre></code></td></tr><tr><td>15</td><td><code><pre>        for k, v := range entry.Data {</pre></code></td></tr><tr><td>16</td><td><code><pre>                switch v := v.(type) {</pre></code></td></tr><tr><td>17</td><td><code><pre>                case error:</pre></code></td></tr><tr><td>18</td><td><code><pre>                        // Otherwise errors are ignored by `encoding/json`</pre></code></td></tr><tr><td>19</td><td><code><pre>                        // https://github.com/Sirupsen/logrus/issues/137</pre></code></td></tr><tr><td>20</td><td><code><pre>                        data[k] = v.Error()</pre></code></td></tr><tr><td>21</td><td><code><pre>                default:</pre></code></td></tr><tr><td>22</td><td><code><pre>                        data[k] = v</pre></code></td></tr><tr><td>23</td><td><code><pre>                }</pre></code></td></tr><tr><td>24</td><td><code><pre>        }</pre></code></td></tr><tr><td>25</td><td><code><pre>        prefixFieldClashes(data)</pre></code></td></tr><tr><td>26</td><td><code><pre></pre></code></td></tr><tr><td>27</td><td><code><pre>        if f.TimestampFormat == &#34;&#34; {</pre></code></td></tr><tr><td>28</td><td><code><pre>                f.TimestampFormat = DefaultTimestampFormat</pre></code></td></tr><tr><td>29</td><td><code><pre>        }</pre></code></td></tr><tr><td>30</td><td><code><pre></pre></code></td></tr><tr><td>31</td><td><code><pre>        data[&#34;time&#34;] = entry.Time.Format(f.TimestampFormat)</pre></code></td></tr><tr><td>32</td><td><code><pre>        data[&#34;msg&#34;] = entry.Message</pre></code></td></tr><tr><td>33</td><td><code><pre>        data[&#34;level&#34;] = entry.Level.String()</pre></code></td></tr><tr><td>34</td><td><code><pre></pre></code></td></tr><tr><td>35</td><td><code><pre>        serialized, err := json.Marshal(data)</pre></code></td></tr><tr><td>36</td><td><code><pre>        if err != nil {</pre></code></td></tr><tr class="miss"><td>37</td><td><code><pre>                return nil, fmt.Errorf(&#34;Failed to marshal fields to JSON, %v&#34;, err)</pre></code></td></tr><tr><td>38</td><td><code><pre>        }</pre></code></td></tr><tr><td>39</td><td><code><pre>        return append(serialized, &#39;\n&#39;), nil</pre></code></td></tr><tr><td>40</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_TextFormatter.appendKeyValue">func TextFormatter.appendKeyValue</div><div class="info"><a href="#s_fn_TextFormatter.appendKeyValue">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>132</td><td><code><pre>func (f *TextFormatter) appendKeyValue(b *bytes.Buffer, key, value interface{}) {</pre></code></td></tr><tr><td>133</td><td><code><pre>        switch value.(type) {</pre></code></td></tr><tr><td>134</td><td><code><pre>        case string:</pre></code></td></tr><tr><td>135</td><td><code><pre>                if needsQuoting(value.(string)) {</pre></code></td></tr><tr><td>136</td><td><code><pre>                        fmt.Fprintf(b, &#34;%v=%s &#34;, key, value)</pre></code></td></tr><tr><td>137</td><td><code><pre>                } else {</pre></code></td></tr><tr><td>138</td><td><code><pre>                        fmt.Fprintf(b, &#34;%v=%q &#34;, key, value)</pre></code></td></tr><tr><td>139</td><td><code><pre>                }</pre></code></td></tr><tr><td>140</td><td><code><pre>        case error:</pre></code></td></tr><tr><td>141</td><td><code><pre>                if needsQuoting(value.(error).Error()) {</pre></code></td></tr><tr><td>142</td><td><code><pre>                        fmt.Fprintf(b, &#34;%v=%s &#34;, key, value)</pre></code></td></tr><tr><td>143</td><td><code><pre>                } else {</pre></code></td></tr><tr><td>144</td><td><code><pre>                        fmt.Fprintf(b, &#34;%v=%q &#34;, key, value)</pre></code></td></tr><tr><td>145</td><td><code><pre>                }</pre></code></td></tr><tr><td>146</td><td><code><pre>        default:</pre></code></td></tr><tr class="miss"><td>147</td><td><code><pre>                fmt.Fprintf(b, &#34;%v=%v &#34;, key, value)</pre></code></td></tr><tr><td>148</td><td><code><pre>        }</pre></code></td></tr><tr><td>149</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Level.String">func Level.String</div><div class="info"><a href="#s_fn_Level.String">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logrus.go</code>:</p></div><table class="listing">
+<tr><td>15</td><td><code><pre>func (level Level) String() string {</pre></code></td></tr><tr><td>16</td><td><code><pre>        switch level {</pre></code></td></tr><tr><td>17</td><td><code><pre>        case DebugLevel:</pre></code></td></tr><tr><td>18</td><td><code><pre>                return &#34;debug&#34;</pre></code></td></tr><tr><td>19</td><td><code><pre>        case InfoLevel:</pre></code></td></tr><tr><td>20</td><td><code><pre>                return &#34;info&#34;</pre></code></td></tr><tr><td>21</td><td><code><pre>        case WarnLevel:</pre></code></td></tr><tr><td>22</td><td><code><pre>                return &#34;warning&#34;</pre></code></td></tr><tr><td>23</td><td><code><pre>        case ErrorLevel:</pre></code></td></tr><tr><td>24</td><td><code><pre>                return &#34;error&#34;</pre></code></td></tr><tr><td>25</td><td><code><pre>        case FatalLevel:</pre></code></td></tr><tr><td>26</td><td><code><pre>                return &#34;fatal&#34;</pre></code></td></tr><tr><td>27</td><td><code><pre>        case PanicLevel:</pre></code></td></tr><tr><td>28</td><td><code><pre>                return &#34;panic&#34;</pre></code></td></tr><tr><td>29</td><td><code><pre>        }</pre></code></td></tr><tr><td>30</td><td><code><pre></pre></code></td></tr><tr class="miss"><td>31</td><td><code><pre>        return &#34;unknown&#34;</pre></code></td></tr><tr><td>32</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_levelHooks.Fire">func levelHooks.Fire</div><div class="info"><a href="#s_fn_levelHooks.Fire">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\hooks.go</code>:</p></div><table class="listing">
+<tr><td>26</td><td><code><pre>func (hooks levelHooks) Fire(level Level, entry *Entry) error {</pre></code></td></tr><tr><td>27</td><td><code><pre>        for _, hook := range hooks[level] {</pre></code></td></tr><tr><td>28</td><td><code><pre>                if err := hook.Fire(entry); err != nil {</pre></code></td></tr><tr class="miss"><td>29</td><td><code><pre>                        return err</pre></code></td></tr><tr><td>30</td><td><code><pre>                }</pre></code></td></tr><tr><td>31</td><td><code><pre>        }</pre></code></td></tr><tr><td>32</td><td><code><pre></pre></code></td></tr><tr><td>33</td><td><code><pre>        return nil</pre></code></td></tr><tr><td>34</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_TextFormatter.printColored">func TextFormatter.printColored</div><div class="info"><a href="#s_fn_TextFormatter.printColored">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\text_formatter.go</code>:</p></div><table class="listing">
+<tr><td>94</td><td><code><pre>func (f *TextFormatter) printColored(b *bytes.Buffer, entry *Entry, keys []string) {</pre></code></td></tr><tr><td>95</td><td><code><pre>        var levelColor int</pre></code></td></tr><tr><td>96</td><td><code><pre>        switch entry.Level {</pre></code></td></tr><tr><td>97</td><td><code><pre>        case DebugLevel:</pre></code></td></tr><tr class="miss"><td>98</td><td><code><pre>                levelColor = gray</pre></code></td></tr><tr><td>99</td><td><code><pre>        case WarnLevel:</pre></code></td></tr><tr class="miss"><td>100</td><td><code><pre>                levelColor = yellow</pre></code></td></tr><tr><td>101</td><td><code><pre>        case ErrorLevel, FatalLevel, PanicLevel:</pre></code></td></tr><tr><td>102</td><td><code><pre>                levelColor = red</pre></code></td></tr><tr><td>103</td><td><code><pre>        default:</pre></code></td></tr><tr class="miss"><td>104</td><td><code><pre>                levelColor = blue</pre></code></td></tr><tr><td>105</td><td><code><pre>        }</pre></code></td></tr><tr><td>106</td><td><code><pre></pre></code></td></tr><tr><td>107</td><td><code><pre>        levelText := strings.ToUpper(entry.Level.String())[0:4]</pre></code></td></tr><tr><td>108</td><td><code><pre></pre></code></td></tr><tr><td>109</td><td><code><pre>        if !f.FullTimestamp {</pre></code></td></tr><tr><td>110</td><td><code><pre>                fmt.Fprintf(b, &#34;\x1b[%dm%s\x1b[0m[%04d] %-44s &#34;, levelColor, levelText, miniTS(), entry.Message)</pre></code></td></tr><tr><td>111</td><td><code><pre>        } else {</pre></code></td></tr><tr class="miss"><td>112</td><td><code><pre>                fmt.Fprintf(b, &#34;\x1b[%dm%s\x1b[0m[%s] %-44s &#34;, levelColor, levelText, entry.Time.Format(f.TimestampFormat), entry.Message)</pre></code></td></tr><tr><td>113</td><td><code><pre>        }</pre></code></td></tr><tr><td>114</td><td><code><pre>        for _, k := range keys {</pre></code></td></tr><tr><td>115</td><td><code><pre>                v := entry.Data[k]</pre></code></td></tr><tr><td>116</td><td><code><pre>                fmt.Fprintf(b, &#34; \x1b[%dm%s\x1b[0m=%v&#34;, levelColor, k, v)</pre></code></td></tr><tr><td>117</td><td><code><pre>        }</pre></code></td></tr><tr><td>118</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Panic">func Entry.Panic</div><div class="info"><a href="#s_fn_Entry.Panic">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>146</td><td><code><pre>func (entry *Entry) Panic(args ...interface{}) {</pre></code></td></tr><tr><td>147</td><td><code><pre>        if entry.Logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr><td>148</td><td><code><pre>                entry.log(PanicLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>149</td><td><code><pre>        }</pre></code></td></tr><tr class="miss"><td>150</td><td><code><pre>        panic(fmt.Sprint(args...))</pre></code></td></tr><tr><td>151</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.log">func Entry.log</div><div class="info"><a href="#s_fn_Entry.log">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>73</td><td><code><pre>func (entry *Entry) log(level Level, msg string) {</pre></code></td></tr><tr><td>74</td><td><code><pre>        entry.Time = time.Now()</pre></code></td></tr><tr><td>75</td><td><code><pre>        entry.Level = level</pre></code></td></tr><tr><td>76</td><td><code><pre>        entry.Message = msg</pre></code></td></tr><tr><td>77</td><td><code><pre></pre></code></td></tr><tr><td>78</td><td><code><pre>        if err := entry.Logger.Hooks.Fire(level, entry); err != nil {</pre></code></td></tr><tr class="miss"><td>79</td><td><code><pre>                entry.Logger.mu.Lock()</pre></code></td></tr><tr class="miss"><td>80</td><td><code><pre>                fmt.Fprintf(os.Stderr, &#34;Failed to fire hook: %v\n&#34;, err)</pre></code></td></tr><tr class="miss"><td>81</td><td><code><pre>                entry.Logger.mu.Unlock()</pre></code></td></tr><tr><td>82</td><td><code><pre>        }</pre></code></td></tr><tr><td>83</td><td><code><pre></pre></code></td></tr><tr><td>84</td><td><code><pre>        reader, err := entry.Reader()</pre></code></td></tr><tr><td>85</td><td><code><pre>        if err != nil {</pre></code></td></tr><tr class="miss"><td>86</td><td><code><pre>                entry.Logger.mu.Lock()</pre></code></td></tr><tr class="miss"><td>87</td><td><code><pre>                fmt.Fprintf(os.Stderr, &#34;Failed to obtain reader, %v\n&#34;, err)</pre></code></td></tr><tr class="miss"><td>88</td><td><code><pre>                entry.Logger.mu.Unlock()</pre></code></td></tr><tr><td>89</td><td><code><pre>        }</pre></code></td></tr><tr><td>90</td><td><code><pre></pre></code></td></tr><tr><td>91</td><td><code><pre>        entry.Logger.mu.Lock()</pre></code></td></tr><tr><td>92</td><td><code><pre>        defer entry.Logger.mu.Unlock()</pre></code></td></tr><tr><td>93</td><td><code><pre></pre></code></td></tr><tr><td>94</td><td><code><pre>        _, err = io.Copy(entry.Logger.Out, reader)</pre></code></td></tr><tr><td>95</td><td><code><pre>        if err != nil {</pre></code></td></tr><tr class="miss"><td>96</td><td><code><pre>                fmt.Fprintf(os.Stderr, &#34;Failed to write to log, %v\n&#34;, err)</pre></code></td></tr><tr><td>97</td><td><code><pre>        }</pre></code></td></tr><tr><td>98</td><td><code><pre></pre></code></td></tr><tr><td>99</td><td><code><pre>        // To avoid Entry#log() returning a value that only would make sense for</pre></code></td></tr><tr><td>100</td><td><code><pre>        // panic() to use in Entry#Panic(), we avoid the allocation by checking</pre></code></td></tr><tr><td>101</td><td><code><pre>        // directly here.</pre></code></td></tr><tr><td>102</td><td><code><pre>        if level &lt;= PanicLevel {</pre></code></td></tr><tr><td>103</td><td><code><pre>                panic(entry)</pre></code></td></tr><tr><td>104</td><td><code><pre>        }</pre></code></td></tr><tr><td>105</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.writerScanner">func Logger.writerScanner</div><div class="info"><a href="#s_fn_Logger.writerScanner">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\writer.go</code>:</p></div><table class="listing">
+<tr><td>18</td><td><code><pre>func (logger *Logger) writerScanner(reader *io.PipeReader) {</pre></code></td></tr><tr class="miss"><td>19</td><td><code><pre>        scanner := bufio.NewScanner(reader)</pre></code></td></tr><tr class="miss"><td>20</td><td><code><pre>        for scanner.Scan() {</pre></code></td></tr><tr class="miss"><td>21</td><td><code><pre>                logger.Print(scanner.Text())</pre></code></td></tr><tr><td>22</td><td><code><pre>        }</pre></code></td></tr><tr class="miss"><td>23</td><td><code><pre>        if err := scanner.Err(); err != nil {</pre></code></td></tr><tr class="miss"><td>24</td><td><code><pre>                logger.Errorf(&#34;Error while reading from Writer: %s&#34;, err)</pre></code></td></tr><tr><td>25</td><td><code><pre>        }</pre></code></td></tr><tr class="miss"><td>26</td><td><code><pre>        reader.Close()</pre></code></td></tr><tr><td>27</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.String">func Entry.String</div><div class="info"><a href="#s_fn_Entry.String">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>47</td><td><code><pre>func (entry *Entry) String() (string, error) {</pre></code></td></tr><tr class="miss"><td>48</td><td><code><pre>        reader, err := entry.Reader()</pre></code></td></tr><tr class="miss"><td>49</td><td><code><pre>        if err != nil {</pre></code></td></tr><tr class="miss"><td>50</td><td><code><pre>                return &#34;&#34;, err</pre></code></td></tr><tr><td>51</td><td><code><pre>        }</pre></code></td></tr><tr><td>52</td><td><code><pre></pre></code></td></tr><tr class="miss"><td>53</td><td><code><pre>        return reader.String(), err</pre></code></td></tr><tr><td>54</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Writer">func Logger.Writer</div><div class="info"><a href="#s_fn_Logger.Writer">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\writer.go</code>:</p></div><table class="listing">
+<tr><td>9</td><td><code><pre>func (logger *Logger) Writer() *io.PipeWriter {</pre></code></td></tr><tr class="miss"><td>10</td><td><code><pre>        reader, writer := io.Pipe()</pre></code></td></tr><tr><td>11</td><td><code><pre></pre></code></td></tr><tr class="miss"><td>12</td><td><code><pre>        go logger.writerScanner(reader)</pre></code></td></tr><tr class="miss"><td>13</td><td><code><pre>        runtime.SetFinalizer(writer, writerFinalizer)</pre></code></td></tr><tr><td>14</td><td><code><pre></pre></code></td></tr><tr class="miss"><td>15</td><td><code><pre>        return writer</pre></code></td></tr><tr><td>16</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_SetFormatter">func SetFormatter</div><div class="info"><a href="#s_fn_SetFormatter">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>24</td><td><code><pre>func SetFormatter(formatter Formatter) {</pre></code></td></tr><tr class="miss"><td>25</td><td><code><pre>        std.mu.Lock()</pre></code></td></tr><tr class="miss"><td>26</td><td><code><pre>        defer std.mu.Unlock()</pre></code></td></tr><tr class="miss"><td>27</td><td><code><pre>        std.Formatter = formatter</pre></code></td></tr><tr><td>28</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_AddHook">func AddHook</div><div class="info"><a href="#s_fn_AddHook">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>45</td><td><code><pre>func AddHook(hook Hook) {</pre></code></td></tr><tr class="miss"><td>46</td><td><code><pre>        std.mu.Lock()</pre></code></td></tr><tr class="miss"><td>47</td><td><code><pre>        defer std.mu.Unlock()</pre></code></td></tr><tr class="miss"><td>48</td><td><code><pre>        std.Hooks.Add(hook)</pre></code></td></tr><tr><td>49</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Fatal">func Entry.Fatal</div><div class="info"><a href="#s_fn_Entry.Fatal">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>139</td><td><code><pre>func (entry *Entry) Fatal(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>140</td><td><code><pre>        if entry.Logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>141</td><td><code><pre>                entry.log(FatalLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>142</td><td><code><pre>        }</pre></code></td></tr><tr class="miss"><td>143</td><td><code><pre>        os.Exit(1)</pre></code></td></tr><tr><td>144</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_SetOutput">func SetOutput</div><div class="info"><a href="#s_fn_SetOutput">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>17</td><td><code><pre>func SetOutput(out io.Writer) {</pre></code></td></tr><tr class="miss"><td>18</td><td><code><pre>        std.mu.Lock()</pre></code></td></tr><tr class="miss"><td>19</td><td><code><pre>        defer std.mu.Unlock()</pre></code></td></tr><tr class="miss"><td>20</td><td><code><pre>        std.Out = out</pre></code></td></tr><tr><td>21</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Fatalln">func Logger.Fatalln</div><div class="info"><a href="#s_fn_Logger.Fatalln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>193</td><td><code><pre>func (logger *Logger) Fatalln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>194</td><td><code><pre>        if logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>195</td><td><code><pre>                NewEntry(logger).Fatalln(args...)</pre></code></td></tr><tr><td>196</td><td><code><pre>        }</pre></code></td></tr><tr><td>197</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Debug">func Entry.Debug</div><div class="info"><a href="#s_fn_Entry.Debug">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>107</td><td><code><pre>func (entry *Entry) Debug(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>108</td><td><code><pre>        if entry.Logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>109</td><td><code><pre>                entry.log(DebugLevel, fmt.Sprint(args...))</pre></code></td></tr><tr><td>110</td><td><code><pre>        }</pre></code></td></tr><tr><td>111</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Debugf">func Entry.Debugf</div><div class="info"><a href="#s_fn_Entry.Debugf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>155</td><td><code><pre>func (entry *Entry) Debugf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>156</td><td><code><pre>        if entry.Logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>157</td><td><code><pre>                entry.Debug(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>158</td><td><code><pre>        }</pre></code></td></tr><tr><td>159</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Infof">func Entry.Infof</div><div class="info"><a href="#s_fn_Entry.Infof">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>161</td><td><code><pre>func (entry *Entry) Infof(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>162</td><td><code><pre>        if entry.Logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr class="miss"><td>163</td><td><code><pre>                entry.Info(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>164</td><td><code><pre>        }</pre></code></td></tr><tr><td>165</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warnf">func Entry.Warnf</div><div class="info"><a href="#s_fn_Entry.Warnf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>171</td><td><code><pre>func (entry *Entry) Warnf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>172</td><td><code><pre>        if entry.Logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>173</td><td><code><pre>                entry.Warn(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>174</td><td><code><pre>        }</pre></code></td></tr><tr><td>175</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Errorf">func Entry.Errorf</div><div class="info"><a href="#s_fn_Entry.Errorf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>181</td><td><code><pre>func (entry *Entry) Errorf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>182</td><td><code><pre>        if entry.Logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr class="miss"><td>183</td><td><code><pre>                entry.Error(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>184</td><td><code><pre>        }</pre></code></td></tr><tr><td>185</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Fatalf">func Entry.Fatalf</div><div class="info"><a href="#s_fn_Entry.Fatalf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>187</td><td><code><pre>func (entry *Entry) Fatalf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>188</td><td><code><pre>        if entry.Logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>189</td><td><code><pre>                entry.Fatal(fmt.Sprintf(format, args...))</pre></code></td></tr><tr><td>190</td><td><code><pre>        }</pre></code></td></tr><tr><td>191</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Debugln">func Entry.Debugln</div><div class="info"><a href="#s_fn_Entry.Debugln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>201</td><td><code><pre>func (entry *Entry) Debugln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>202</td><td><code><pre>        if entry.Logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>203</td><td><code><pre>                entry.Debug(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>204</td><td><code><pre>        }</pre></code></td></tr><tr><td>205</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warnln">func Entry.Warnln</div><div class="info"><a href="#s_fn_Entry.Warnln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>217</td><td><code><pre>func (entry *Entry) Warnln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>218</td><td><code><pre>        if entry.Logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>219</td><td><code><pre>                entry.Warn(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>220</td><td><code><pre>        }</pre></code></td></tr><tr><td>221</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Errorln">func Entry.Errorln</div><div class="info"><a href="#s_fn_Entry.Errorln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>227</td><td><code><pre>func (entry *Entry) Errorln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>228</td><td><code><pre>        if entry.Logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr class="miss"><td>229</td><td><code><pre>                entry.Error(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>230</td><td><code><pre>        }</pre></code></td></tr><tr><td>231</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Fatalln">func Entry.Fatalln</div><div class="info"><a href="#s_fn_Entry.Fatalln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>233</td><td><code><pre>func (entry *Entry) Fatalln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>234</td><td><code><pre>        if entry.Logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>235</td><td><code><pre>                entry.Fatal(entry.sprintlnn(args...))</pre></code></td></tr><tr><td>236</td><td><code><pre>        }</pre></code></td></tr><tr><td>237</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Debugf">func Logger.Debugf</div><div class="info"><a href="#s_fn_Logger.Debugf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>67</td><td><code><pre>func (logger *Logger) Debugf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>68</td><td><code><pre>        if logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>69</td><td><code><pre>                NewEntry(logger).Debugf(format, args...)</pre></code></td></tr><tr><td>70</td><td><code><pre>        }</pre></code></td></tr><tr><td>71</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Infof">func Logger.Infof</div><div class="info"><a href="#s_fn_Logger.Infof">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>73</td><td><code><pre>func (logger *Logger) Infof(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>74</td><td><code><pre>        if logger.Level &gt;= InfoLevel {</pre></code></td></tr><tr class="miss"><td>75</td><td><code><pre>                NewEntry(logger).Infof(format, args...)</pre></code></td></tr><tr><td>76</td><td><code><pre>        }</pre></code></td></tr><tr><td>77</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warnf">func Logger.Warnf</div><div class="info"><a href="#s_fn_Logger.Warnf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>83</td><td><code><pre>func (logger *Logger) Warnf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>84</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>85</td><td><code><pre>                NewEntry(logger).Warnf(format, args...)</pre></code></td></tr><tr><td>86</td><td><code><pre>        }</pre></code></td></tr><tr><td>87</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warningf">func Logger.Warningf</div><div class="info"><a href="#s_fn_Logger.Warningf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>89</td><td><code><pre>func (logger *Logger) Warningf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>90</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>91</td><td><code><pre>                NewEntry(logger).Warnf(format, args...)</pre></code></td></tr><tr><td>92</td><td><code><pre>        }</pre></code></td></tr><tr><td>93</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Errorf">func Logger.Errorf</div><div class="info"><a href="#s_fn_Logger.Errorf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>95</td><td><code><pre>func (logger *Logger) Errorf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>96</td><td><code><pre>        if logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr class="miss"><td>97</td><td><code><pre>                NewEntry(logger).Errorf(format, args...)</pre></code></td></tr><tr><td>98</td><td><code><pre>        }</pre></code></td></tr><tr><td>99</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Fatalf">func Logger.Fatalf</div><div class="info"><a href="#s_fn_Logger.Fatalf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>101</td><td><code><pre>func (logger *Logger) Fatalf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>102</td><td><code><pre>        if logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>103</td><td><code><pre>                NewEntry(logger).Fatalf(format, args...)</pre></code></td></tr><tr><td>104</td><td><code><pre>        }</pre></code></td></tr><tr><td>105</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Panicf">func Logger.Panicf</div><div class="info"><a href="#s_fn_Logger.Panicf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>107</td><td><code><pre>func (logger *Logger) Panicf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>108</td><td><code><pre>        if logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr class="miss"><td>109</td><td><code><pre>                NewEntry(logger).Panicf(format, args...)</pre></code></td></tr><tr><td>110</td><td><code><pre>        }</pre></code></td></tr><tr><td>111</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Debug">func Logger.Debug</div><div class="info"><a href="#s_fn_Logger.Debug">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>113</td><td><code><pre>func (logger *Logger) Debug(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>114</td><td><code><pre>        if logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>115</td><td><code><pre>                NewEntry(logger).Debug(args...)</pre></code></td></tr><tr><td>116</td><td><code><pre>        }</pre></code></td></tr><tr><td>117</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warning">func Logger.Warning</div><div class="info"><a href="#s_fn_Logger.Warning">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>135</td><td><code><pre>func (logger *Logger) Warning(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>136</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>137</td><td><code><pre>                NewEntry(logger).Warn(args...)</pre></code></td></tr><tr><td>138</td><td><code><pre>        }</pre></code></td></tr><tr><td>139</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Fatal">func Logger.Fatal</div><div class="info"><a href="#s_fn_Logger.Fatal">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>147</td><td><code><pre>func (logger *Logger) Fatal(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>148</td><td><code><pre>        if logger.Level &gt;= FatalLevel {</pre></code></td></tr><tr class="miss"><td>149</td><td><code><pre>                NewEntry(logger).Fatal(args...)</pre></code></td></tr><tr><td>150</td><td><code><pre>        }</pre></code></td></tr><tr><td>151</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Panic">func Logger.Panic</div><div class="info"><a href="#s_fn_Logger.Panic">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>153</td><td><code><pre>func (logger *Logger) Panic(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>154</td><td><code><pre>        if logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr class="miss"><td>155</td><td><code><pre>                NewEntry(logger).Panic(args...)</pre></code></td></tr><tr><td>156</td><td><code><pre>        }</pre></code></td></tr><tr><td>157</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Debugln">func Logger.Debugln</div><div class="info"><a href="#s_fn_Logger.Debugln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>159</td><td><code><pre>func (logger *Logger) Debugln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>160</td><td><code><pre>        if logger.Level &gt;= DebugLevel {</pre></code></td></tr><tr class="miss"><td>161</td><td><code><pre>                NewEntry(logger).Debugln(args...)</pre></code></td></tr><tr><td>162</td><td><code><pre>        }</pre></code></td></tr><tr><td>163</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warnln">func Logger.Warnln</div><div class="info"><a href="#s_fn_Logger.Warnln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>175</td><td><code><pre>func (logger *Logger) Warnln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>176</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>177</td><td><code><pre>                NewEntry(logger).Warnln(args...)</pre></code></td></tr><tr><td>178</td><td><code><pre>        }</pre></code></td></tr><tr><td>179</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Warningln">func Logger.Warningln</div><div class="info"><a href="#s_fn_Logger.Warningln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>181</td><td><code><pre>func (logger *Logger) Warningln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>182</td><td><code><pre>        if logger.Level &gt;= WarnLevel {</pre></code></td></tr><tr class="miss"><td>183</td><td><code><pre>                NewEntry(logger).Warnln(args...)</pre></code></td></tr><tr><td>184</td><td><code><pre>        }</pre></code></td></tr><tr><td>185</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Errorln">func Logger.Errorln</div><div class="info"><a href="#s_fn_Logger.Errorln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>187</td><td><code><pre>func (logger *Logger) Errorln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>188</td><td><code><pre>        if logger.Level &gt;= ErrorLevel {</pre></code></td></tr><tr class="miss"><td>189</td><td><code><pre>                NewEntry(logger).Errorln(args...)</pre></code></td></tr><tr><td>190</td><td><code><pre>        }</pre></code></td></tr><tr><td>191</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Panicln">func Logger.Panicln</div><div class="info"><a href="#s_fn_Logger.Panicln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>199</td><td><code><pre>func (logger *Logger) Panicln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>200</td><td><code><pre>        if logger.Level &gt;= PanicLevel {</pre></code></td></tr><tr class="miss"><td>201</td><td><code><pre>                NewEntry(logger).Panicln(args...)</pre></code></td></tr><tr><td>202</td><td><code><pre>        }</pre></code></td></tr><tr><td>203</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Printf">func Logger.Printf</div><div class="info"><a href="#s_fn_Logger.Printf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>79</td><td><code><pre>func (logger *Logger) Printf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>80</td><td><code><pre>        NewEntry(logger).Printf(format, args...)</pre></code></td></tr><tr><td>81</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Error">func Error</div><div class="info"><a href="#s_fn_Error">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>96</td><td><code><pre>func Error(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>97</td><td><code><pre>        std.Error(args...)</pre></code></td></tr><tr><td>98</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Print">func Print</div><div class="info"><a href="#s_fn_Print">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>76</td><td><code><pre>func Print(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>77</td><td><code><pre>        std.Print(args...)</pre></code></td></tr><tr><td>78</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warning">func Warning</div><div class="info"><a href="#s_fn_Warning">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>91</td><td><code><pre>func Warning(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>92</td><td><code><pre>        std.Warning(args...)</pre></code></td></tr><tr><td>93</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warn">func Warn</div><div class="info"><a href="#s_fn_Warn">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>86</td><td><code><pre>func Warn(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>87</td><td><code><pre>        std.Warn(args...)</pre></code></td></tr><tr><td>88</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Info">func Info</div><div class="info"><a href="#s_fn_Info">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>81</td><td><code><pre>func Info(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>82</td><td><code><pre>        std.Info(args...)</pre></code></td></tr><tr><td>83</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Debug">func Debug</div><div class="info"><a href="#s_fn_Debug">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>71</td><td><code><pre>func Debug(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>72</td><td><code><pre>        std.Debug(args...)</pre></code></td></tr><tr><td>73</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_writerFinalizer">func writerFinalizer</div><div class="info"><a href="#s_fn_writerFinalizer">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\writer.go</code>:</p></div><table class="listing">
+<tr><td>29</td><td><code><pre>func writerFinalizer(writer *io.PipeWriter) {</pre></code></td></tr><tr class="miss"><td>30</td><td><code><pre>        writer.Close()</pre></code></td></tr><tr><td>31</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Printf">func Printf</div><div class="info"><a href="#s_fn_Printf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>116</td><td><code><pre>func Printf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>117</td><td><code><pre>        std.Printf(format, args...)</pre></code></td></tr><tr><td>118</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Debugf">func Debugf</div><div class="info"><a href="#s_fn_Debugf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>111</td><td><code><pre>func Debugf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>112</td><td><code><pre>        std.Debugf(format, args...)</pre></code></td></tr><tr><td>113</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_WithFields">func WithFields</div><div class="info"><a href="#s_fn_WithFields">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>66</td><td><code><pre>func WithFields(fields Fields) *Entry {</pre></code></td></tr><tr class="miss"><td>67</td><td><code><pre>        return std.WithFields(fields)</pre></code></td></tr><tr><td>68</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Fatal">func Fatal</div><div class="info"><a href="#s_fn_Fatal">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>106</td><td><code><pre>func Fatal(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>107</td><td><code><pre>        std.Fatal(args...)</pre></code></td></tr><tr><td>108</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_StandardLogger">func StandardLogger</div><div class="info"><a href="#s_fn_StandardLogger">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>12</td><td><code><pre>func StandardLogger() *Logger {</pre></code></td></tr><tr class="miss"><td>13</td><td><code><pre>        return std</pre></code></td></tr><tr><td>14</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warningln">func Entry.Warningln</div><div class="info"><a href="#s_fn_Entry.Warningln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>223</td><td><code><pre>func (entry *Entry) Warningln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>224</td><td><code><pre>        entry.Warnln(args...)</pre></code></td></tr><tr><td>225</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Println">func Entry.Println</div><div class="info"><a href="#s_fn_Entry.Println">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>213</td><td><code><pre>func (entry *Entry) Println(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>214</td><td><code><pre>        entry.Infoln(args...)</pre></code></td></tr><tr><td>215</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Panic">func Panic</div><div class="info"><a href="#s_fn_Panic">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>101</td><td><code><pre>func Panic(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>102</td><td><code><pre>        std.Panic(args...)</pre></code></td></tr><tr><td>103</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Logger.Println">func Logger.Println</div><div class="info"><a href="#s_fn_Logger.Println">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\logger.go</code>:</p></div><table class="listing">
+<tr><td>171</td><td><code><pre>func (logger *Logger) Println(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>172</td><td><code><pre>        NewEntry(logger).Println(args...)</pre></code></td></tr><tr><td>173</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warningf">func Entry.Warningf</div><div class="info"><a href="#s_fn_Entry.Warningf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>177</td><td><code><pre>func (entry *Entry) Warningf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>178</td><td><code><pre>        entry.Warnf(format, args...)</pre></code></td></tr><tr><td>179</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Println">func Println</div><div class="info"><a href="#s_fn_Println">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>156</td><td><code><pre>func Println(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>157</td><td><code><pre>        std.Println(args...)</pre></code></td></tr><tr><td>158</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Infoln">func Infoln</div><div class="info"><a href="#s_fn_Infoln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>161</td><td><code><pre>func Infoln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>162</td><td><code><pre>        std.Infoln(args...)</pre></code></td></tr><tr><td>163</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warnln">func Warnln</div><div class="info"><a href="#s_fn_Warnln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>166</td><td><code><pre>func Warnln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>167</td><td><code><pre>        std.Warnln(args...)</pre></code></td></tr><tr><td>168</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warningln">func Warningln</div><div class="info"><a href="#s_fn_Warningln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>171</td><td><code><pre>func Warningln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>172</td><td><code><pre>        std.Warningln(args...)</pre></code></td></tr><tr><td>173</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Errorln">func Errorln</div><div class="info"><a href="#s_fn_Errorln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>176</td><td><code><pre>func Errorln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>177</td><td><code><pre>        std.Errorln(args...)</pre></code></td></tr><tr><td>178</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Panicln">func Panicln</div><div class="info"><a href="#s_fn_Panicln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>181</td><td><code><pre>func Panicln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>182</td><td><code><pre>        std.Panicln(args...)</pre></code></td></tr><tr><td>183</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Fatalln">func Fatalln</div><div class="info"><a href="#s_fn_Fatalln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>186</td><td><code><pre>func Fatalln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>187</td><td><code><pre>        std.Fatalln(args...)</pre></code></td></tr><tr><td>188</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Debugln">func Debugln</div><div class="info"><a href="#s_fn_Debugln">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>151</td><td><code><pre>func Debugln(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>152</td><td><code><pre>        std.Debugln(args...)</pre></code></td></tr><tr><td>153</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Fatalf">func Fatalf</div><div class="info"><a href="#s_fn_Fatalf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>146</td><td><code><pre>func Fatalf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>147</td><td><code><pre>        std.Fatalf(format, args...)</pre></code></td></tr><tr><td>148</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Errorf">func Errorf</div><div class="info"><a href="#s_fn_Errorf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>136</td><td><code><pre>func Errorf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>137</td><td><code><pre>        std.Errorf(format, args...)</pre></code></td></tr><tr><td>138</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Panicf">func Panicf</div><div class="info"><a href="#s_fn_Panicf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>141</td><td><code><pre>func Panicf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>142</td><td><code><pre>        std.Panicf(format, args...)</pre></code></td></tr><tr><td>143</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warningf">func Warningf</div><div class="info"><a href="#s_fn_Warningf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>131</td><td><code><pre>func Warningf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>132</td><td><code><pre>        std.Warningf(format, args...)</pre></code></td></tr><tr><td>133</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Warnf">func Warnf</div><div class="info"><a href="#s_fn_Warnf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>126</td><td><code><pre>func Warnf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>127</td><td><code><pre>        std.Warnf(format, args...)</pre></code></td></tr><tr><td>128</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Infof">func Infof</div><div class="info"><a href="#s_fn_Infof">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\exported.go</code>:</p></div><table class="listing">
+<tr><td>121</td><td><code><pre>func Infof(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>122</td><td><code><pre>        std.Infof(format, args...)</pre></code></td></tr><tr><td>123</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Printf">func Entry.Printf</div><div class="info"><a href="#s_fn_Entry.Printf">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>167</td><td><code><pre>func (entry *Entry) Printf(format string, args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>168</td><td><code><pre>        entry.Infof(format, args...)</pre></code></td></tr><tr><td>169</td><td><code><pre>}</pre></code></td></tr></table>
+
+<div class="funcname" id="fn_Entry.Warning">func Entry.Warning</div><div class="info"><a href="#s_fn_Entry.Warning">Back</a><p>In <code>E:\Projects\src\github.com\Sirupsen\logrus\entry.go</code>:</p></div><table class="listing">
+<tr><td>129</td><td><code><pre>func (entry *Entry) Warning(args ...interface{}) {</pre></code></td></tr><tr class="miss"><td>130</td><td><code><pre>        entry.Warn(args...)</pre></code></td></tr><tr><td>131</td><td><code><pre>}</pre></code></td></tr></table>
+
+<!-- Can be parsed by external script
+PACKAGE:github.com\Sirupsen\logrus DONE:53.41
+-->
+
+<div id="summaryWrapper"><div class="package">github.com\Sirupsen\logrus</div>
+<div id="totalcov">53.41%</div>
+</div>
+    </body>
