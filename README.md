@@ -74,7 +74,7 @@ Build and run:
 
 ### Docker
 
-Use the automated build at from [Docker Registry](https://registry.hub.docker.com/u/kpashka/linda).
+Use the automated build from [Docker Registry](https://registry.hub.docker.com/u/kpashka/linda).
 
 	$ docker pull kpashka/linda
 	$ docker run -e "LINDA_CONFIG=<url_of_your_configuration_file>" kpashka/linda
