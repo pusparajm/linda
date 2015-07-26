@@ -36,7 +36,7 @@ type Command struct {
 // Bot parameters
 type Params struct {
 	ExecutionMode string `toml:"execution_mode"`
-	HttpPort      int    `toml:"http_port"`
+	HttpPort      string `toml:"http_port"`
 	LogLevel      string `toml:"log_level"`
 	Shy           bool   `toml:"shy_mode"`
 	Tracing       bool   `toml:"trace_errors"`

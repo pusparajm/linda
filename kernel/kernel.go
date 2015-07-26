@@ -6,7 +6,6 @@ import (
 	"os"
 	"os/signal"
 	"regexp"
-	"strconv"
 	"syscall"
 
 	log "github.com/Sirupsen/logrus"
@@ -124,7 +123,7 @@ func (linda *Linda) Start() {
 
 // Init basic web interface
 func (linda *Linda) initWeb() {
-	port := strconv.Itoa(linda.cfg.Params.HttpPort)
+	port := linda.cfg.Params.HttpPort
 
 	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")

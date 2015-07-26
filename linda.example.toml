@@ -80,7 +80,7 @@ channel = "general"
         desc       = "$.weather[0].description+"
 
 [params]
-http_port           = 8080
+http_port           = "8080"
 execution_mode      = "first"
 log_level           = "debug"
 shy_mode            = false
