@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/kpashka/linda.svg)](https://travis-ci.org/kpashka/linda) [![GoDoc](https://godoc.org/github.com/kpashka/linda?status.svg)](https://godoc.org/github.com/kpashka/linda)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/kpashka/linda)
-
 Multi-platform, highly configurable conference bot.
 
 Example usage:
@@ -18,6 +16,9 @@ Navigation:
 1. [Limitations](#limitations)
 1. [Installation](#installation)
 1. [Configuration](#configuration)
+1. [Deployment](#deployment)
+	1. [Docker](#docker)
+	1. [Heroku](#heroku)
 1. [Credits](#credits)
 
 ## Features
@@ -68,6 +69,19 @@ Build and run:
 
 * See [linda.example.toml](linda.example.toml) for configuration example.
 * Detailed explanation for each option available on [wiki](https://github.com/kpashka/linda/wiki/Configuration).
+
+## Deployment
+
+### Docker
+
+Use the automated build at from [Docker Registry](https://registry.hub.docker.com/u/kpashka/linda).
+
+	$ docker pull kpashka/linda
+	$ docker run -e "LINDA_CONFIG=<url_of_your_configuration_file>" kpashka/linda
+
+### Heroku
+
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/kpashka/linda)
 
 ## Credits
 
