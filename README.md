@@ -49,7 +49,7 @@ Because of the fact that different chat services have different protocols and av
 | Feature                               | [Slack](https://api.slack.com/bot-users) | [Telegram](https://core.telegram.org/bots/api) |
 | ------------------------------------- | ---------------------------------------- | ---------------------------------------------- |
 | All types of commands                 | :white_check_mark: Supported             | :white_check_mark: Supported                   |
-| Specific channel to listen            | :white_check_mark: Supported             | :x: (Currently Linda responses to everyone)    |
+| Specific channel to listen            | :white_check_mark: Supported             | :x: (Currently Linda responds to everyone)     |
 | Greetings & farewells                 | :white_check_mark: Supported             | :x: (Possible, but not yet implemented)        |
 | Status change reactions               | :white_check_mark: Supported             | :x: (Possible, but not yet implemented)        |
 
